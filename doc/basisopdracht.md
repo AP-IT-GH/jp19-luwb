@@ -39,7 +39,10 @@ We werken in sprints van 2 weken waarna we telkens een review en retrospective.
 De tools die we hiervoor gebruiken zijn ZenHub en GitHub
 
 Per groep maak je bij de start van de opdracht een verkennende analyse/design
-van het voertuig. Hierin word er verwacht 
+van het voertuig. Hierin word er verwacht dat je een highlevel blok diagramma
+maakt. Van elk blok beschrijf je de functionaliteit die er in huist. Deze kan
+je al gebruiken voor epics te maken voor je backlog, die je daarna indeelt in
+kleinere meetbare deeltjes.
 
 
 
