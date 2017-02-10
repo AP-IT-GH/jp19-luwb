@@ -22,4 +22,4 @@
 * *Code wordt elke dag ingecheckt*
 * *Deliverables indien mogelijk in Markdown*
 * *Deliverables staan in het vet*  
-* *De deadline voor elke week is altijd zondag om 23u59.*
+* *De deadline voor elke week is altijd vrijdag om 23u59.*
