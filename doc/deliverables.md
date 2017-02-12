@@ -21,20 +21,13 @@ Maak in de de opstellingen van de sprint ook duidelijk wie wat gaat doen.
 Tijdens examenweek aan het einde van module3 geef je een presentatie van +/- 15 minuten (demonstratie inbegrepen).
 Hierin stel je de vorderingen van je project voor, als ook de nog uit te voeren stappen. 
 De presentatie moet volgende elementen bevatten:
-
 •	korte samenvatting van de analyse
-
 •	Uitgevoerde elementen van het project
-
 •	verwerking feedback van de vorige sprints
-
 •	toetsing van het tussentijds resultaat aan de analyse
-
 •	De nog uit te voeren delen)
 •	demonstratie
-
 •	Vervolgens hebben de projectbegeleiders 10 minuten tijd voor kritische vragen/bedenkingen. Je dient deze vragen/bedenkingen vervolgens te gebruiken in het verder verloop van het project..
-
 •	Samenvatting van de feedback opstellen
 Een timing zal aan het einde van de module op Blackboard geplaatst worden.
 
@@ -63,7 +56,6 @@ Demonstratie
 •	Het gebruik van vooraf opgenomen demo's is toegestaan
 
 Organisatie
-Principe
 •	de presentatie van het project (inclusief demonstraties en bevraging) duurt 25 tot 30 minuten, 10 minuten vragen/antwoorden inclusief.
 •	Een timing zal aan het einde van de module op Blackboard geplaatst worden.
 
