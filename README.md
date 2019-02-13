@@ -3,8 +3,8 @@
 **Teammembers**
 * Hector Brasfalean
 * Davy Cools
-* Kenneth De Cock
 * Cédric De Rudder
+* Kenneth De Cock
 * Jens Peeters
 
 ## Summary
