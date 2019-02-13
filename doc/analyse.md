@@ -36,7 +36,7 @@ Plaats hier een flow-chart van de software. Hierin moet de werking van de softwa
 
 
 ### Flowchart
-![alt text](https://github.com/AP-Elektronica-ICT/jp19-luwb/doc/img/Software Flowchart.png "Logo Title Text 1")
+![alt text](https://github.com/AP-Elektronica-ICT/jp19-luwb/doc/img/Software-Flowchart.png "Logo Title Text 1")
 
 ### Mockup
 (Indien GUI)
