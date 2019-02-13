@@ -5,9 +5,7 @@
 Het indoor tracken van assets (drones/robots) door middel van een Ultra Wide Band (UWB) systeem dat we van scratch gaan maken.
 
 ## Mindmap
-
-Maak een mindmap met alle functionaliteit die je wilt voorzien in je project.
-Dit zal je startpunt zijn voor een verdere analyse.
+![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Mindmap.PNG "Mindmap")
 
 ## Beschrijving
 
