@@ -1,10 +1,11 @@
-# Smart System - *Groepnaam*
+# Smart System - *Location Ultra Wide Band*
 
 **Teammembers**
-* Persoon 1
-* Persoon 2
-* Persoon 3
-* Persoon 4
+* Hector Brasfalean
+* Davy Cools
+* Kenneth De Cock
+* Cédric De Rudder
+* Jens Peeters
 
 ## Summary
-*Korte beschrijving van het project*
+*Het lokaliseren van een robot/drone (indoor) door middel van Ultra Wide Band technologie. Dit gaan we visueel weergeven. We zullen de robot ook op een autonome manier kunnen verplaatsen.*
