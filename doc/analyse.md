@@ -1,5 +1,9 @@
 # Analyse
 
+## Probleemstelling
+
+Het indoor tracken van assets (drones/robots) door middel van een Ultra Wide Band (UWB) systeem dat we van scratch gaan maken.
+
 ## Mindmap
 
 Maak een mindmap met alle functionaliteit die je wilt voorzien in je project.
