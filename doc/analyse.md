@@ -36,7 +36,7 @@ Plaats hier een flow-chart van de software. Hierin moet de werking van de softwa
 
 
 ### Flowchart
-![Github logo](img/Software%20Flowchart.png "Logo Title Text 1")
+![Github Logo](img/Software%20Flowchart.png "Logo Title Text 1")
 
 ### Mockup
 (Indien GUI)
