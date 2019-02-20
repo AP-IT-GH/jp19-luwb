@@ -37,8 +37,8 @@ Plaats hier een flow-chart van de software. Hierin moet de werking van de softwa
 ![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Software%20Flowchart.PNG "Software Flowchart")
 
 ### Mockup
-![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Mockup_Controls.PNG "Mockup Controls")
-![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Mockup_Map.PNG "Mockup Map")
+![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Mockup_Controls.png "Mockup Controls")
+![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Mockup_Map.png "Mockup Map")
 
 ## User stories en Engineering Tasks
 
