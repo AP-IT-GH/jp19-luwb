@@ -31,7 +31,10 @@ Plaats hier een flow-chart van de software. Hierin moet de werking van de softwa
 
 
 ### State diagram
+#### State diagram mobiele app
 ![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/state_diagram_app.png "State Diagram App")
+#### State diagram drone
+![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/StateDiagramUWB.png "State Diagram App")
 
 ### Flowchart
 ![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Software%20Flowchart.PNG "Software Flowchart")
