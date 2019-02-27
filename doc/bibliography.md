@@ -2,8 +2,8 @@
 ## 1.1	Protocol
 Pozyx creator tutorial gebruik makend van arduino: https://www.pozyx.io/documentation/creator/arduino/ready-to-range  
 TWR vs TDOA:  
-* https://www.pozyx.io/pozyx-academy/positioning-protocols-explained  
-* https://www.infsoft.com/blog-en/articleid/305/uwb-two-localization-techniques-in-comparison  
+  * https://www.pozyx.io/pozyx-academy/positioning-protocols-explained  
+  * https://www.infsoft.com/blog-en/articleid/305/uwb-two-localization-techniques-in-comparison  
 TWR verklaring: https://www.sewio.net/uwb-technology/two-way-ranging/  
 T(D)oa verklaring: https://sites.tufts.edu/eeseniordesignhandbook/files/2017/05/FireBrick_OKeefe_F1.pdf  
 Arduino Motor uitleg: https://howtomechatronics.com/tutorials/arduino/arduino-dc-motor-control-tutorial-l298n-pwm-h-bridge/  
