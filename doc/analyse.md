@@ -38,6 +38,7 @@ Plaats hier een flow-chart van de software. Hierin moet de werking van de softwa
 #### State diagram drone
 
 ![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/StateDiagramUWB.PNG "State Diagram Drone")
+![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/state_diagram_localisation.png "State Diagram Localisation")
 ### Flowchart
 ![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Software%20Flowchart.PNG "Software Flowchart")
 
