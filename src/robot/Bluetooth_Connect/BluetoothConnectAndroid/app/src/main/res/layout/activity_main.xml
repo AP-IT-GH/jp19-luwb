@@ -14,13 +14,13 @@
         android:text="Connect" />
 
     <Button
-        android:id="@+id/on"
+        android:id="@+id/forward"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LED ON" />
 
     <Button
-        android:id="@+id/off"
+        android:id="@+id/backwards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LED OFF"/>

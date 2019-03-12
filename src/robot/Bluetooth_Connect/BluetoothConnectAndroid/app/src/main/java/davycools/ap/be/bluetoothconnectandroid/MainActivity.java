@@ -2,22 +2,15 @@ package davycools.ap.be.bluetoothconnectandroid;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.RippleDrawable;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.util.Set;
+import com.balysv.materialripple.MaterialRippleLayout;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
@@ -25,14 +18,11 @@ import app.akexorcist.bluetotohspp.library.DeviceList;
 
 public class MainActivity extends AppCompatActivity {
 
-    final String ON = "1";
-    final String OFF = "0";
-
     BluetoothSPP bluetooth;
 
     Button connect;
-    Button on;
-    Button off;
+    Button forward;
+    Button backwards;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -43,28 +33,12 @@ public class MainActivity extends AppCompatActivity {
         bluetooth = new BluetoothSPP(this);
 
         connect = findViewById(R.id.connect);
-        on = findViewById(R.id.on);
-        off = findViewById(R.id.off);
+        forward = findViewById(R.id.forward);
+        backwards = findViewById(R.id.backwards);
         if (!bluetooth.isBluetoothAvailable()) {
             Toast.makeText(getApplicationContext(), "Bluetooth is not available", Toast.LENGTH_SHORT).show();
             finish();
         }
-
-        //Animation for buttons
-        final AlphaAnimation alphaDown,alphaUp,alphaDownOffButton,alphaUpOffButton;
-        alphaDown = new AlphaAnimation(1.0f, 0.5f);
-        alphaUp = new AlphaAnimation(0.5f, 1.0f);
-        alphaDown.setDuration(100);
-        alphaUp.setDuration(100);
-        alphaDown.setFillAfter(true);
-        alphaUp.setFillAfter(true);
-
-        alphaDownOffButton = new AlphaAnimation(1.0f, 0.5f);
-        alphaUpOffButton = new AlphaAnimation(0.5f, 1.0f);
-        alphaDownOffButton.setDuration(100);
-        alphaUpOffButton.setDuration(100);
-        alphaDownOffButton.setFillAfter(true);
-        alphaUpOffButton.setFillAfter(true);
 
 
 
@@ -93,47 +67,46 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        on.setOnTouchListener(new View.OnTouchListener() {
+        forward.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     // Pressed
-                    on.startAnimation(alphaDown);
                     bluetooth.send("f", true);
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    //
-                    on.startAnimation(alphaUp);
+                    // Released
                     //bluetooth.send(OFF, true);
-                    bluetooth.send("0", true);
+                    bluetooth.send("s", true);
                 }
                 return true;
             }
         });
 
-        off.setOnTouchListener(new View.OnTouchListener() {
+        backwards.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     // Pressed
-                    off.startAnimation(alphaDownOffButton);
-                    bluetooth.send("t", true);
+                    bluetooth.send("b", true);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    //
-                    off.startAnimation(alphaUpOffButton);
-                    bluetooth.send("5", true);
+                    // Released
+                    bluetooth.send("s", true);
                 }
                 return true;
             }
         });
-        /*on.setOnClickListener(new View.OnClickListener() {
+
+        MaterialRippleLayout.on(forward).rippleDuration(0).create();
+        MaterialRippleLayout.on(backwards).rippleDuration(0).create();
+        /*forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 bluetooth.send(ON, true);
             }
         });
 
-        off.setOnClickListener(new View.OnClickListener() {
+        backwards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 bluetooth.send(OFF, true);
