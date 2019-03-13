@@ -7,10 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.balysv.materialripple.MaterialRippleLayout;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
@@ -21,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
     BluetoothSPP bluetooth;
 
     Button connect;
-    Button forward;
-    Button backwards;
+    ImageButton forward,backwards,left,right;
+    boolean goingForward,goingBackwards;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -30,17 +31,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //Animations
+        final AlphaAnimation ButtonDown,ButtonUp;
+        ButtonDown = new AlphaAnimation(1.0f, 0.5f);
+        ButtonUp = new AlphaAnimation(0.5f, 1.0f);
+        ButtonDown.setDuration(100);
+        ButtonUp.setDuration(100);
+        ButtonDown.setFillAfter(true);
+        ButtonUp.setFillAfter(true);
+
+
+
         bluetooth = new BluetoothSPP(this);
 
         connect = findViewById(R.id.connect);
         forward = findViewById(R.id.forward);
         backwards = findViewById(R.id.backwards);
+        left = findViewById(R.id.left);
+        right = findViewById(R.id.right);
+
         if (!bluetooth.isBluetoothAvailable()) {
             Toast.makeText(getApplicationContext(), "Bluetooth is not available", Toast.LENGTH_SHORT).show();
             finish();
         }
-
-
 
         bluetooth.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
             public void onDeviceConnected(String name, String address) {
@@ -72,11 +86,14 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     // Pressed
+                    forward.startAnimation(ButtonDown);
                     bluetooth.send("f", true);
+                    goingForward = true;
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     // Released
-                    //bluetooth.send(OFF, true);
+                    forward.startAnimation(ButtonUp);
                     bluetooth.send("s", true);
+                    goingForward = false;
                 }
                 return true;
             }
@@ -87,34 +104,67 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     // Pressed
+                    backwards.startAnimation(ButtonDown);
                     bluetooth.send("b", true);
-
+                    goingBackwards = true;
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     // Released
+                    backwards.startAnimation(ButtonUp);
                     bluetooth.send("s", true);
+                    goingBackwards = false;
                 }
                 return true;
             }
         });
 
-        MaterialRippleLayout.on(forward).rippleDuration(0).create();
-        MaterialRippleLayout.on(backwards).rippleDuration(0).create();
-        /*forward.setOnClickListener(new View.OnClickListener() {
+        left.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                bluetooth.send(ON, true);
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    // Pressed
+                    left.startAnimation(ButtonDown);
+                    bluetooth.send("l", true);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    // Released
+                    left.startAnimation(ButtonUp);
+                    CheckButtons();
+                    //bluetooth.send("s", true);
+                }
+                return true;
             }
         });
 
-        backwards.setOnClickListener(new View.OnClickListener() {
+        right.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                bluetooth.send(OFF, true);
-            }
-        });*/
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    // Pressed
+                    right.startAnimation(ButtonDown);
+                    bluetooth.send("r", true);
 
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    // Released
+                    right.startAnimation(ButtonUp);
+                    CheckButtons();
+                    //bluetooth.send("s", true);
+                }
+                return true;
+            }
+        });
     }
 
+    public void CheckButtons(){
+        if(goingForward){
+            bluetooth.send("f", true);
+        }
+        else if (goingBackwards){
+            bluetooth.send("b", true);
+        }
+        else{
+            bluetooth.send("s", true);
+        }
+    }
     public void onStart() {
         super.onStart();
         if (!bluetooth.isBluetoothEnabled()) {
@@ -126,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 
     public void onDestroy() {
         super.onDestroy();
