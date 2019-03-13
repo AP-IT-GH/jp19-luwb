@@ -39,20 +39,21 @@ void loop()
 void TurnRight() {
   Serial.println("Turning Right");
   PORTC &= 0x00;
-  PORTC |= (1 << PORTC2) | (1 << PORTC4);
+  PORTC |= (1 << PORTC1) | (1 << PORTC4);
 }
 void TurnLeft() {
   Serial.println("Turning Left");
   PORTC &= 0x00;
-  PORTC |= (1 << PORTC1) | (1 << PORTC3);
+  PORTC |= (1 << PORTC2) | (1 << PORTC3);
+  
 }
 void DriveForward() {
   Serial.println("Driving forward");
   PORTC &= 0x00;
-  PORTC |= (1 << PORTC1) | (1 << PORTC4);
+  PORTC |= (1 << PORTC1) | (1 << PORTC3);
 }
 void DriveBackwards() {
   Serial.println("Driving backwards");
   PORTC &= 0x00;
-  PORTC |= (1 << PORTC2) | (1 << PORTC3);
+  PORTC |= (1 << PORTC2) | (1 << PORTC4); 
 }
