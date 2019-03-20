@@ -4,6 +4,37 @@
 
 Het indoor tracken van assets (drones/robots) door middel van een Ultra Wide Band (UWB) systeem dat we van scratch gaan maken.
 
+## Deelproblemen
+
+1.	Localisatie
+a.	Connecteren met de tag.
+b.	Bepalen van de x,y en z coördinaten van de tag.
+2.	Visualisatie van anker en tag
+a.	Het visualiseren van de locatie van de tag ten opzichte van de anchors op een website.
+b.	De map moet juist gevisualiseerd moeten.
+3.	Energieverbuik
+a.	Leveren van genoeg vermogen en proberen het vermogen van de anchors en tags zo klein mogelijk te houden.
+4.	Nauwkeurigheid
+a.	Bij een te kleine omgeving is er slechte nauwkeurigheid.
+b.	Bepalen van de locatie zo nauwkeurig mogelijk.
+5.	Verzenden van data
+a.	Zorgen dat de data aankomt naar de server.
+6.	Beweging
+a.	De beweging van de tag d.m.v. robot/drone.
+b.	Bestuur afstand voor manuele beweging
+7.	App
+a.	Het besturen van onze robot/drone.
+b.	De lokalisatie van de robot/drone zien.
+8.	Database
+a.	Er moet een historiek van de data worden weergegeven.
+9.	Omgeving
+a.	De omgeving mag niet te klein om onze functie te laten werken.
+b.	De omgeving is binnen.
+10.	Snelheid
+a.	Snelheid van data
+b.	De robot/drone mag niet botsen tegen de muur of obstakel
+
+
 ## Mindmap
 ![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Mindmap.PNG "Mindmap")
 
@@ -13,27 +44,25 @@ Een transportbedrijf, dat ook goederen stockeert, wil analyseren of de workflow 
 
 ## Hardware analyse
 
-Tag
+### Hardware blokdiagram
+
+#### Tag
+
 ![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/HardwareTag.png "Tag Blokschema")
 
 - ATmega328P
-Een microcontroller wordt veel gebruikt in veel projecten en autonome systemen waarbij een eenvoudige, low-powered, low-cost microcontroller nodig is
+Een microcontroller wordt veel gebruikt in veel projecten en autonome systemen waarbij een eenvoudige, low-powered, low-cost microcontroller nodig is.
 
 - DWM1000 (UWB modules)
-De DWM1000 is een UWB module. Deze module maakt de locatie van objecten in realtime locatiesystemen (RTLS) tot een nauwkeurigheid van 10 cm binnenshuis mogelijk
+De DWM1000 is een UWB module. Deze module maakt de locatie van objecten in realtime locatiesystemen (RTLS) tot een nauwkeurigheid van 10 cm binnenshuis mogelijk.
 
 - Stepdown
 De DC-DC-stepdown-module wordt gebruikt om de ingangsspanning en de uitgangsstabiele 5 volt spanning te verlagen.
 
 - UART module
-Deze module is om via Mirco USB naar UART te gaan. 
-
-
-### Hardware blokdiagram
-
+Deze module is om via Micro USB naar UART te gaan. 
 
 ### Specificatie tabel
-
 
 ### Argumentatie en alternatieven tabel
 
