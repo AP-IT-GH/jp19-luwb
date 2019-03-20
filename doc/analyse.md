@@ -7,32 +7,32 @@ Het indoor tracken van assets (drones/robots) door middel van een Ultra Wide Ban
 ## Deelproblemen
 
 1.	Localisatie
-a.	Connecteren met de tag.
-b.	Bepalen van de x,y en z coördinaten van de tag.
+-	Connecteren met de tag.
+-	Bepalen van de x,y en z coördinaten van de tag.
 2.	Visualisatie van anker en tag
-a.	Het visualiseren van de locatie van de tag ten opzichte van de anchors op een website.
-b.	De map moet juist gevisualiseerd moeten.
+-	Het visualiseren van de locatie van de tag ten opzichte van de anchors op een website.
+-	De map moet juist gevisualiseerd moeten.
 3.	Energieverbuik
-a.	Leveren van genoeg vermogen en proberen het vermogen van de anchors en tags zo klein mogelijk te houden.
+-	Leveren van genoeg vermogen en proberen het vermogen van de anchors en tags zo klein mogelijk te houden.
 4.	Nauwkeurigheid
-a.	Bij een te kleine omgeving is er slechte nauwkeurigheid.
-b.	Bepalen van de locatie zo nauwkeurig mogelijk.
+-	Bij een te kleine omgeving is er slechte nauwkeurigheid.
+-	Bepalen van de locatie zo nauwkeurig mogelijk.
 5.	Verzenden van data
-a.	Zorgen dat de data aankomt naar de server.
+-	Zorgen dat de data aankomt naar de server.
 6.	Beweging
-a.	De beweging van de tag d.m.v. robot/drone.
-b.	Bestuur afstand voor manuele beweging
+-	De beweging van de tag d.m.v. robot/drone.
+-	Bestuur afstand voor manuele beweging
 7.	App
-a.	Het besturen van onze robot/drone.
-b.	De lokalisatie van de robot/drone zien.
+-	Het besturen van onze robot/drone.
+-	De lokalisatie van de robot/drone zien.
 8.	Database
-a.	Er moet een historiek van de data worden weergegeven.
+-	Er moet een historiek van de data worden weergegeven.
 9.	Omgeving
-a.	De omgeving mag niet te klein om onze functie te laten werken.
-b.	De omgeving is binnen.
+-	De omgeving mag niet te klein om onze functie te laten werken.
+-	De omgeving is binnen.
 10.	Snelheid
-a.	Snelheid van data
-b.	De robot/drone mag niet botsen tegen de muur of obstakel
+-	Snelheid van data
+-	De robot/drone mag niet botsen tegen de muur of obstakel
 
 
 ## Mindmap
