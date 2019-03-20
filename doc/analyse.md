@@ -13,7 +13,21 @@ Een transportbedrijf, dat ook goederen stockeert, wil analyseren of de workflow 
 
 ## Hardware analyse
 
-Plaats hier een high level blokdiagram van de hardware. Hierin moet duidelijk worden weergegeven wat de verschillende delen zijn en hoe deze met elkaar verbonden zijn. Geef ook een woordje uitleg bij het schema
+Tag
+![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Mindmap.PNG "Tag Blokschema")
+
+- ATmega328P
+Een microcontroller wordt veel gebruikt in veel projecten en autonome systemen waarbij een eenvoudige, low-powered, low-cost microcontroller nodig is
+
+- DWM1000 (UWB modules)
+De DWM1000 is een UWB module. Deze module maakt de locatie van objecten in realtime locatiesystemen (RTLS) tot een nauwkeurigheid van 10 cm binnenshuis mogelijk
+
+- Stepdown
+De DC-DC-stepdown-module wordt gebruikt om de ingangsspanning en de uitgangsstabiele 5 volt spanning te verlagen.
+
+- UART module
+Deze module is om via Mirco USB naar UART te gaan. 
+
 
 ### Hardware blokdiagram
 
