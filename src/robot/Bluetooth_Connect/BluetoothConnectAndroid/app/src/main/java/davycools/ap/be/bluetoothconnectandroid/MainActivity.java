@@ -179,7 +179,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void onDestroy() {
         super.onDestroy();
+        bluetooth.send("s", true);
         bluetooth.stopService();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        bluetooth.send("s", true);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
