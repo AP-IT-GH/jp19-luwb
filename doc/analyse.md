@@ -14,7 +14,7 @@ Een transportbedrijf, dat ook goederen stockeert, wil analyseren of de workflow 
 ## Hardware analyse
 
 Tag
-![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/Mindmap.PNG "Tag Blokschema")
+![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/HardwareTag.png "Tag Blokschema")
 
 - ATmega328P
 Een microcontroller wordt veel gebruikt in veel projecten en autonome systemen waarbij een eenvoudige, low-powered, low-cost microcontroller nodig is
