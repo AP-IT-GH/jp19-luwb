@@ -62,6 +62,26 @@ De DC-DC-stepdown-module wordt gebruikt om de ingangsspanning en de uitgangsstab
 - UART module
 Deze module is om via Micro USB naar UART te gaan. 
 
+#### Anchor
+
+![Github Logo](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/HardwareAnchor.png "Anchor Blokschema")
+
+- ETHERNET IC (ENC28J60)
+
+
+- Crystal ENCJ2860 (25MHz)
+
+- Crystal ATMEGA1 (8MHz)
+
+- Stepdown
+Zie Tag
+
+- ATmega328P
+Zie Tag
+
+- DWM1000
+Zie Tag
+
 ### Specificatie tabel
 
 ### Argumentatie en alternatieven tabel
