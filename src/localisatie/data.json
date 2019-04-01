@@ -1,0 +1,1 @@
+var data1 = '[{"version":"1","alive":true,"tagId":"26481","success":true,"timestamp":1553862192.837,"data":{"tagData":{},"anchorData":[],"coordinates":{"x":80,"y":284,"z":116},"orientation":{"yaw":3.079,"roll":-0.049,"pitch":-0.005},"metrics":{"latency":43.6,"rates":{"update":10.666,"success":9.968}}}}]';

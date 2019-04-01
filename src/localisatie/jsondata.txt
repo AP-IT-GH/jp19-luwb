@@ -1,0 +1,70 @@
+{
+  "version": "1",
+  "tagId": "26481",
+  "alive": true,
+  "success": false,
+  "errorCode": "0xa",
+  "timestamp": 1553862192.834
+}{
+  "version": "1",
+  "alive": true,
+  "tagId": "26481",
+  "success": true,
+  "timestamp": 1553862192.837,
+  "data": {
+    "tagData": {
+      
+    },
+    "anchorData": [
+      
+    ],
+    "coordinates": {
+      "x": 194,
+      "y": 284,
+      "z": 116
+    },
+    "orientation": {
+      "yaw": 3.079,
+      "roll": -0.049,
+      "pitch": -0.005
+    },
+    "metrics": {
+      "latency": 43.6,
+      "rates": {
+        "update": 10.666,
+        "success": 9.968
+      }
+    }
+  }
+}{
+  "version": "1",
+  "alive": true,
+  "tagId": "26481",
+  "success": true,
+  "timestamp": 1553862192.889,
+  "data": {
+    "tagData": {
+      
+    },
+    "anchorData": [
+      
+    ],
+    "coordinates": {
+      "x": 201,
+      "y": 312,
+      "z": 121
+    },
+    "orientation": {
+      "yaw": 3.079,
+      "roll": -0.049,
+      "pitch": -0.005
+    },
+    "metrics": {
+      "latency": 46.1,
+      "rates": {
+        "update": 11.107,
+        "success": 10.449
+      }
+    }
+  }
+}
