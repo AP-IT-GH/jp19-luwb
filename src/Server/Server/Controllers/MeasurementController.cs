@@ -42,10 +42,17 @@ namespace Server.Controllers
             //}
             //_context.Measurements.Add(item);
 
-            Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).LastOrDefault();
-            measure.Distance = item.Distance;
-            measure.Unix_Timestamp = item.Unix_Timestamp;
-            
+           if(_context.Measurements.Any(a => a.Mac_Anchor == item.Mac_Anchor))
+            {
+                Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).LastOrDefault();
+                measure.Distance = item.Distance;
+                measure.Unix_Timestamp = item.Unix_Timestamp;
+            }
+            else
+            {
+                _context.Measurements.Add(item);
+                _context.SaveChanges();
+            }
 
             if (_context.SaveChanges() > 0)
                 return Ok();
