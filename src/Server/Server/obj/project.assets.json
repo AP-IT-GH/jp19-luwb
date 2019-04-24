@@ -12415,11 +12415,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gebruiker\\Downloads\\iot18-EP-master\\iot18-EP-master\\src\\Server\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\Gebruiker\\Documents\\GitHub\\jp19-jp19-luwb\\src\\Server\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\Gebruiker\\Downloads\\iot18-EP-master\\iot18-EP-master\\src\\Server\\Server\\Server.csproj",
+      "projectPath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\jp19-jp19-luwb\\src\\Server\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gebruiker\\Downloads\\iot18-EP-master\\iot18-EP-master\\src\\Server\\Server\\obj\\",
+      "outputPath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\jp19-jp19-luwb\\src\\Server\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

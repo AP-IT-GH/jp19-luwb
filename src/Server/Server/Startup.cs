@@ -59,7 +59,7 @@ namespace Server
             {
                 app.UseHsts();
             }
-
+            DatabaseInitialiser.Initialize(context);
             //app.UseCors(builder =>
             //    builder.AllowAnyOrigin()
             //            .AllowAnyHeader()

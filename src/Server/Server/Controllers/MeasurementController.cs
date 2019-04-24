@@ -42,8 +42,10 @@ namespace Server.Controllers
             //}
             //_context.Measurements.Add(item);
 
-            Demo demo = _context.Demos.Where(a => a.Mac_Anchor == item.Mac_Anchor).LastOrDefault();
-            demo.Distance = item.Distance;
+            Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).LastOrDefault();
+            measure.Distance = item.Distance;
+            measure.Unix_Timestamp = item.Unix_Timestamp;
+            
 
             if (_context.SaveChanges() > 0)
                 return Ok();
