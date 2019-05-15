@@ -13,6 +13,12 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Server.Models;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using System.Threading;
+using MQTTnet.Client;
+using MQTTnet;
+using MQTTnet.Client.Options;
+using System.Text;
+using Hangfire;
 
 namespace Server
 {
@@ -23,14 +29,19 @@ namespace Server
             Configuration = configuration;
         }
 
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddHangfire( configuration => {
+                configuration.UseSqlServerStorage("Server=(localdb)\\mssqllocaldb; Database = LibraryDB");
+            });
           
-                services.AddDbContext<DatabaseContext>(options =>
-                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DatabaseContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // Automatically perform database migration
             services.BuildServiceProvider().GetService<DatabaseContext>().Database.Migrate();
@@ -51,6 +62,7 @@ namespace Server
         {
 
             app.UseCors("AllowAllMethods");
+            app.UseHangfireServer();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

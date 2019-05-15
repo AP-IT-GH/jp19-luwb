@@ -1,12 +1,14 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
+using System.Threading;
+using Hangfire;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Server.Models;
+using uPLibrary.Networking.M2Mqtt;
+using uPLibrary.Networking.M2Mqtt.Messages;
 
 namespace Server.Controllers
 {
@@ -16,32 +18,40 @@ namespace Server.Controllers
     public class MeasurementController : Controller
     {
         private readonly DatabaseContext _context;
+
         public MeasurementController(DatabaseContext context)
         {
             _context = context;
-            //if (_context.Measurements.Count() == 0)
-            //{
-            //    _context.Measurements.Add(new Measurements { AnchorMac = "11:11:11:11", TagMac = "11:11:11:11", Distance = 2.31 });
-            //    _context.Measurements.Add(new Measurements { AnchorMac = "22:22:22:22", TagMac = "22:22:22:22", Distance = 4.25 });
-            //    _context.SaveChanges();
-            //}
         }
 
+        static string connectionString = "broker.mqttdashboard.com"; // 192.168.3.3 
+        string clientId = "clientId-qn6emilV3X";
+        MqttClient client = new MqttClient(connectionString);
+
+
+        // Wordt getriggered wanneer er een message gepublished wordt
+        static void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        {
+            string payload = Encoding.UTF8.GetString(e.Message);
+        }
+
+
+        public void DoInBackground()
+        {
+            client.Connect(clientId);
+            client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
+
+            while (true)
+            {
+
+                client.Subscribe(new string[] { "LUWB/TAG5" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE});
+                Thread.Sleep(200);
+            }
+        }
+ 
         [HttpPost]
         public ActionResult<Measurement> Create([FromBody]Measurement item)
         {
-            //IQueryable<Measurement> query = _context.Measurements;
-            //var data = query.Where(a => a.Mac_Anchor == item.Mac_Anchor).Where(t => t.Mac_Tag == item.Mac_Tag);
-            //long id = data.Max<Measurement>(x => x.Id);
-
-            //Measurement m = _context.Measurements.Find(id);
-
-            //if (item.Distance == m.Distance)
-            //{
-            //    _context.Measurements.Remove(m);
-            //}
-            //_context.Measurements.Add(item);
-
            if(_context.Measurements.Any(a => a.Mac_Anchor == item.Mac_Anchor))
             {
                 Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).LastOrDefault();
@@ -64,6 +74,7 @@ namespace Server.Controllers
         [HttpGet]
         public ActionResult<List<Measurement>> GetAll()
         {
+            BackgroundJob.Enqueue(() => DoInBackground());
             return _context.Measurements.ToList();
         }
 
