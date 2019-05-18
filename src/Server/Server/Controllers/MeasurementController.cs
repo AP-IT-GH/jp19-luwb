@@ -30,11 +30,38 @@ namespace Server.Controllers
 
 
         // Wordt getriggered wanneer er een message gepublished wordt
-        static void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             string payload = Encoding.UTF8.GetString(e.Message);
+            SaveMeasurementInDB(payload);
         }
 
+        private void SaveMeasurementInDB(string payload)
+        {   
+            // Wat er binnenkomt via MQTT
+            // TAG{nr};ANCHOR{nr};{distance};{unix_timestamp}
+            // TAG5;ANCHOR1;-4;1557475973
+            string[] data = payload.Split(';');
+            if (_context.Measurements.Any(a => a.Mac_Anchor == data[1]))
+            {
+                Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == data[1]).LastOrDefault();
+                measure.Distance = int.Parse(data[2]);
+                measure.Unix_Timestamp = data[3];
+            }
+            else
+            {
+                _context.Measurements.Add(
+                    new Measurement()
+                    {
+                        Mac_Tag = data[0],
+                        Mac_Anchor = data[1],
+                        Distance = int.Parse(data[2]),
+                        Unix_Timestamp = data[3]
+                    } 
+                );
+                _context.SaveChanges();
+            }
+        }
 
         public void DoInBackground()
         {
