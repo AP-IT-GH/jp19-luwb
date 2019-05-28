@@ -1,12 +1,15 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
+using System.Threading;
+using Hangfire;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Server.Models;
+using uPLibrary.Networking.M2Mqtt;
+using uPLibrary.Networking.M2Mqtt.Messages;
 
 namespace Server.Controllers
 {
@@ -16,33 +19,91 @@ namespace Server.Controllers
     public class MeasurementController : Controller
     {
         private readonly DatabaseContext _context;
+
         public MeasurementController(DatabaseContext context)
         {
             _context = context;
-            //if (_context.Measurements.Count() == 0)
-            //{
-            //    _context.Measurements.Add(new Measurements { AnchorMac = "11:11:11:11", TagMac = "11:11:11:11", Distance = 2.31 });
-            //    _context.Measurements.Add(new Measurements { AnchorMac = "22:22:22:22", TagMac = "22:22:22:22", Distance = 4.25 });
-            //    _context.SaveChanges();
-            //}
+
+        }
+        string connectionString;
+        string clientId;
+        MqttClient client;
+        void SetupMQTT()
+        {
+            string data;
+            try
+            {
+                using (StreamReader sr = new StreamReader("Setup/MqttSetup.txt"))
+                {
+                    while ((data = sr.ReadLine()) != null)
+                    {
+                        // Wat er zou uitgelezen moeten worden
+                        // {host};{uniekeId};
+                        Console.WriteLine(data);
+                        string[] dataArray = data.Split(';');
+                        connectionString = dataArray[0];
+                        clientId = dataArray[1];
+                    }
+                }
+                client = new MqttClient(connectionString);
+                client.Connect(clientId);
+                client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("File MqttSetup.txt could not be read.");
+                throw new Exception(e.Message);
+            }
         }
 
+        // Wordt getriggered wanneer er een message gepublished wordt
+        void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        {
+            string payload = Encoding.UTF8.GetString(e.Message);
+            SaveMeasurementInDB(payload);
+        }
+
+        private void SaveMeasurementInDB(string payload)
+        {   
+            // Wat er binnenkomt via MQTT
+            // TAG{nr};ANCHOR{nr};{distance};{unix_timestamp}
+            // TAG5;ANCHOR1;-4;1557475973
+            string[] data = payload.Split(';');
+            if (_context.Measurements.Any(a => a.Mac_Anchor == data[1]))
+            {
+                Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == data[1]).LastOrDefault();
+                measure.Distance = int.Parse(data[2]);
+                measure.Unix_Timestamp = data[3];
+            }
+            else
+            {
+                _context.Measurements.Add(
+                    new Measurement()
+                    {
+                        Mac_Tag = data[0],
+                        Mac_Anchor = data[1],
+                        Distance = int.Parse(data[2]),
+                        Unix_Timestamp = data[3]
+                    } 
+                );
+                _context.SaveChanges();
+            }
+        }
+
+        public void DoInBackground()
+        {
+            SetupMQTT();
+            while (true)
+            {
+                client.Subscribe(new string[] { "LUWB/TAG5" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE});
+                Thread.Sleep(200);
+            }
+        }
+ 
         [HttpPost]
         public ActionResult<Measurement> Create([FromBody]Measurement item)
         {
-            //IQueryable<Measurement> query = _context.Measurements;
-            //var data = query.Where(a => a.Mac_Anchor == item.Mac_Anchor).Where(t => t.Mac_Tag == item.Mac_Tag);
-            //long id = data.Max<Measurement>(x => x.Id);
-
-            //Measurement m = _context.Measurements.Find(id);
-
-            //if (item.Distance == m.Distance)
-            //{
-            //    _context.Measurements.Remove(m);
-            //}
-            //_context.Measurements.Add(item);
-
-           if(_context.Measurements.Any(a => a.Mac_Anchor == item.Mac_Anchor))
+            if(_context.Measurements.Any(a => a.Mac_Anchor == item.Mac_Anchor))
             {
                 Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).LastOrDefault();
                 measure.Distance = item.Distance;
@@ -64,6 +125,7 @@ namespace Server.Controllers
         [HttpGet]
         public ActionResult<List<Measurement>> GetAll()
         {
+            BackgroundJob.Enqueue(() => DoInBackground());
             return _context.Measurements.ToList();
         }
 

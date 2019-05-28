@@ -11,8 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="M2Mqtt" Version="4.3.0" />
+    <PackageReference Include="System.Net.Mqtt" Version="0.5.42-beta" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.6.17" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.6.17" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="MQTTnet" Version="3.0.0" />
   </ItemGroup>
 
 </Project>
