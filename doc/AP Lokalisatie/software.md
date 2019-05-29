@@ -13,6 +13,7 @@ Met: x het tagnummer, y het anchornummer en z de afstand van de anchor tot aan d
 Voorbeeld: {"MAC_TAG":"TAG5","MAC_ANCHOR":"ANCHOR1", "DISTANCE":5}
 ### 1.2.2 Raspberry Pi
 De Raspberry Pi doet 2 dingen. Langs de ene kant slaagt deze de data via een php apache server op en langs de andere kant stuurt deze de data door via MQTT.
+#### Oude manier
 - Het index.php bestand slaat bij een POST van data de data op als volgt:
 1. Maakt de map data aan in /var/www/html indien deze nog niet bestaat.
 2. Maakt in de map data een map TAGx aan met x = het tagnummer in de data van de POST indien deze nog niet bestaat.
@@ -27,7 +28,16 @@ Voorbeeld: 5,1557920157
 3. Alle bestanden in de TAG5 worden uitgelezen en de data wordt doorgestuurt via MQTT in het volgende formaat:   
 TAGx;ANCHORy;distance;unixtimestamp
 Met: x het tagnummer, y het anchornummer, distance de afstand van anchor naar tag en unixtimestamp de datum  
-Voorbeeld: TAG5;ANCHOR1;-4;1557475973
+Voorbeeld: TAG5;ANCHOR1;25;1557475973
+#### Nieuwe manier (voorkeur)
+- Het listenAndPostScriptMQTT.py script luistert naar de socket. Stuurt bij het ontvangen van data de data door via MQTT.
+1. Leest de config.ini file uit voor configuratie.
+2. Luistert naar de socket op ingestelde ip + poort.
+3. Stuurt de ontvangen data door via MQTT naar ingestelde topic.
+Het formaat van de doorgestuurde data is:
+TAGx;ANCHORy;distance;unixtimestamp
+Met: x het tagnummer, y het anchornummer, distance de afstand van anchor naar tag en unixtimestamp de datum  
+Voorbeeld: TAG5;ANCHOR1;25;1557475973
 ### 1.2.3 ASP.NET server
 De ASP.NET server haalt de data op van MQTT. Deze data wordt dan opgeslagen in de database.
 ### 1.2.4 Webapplicatie met Angular framework
