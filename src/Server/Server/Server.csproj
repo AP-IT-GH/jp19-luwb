@@ -5,6 +5,10 @@
     <UserSecretsId>354faaee-0e92-4a63-9ff7-8976a6b7dc44</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="DatabaseContext\" />
     <Folder Include="wwwroot\" />
