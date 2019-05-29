@@ -4,9 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Hangfire;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Server.Models;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
@@ -23,89 +26,13 @@ namespace Server.Controllers
         public MeasurementController(DatabaseContext context)
         {
             _context = context;
-
-        }
-        string connectionString;
-        string clientId;
-        MqttClient client;
-        void SetupMQTT()
-        {
-            string data;
-            try
-            {
-                using (StreamReader sr = new StreamReader("Setup/MqttSetup.txt"))
-                {
-                    while ((data = sr.ReadLine()) != null)
-                    {
-                        // Wat er zou uitgelezen moeten worden
-                        // {host};{uniekeId};
-                        Console.WriteLine(data);
-                        string[] dataArray = data.Split(';');
-                        connectionString = dataArray[0];
-                        clientId = dataArray[1];
-                    }
-                }
-                client = new MqttClient(connectionString);
-                client.Connect(clientId);
-                client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("File MqttSetup.txt could not be read.");
-                throw new Exception(e.Message);
-            }
-        }
-
-        // Wordt getriggered wanneer er een message gepublished wordt
-        void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
-        {
-            string payload = Encoding.UTF8.GetString(e.Message);
-            SaveMeasurementInDB(payload);
-        }
-
-        private void SaveMeasurementInDB(string payload)
-        {   
-            // Wat er binnenkomt via MQTT
-            // TAG{nr};ANCHOR{nr};{distance};{unix_timestamp}
-            // TAG5;ANCHOR1;-4;1557475973
-            string[] data = payload.Split(';');
-            if (_context.Measurements.Any(a => a.Mac_Anchor == data[1]))
-            {
-                Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == data[1]).LastOrDefault();
-                measure.Distance = int.Parse(data[2]);
-                measure.Unix_Timestamp = data[3];
-            }
-            else
-            {
-                _context.Measurements.Add(
-                    new Measurement()
-                    {
-                        Mac_Tag = data[0],
-                        Mac_Anchor = data[1],
-                        Distance = int.Parse(data[2]),
-                        Unix_Timestamp = data[3]
-                    } 
-                );
-                _context.SaveChanges();
-            }
-        }
-
-        public void DoInBackground()
-        {
-            SetupMQTT();
-            while (true)
-            {
-                client.Subscribe(new string[] { "LUWB/TAG5" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE});
-                Thread.Sleep(200);
-            }
         }
  
         [HttpPost]
         public ActionResult<Measurement> Create([FromBody]Measurement item)
         {
-            if(_context.Measurements.Any(a => a.Mac_Anchor == item.Mac_Anchor))
-            {
-                Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).LastOrDefault();
+            Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).LastOrDefault();
+            if (measure != null) {
                 measure.Distance = item.Distance;
                 measure.Unix_Timestamp = item.Unix_Timestamp;
             }
@@ -125,7 +52,6 @@ namespace Server.Controllers
         [HttpGet]
         public ActionResult<List<Measurement>> GetAll()
         {
-            BackgroundJob.Enqueue(() => DoInBackground());
             return _context.Measurements.ToList();
         }
 
@@ -141,7 +67,7 @@ namespace Server.Controllers
             if (m == null)
                 return NotFound();
 
-            return Ok(m);
+            return Ok();
         }
 
 
