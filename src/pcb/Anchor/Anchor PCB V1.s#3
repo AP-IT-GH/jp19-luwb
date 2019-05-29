@@ -6335,23 +6335,23 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="GND4" gate="1" x="-24.13" y="7.62" smashed="yes">
 <attribute name="VALUE" x="-20.32" y="6.35" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="C5" gate="G$1" x="-125.73" y="67.31" smashed="yes">
-<attribute name="NAME" x="-122.936" y="65.151" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-124.206" y="62.611" size="1.778" layer="96"/>
+<instance part="C5" gate="G$1" x="-124.46" y="68.58" smashed="yes">
+<attribute name="NAME" x="-121.666" y="66.421" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-122.936" y="63.881" size="1.778" layer="96"/>
 </instance>
-<instance part="C6" gate="G$1" x="-113.03" y="67.31" smashed="yes">
-<attribute name="NAME" x="-110.236" y="65.151" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-111.506" y="62.611" size="1.778" layer="96"/>
+<instance part="C6" gate="G$1" x="-111.76" y="68.58" smashed="yes">
+<attribute name="NAME" x="-108.966" y="66.421" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-110.236" y="63.881" size="1.778" layer="96"/>
 </instance>
-<instance part="GND5" gate="1" x="-125.73" y="55.88" smashed="yes">
-<attribute name="VALUE" x="-123.19" y="54.61" size="1.778" layer="96" rot="R180"/>
+<instance part="GND5" gate="1" x="-124.46" y="57.15" smashed="yes">
+<attribute name="VALUE" x="-121.92" y="55.88" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND6" gate="1" x="-113.03" y="55.88" smashed="yes">
-<attribute name="VALUE" x="-110.49" y="54.61" size="1.778" layer="96" rot="R180"/>
+<instance part="GND6" gate="1" x="-111.76" y="57.15" smashed="yes">
+<attribute name="VALUE" x="-109.22" y="55.88" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="Q1" gate="G$1" x="-119.38" y="71.12" smashed="yes" rot="R180">
-<attribute name="NAME" x="-120.65" y="75.946" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-123.19" y="73.66" size="1.778" layer="96"/>
+<instance part="Q1" gate="G$1" x="-118.11" y="72.39" smashed="yes" rot="R180">
+<attribute name="NAME" x="-119.38" y="77.216" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-121.92" y="74.93" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -6398,12 +6398,12 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <pinref part="GND6" gate="1" pin="GND"/>
 <pinref part="C6" gate="G$1" pin="2"/>
-<wire x1="-113.03" y1="58.42" x2="-113.03" y2="62.23" width="0.1524" layer="91"/>
+<wire x1="-111.76" y1="59.69" x2="-111.76" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="-125.73" y1="58.42" x2="-125.73" y2="62.23" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="59.69" x2="-124.46" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -6472,21 +6472,21 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <pinref part="C5" gate="G$1" pin="1"/>
 <pinref part="Q1" gate="G$1" pin="2"/>
-<wire x1="-125.73" y1="69.85" x2="-125.73" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="-125.73" y1="71.12" x2="-121.92" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="-125.73" y1="71.12" x2="-125.73" y2="81.28" width="0.1524" layer="91"/>
-<junction x="-125.73" y="71.12"/>
-<wire x1="-125.73" y1="81.28" x2="-113.03" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="71.12" x2="-124.46" y2="72.39" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="72.39" x2="-120.65" y2="72.39" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="72.39" x2="-124.46" y2="82.55" width="0.1524" layer="91"/>
+<junction x="-124.46" y="72.39"/>
+<wire x1="-124.46" y1="82.55" x2="-111.76" y2="82.55" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="1"/>
 <pinref part="C6" gate="G$1" pin="1"/>
-<wire x1="-116.84" y1="71.12" x2="-113.03" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="-113.03" y1="71.12" x2="-113.03" y2="69.85" width="0.1524" layer="91"/>
-<wire x1="-113.03" y1="71.12" x2="-113.03" y2="77.47" width="0.1524" layer="91"/>
-<junction x="-113.03" y="71.12"/>
+<wire x1="-115.57" y1="72.39" x2="-111.76" y2="72.39" width="0.1524" layer="91"/>
+<wire x1="-111.76" y1="72.39" x2="-111.76" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-111.76" y1="72.39" x2="-111.76" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-111.76" y="72.39"/>
 </segment>
 </net>
 <net name="XTAL1" class="0">
@@ -6494,7 +6494,7 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U1" gate="G$1" pin="XTAL1"/>
 <wire x1="-62.23" y1="82.55" x2="-68.58" y2="82.55" width="0.1524" layer="91"/>
 <label x="-68.58" y="82.55" size="1.778" layer="95" rot="MR0" xref="yes"/>
-<label x="-113.03" y="81.28" size="1.778" layer="95" rot="MR180" xref="yes"/>
+<label x="-111.76" y="82.55" size="1.778" layer="95" rot="MR180" xref="yes"/>
 </segment>
 </net>
 <net name="XTAL2" class="0">
@@ -6502,7 +6502,7 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="U1" gate="G$1" pin="XTAL2"/>
 <wire x1="-62.23" y1="77.47" x2="-68.58" y2="77.47" width="0.1524" layer="91"/>
 <label x="-68.58" y="77.47" size="1.778" layer="95" rot="MR0" xref="yes"/>
-<label x="-113.03" y="77.47" size="1.778" layer="95" rot="MR180" xref="yes"/>
+<label x="-111.76" y="78.74" size="1.778" layer="95" rot="MR180" xref="yes"/>
 </segment>
 </net>
 </nets>
