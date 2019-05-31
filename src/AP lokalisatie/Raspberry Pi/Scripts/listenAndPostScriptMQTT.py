@@ -8,7 +8,7 @@ from configparser import ConfigParser
 
 #host="broker.mqttdashboard.com"
 #topic="LUWB/TAG5"
-clientID="clientId-23g36U6BJL"
+#clientID="clientId-23g36U6BJL"
 
 #TCP_IP = '192.168.3.3'
 #TCP_PORT = 2000
@@ -20,6 +20,7 @@ TCP_IP = parser.get('default','tcp_ip')
 TCP_PORT = int(parser.get('default','tcp_port'))
 host = parser.get('default','host')
 topic = parser.get('default','topic')
+clientID = parser.get('default','clientid')
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
