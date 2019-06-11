@@ -1,0 +1,31 @@
+canvas {
+  display: block;
+}
+
+.width {
+  width: 100%;
+}
+
+#canvasapp {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#canvas {
+  float: left;
+  border: 2px solid #888;
+  border-radius: 4px;
+  position: relative;
+}
+
+#clearbutton {
+  font-size: 15px;
+  padding: 10px;
+  -webkit-appearance: none;
+  background: #eee;
+  border: 1px solid #888;
+}
