@@ -1772,6 +1772,36 @@ Created by Upverter.com</description>
 </package>
 </packages>
 </library>
+<library name="HD04-T">
+<description>&lt;Bridge Rectifier 400V 0.8A MiniDIP SMD4 Diodes Inc HD04-T, Bridge Rectifier, 0.8A 400V, 4-Pin MiniDIP SMD&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SOP250P700X270-4N">
+<description>&lt;b&gt;4-Pin MiniDIP SMD&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-3.025" y="1.25" dx="1.85" dy="0.95" layer="1"/>
+<smd name="2" x="-3.025" y="-1.25" dx="1.85" dy="0.95" layer="1"/>
+<smd name="3" x="3.025" y="-1.25" dx="1.85" dy="0.95" layer="1"/>
+<smd name="4" x="3.025" y="1.25" dx="1.85" dy="0.95" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-4.2" y1="2.7" x2="4.2" y2="2.7" width="0.05" layer="51"/>
+<wire x1="4.2" y1="2.7" x2="4.2" y2="-2.7" width="0.05" layer="51"/>
+<wire x1="4.2" y1="-2.7" x2="-4.2" y2="-2.7" width="0.05" layer="51"/>
+<wire x1="-4.2" y1="-2.7" x2="-4.2" y2="2.7" width="0.05" layer="51"/>
+<wire x1="-1.9" y1="2.35" x2="1.9" y2="2.35" width="0.1" layer="51"/>
+<wire x1="1.9" y1="2.35" x2="1.9" y2="-2.35" width="0.1" layer="51"/>
+<wire x1="1.9" y1="-2.35" x2="-1.9" y2="-2.35" width="0.1" layer="51"/>
+<wire x1="-1.9" y1="-2.35" x2="-1.9" y2="2.35" width="0.1" layer="51"/>
+<wire x1="-1.9" y1="-0.15" x2="0.6" y2="2.35" width="0.1" layer="51"/>
+<wire x1="-1.75" y1="2.35" x2="1.75" y2="2.35" width="0.2" layer="21"/>
+<wire x1="1.75" y1="2.35" x2="1.75" y2="-2.35" width="0.2" layer="21"/>
+<wire x1="1.75" y1="-2.35" x2="-1.75" y2="-2.35" width="0.2" layer="21"/>
+<wire x1="-1.75" y1="-2.35" x2="-1.75" y2="2.35" width="0.2" layer="21"/>
+<wire x1="-3.95" y1="2.075" x2="-2.1" y2="2.075" width="0.2" layer="21"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2070,6 +2100,34 @@ design rules under a new name.</description>
 <attribute name="PREFIX" value="J" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
 <attribute name="ROHS" value="yes" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
 </element>
+<element name="BR1" library="HD04-T" package="SOP250P700X270-4N" value="HD04-T" x="-77.47" y="-3.81" smashed="yes">
+<attribute name="ALLIED_NUMBER" value="70438300" x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="ALLIED_PRICE-STOCK" value="https://www.alliedelec.com/diodes-inc-hd04-t/70438300/" x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="Bridge Rectifier 400V 0.8A MiniDIP SMD4 Diodes Inc HD04-T, Bridge Rectifier, 0.8A 400V, 4-Pin MiniDIP SMD" x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="2.7mm" x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Diodes Inc." x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="HD04-T" x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="621-HD04T" x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=621-HD04T" x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-77.47" y="-3.81" size="1.27" layer="25" align="center"/>
+<attribute name="RS_PART_NUMBER" value="7514452" x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="RS_PRICE-STOCK" value="https://uk.rs-online.com/web/p/products/7514452" x="-77.47" y="-3.81" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="-77.47" y="-3.81" size="1.27" layer="27" align="center"/>
+</element>
+<element name="BR2" library="HD04-T" package="SOP250P700X270-4N" value="HD04-T" x="-77.47" y="-10.16" smashed="yes">
+<attribute name="ALLIED_NUMBER" value="70438300" x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="ALLIED_PRICE-STOCK" value="https://www.alliedelec.com/diodes-inc-hd04-t/70438300/" x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="Bridge Rectifier 400V 0.8A MiniDIP SMD4 Diodes Inc HD04-T, Bridge Rectifier, 0.8A 400V, 4-Pin MiniDIP SMD" x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="2.7mm" x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Diodes Inc." x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="HD04-T" x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="621-HD04T" x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=621-HD04T" x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-77.47" y="-10.16" size="1.27" layer="25" align="center"/>
+<attribute name="RS_PART_NUMBER" value="7514452" x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="RS_PRICE-STOCK" value="https://uk.rs-online.com/web/p/products/7514452" x="-77.47" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="-77.47" y="-10.16" size="1.27" layer="27" align="center"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -2089,21 +2147,25 @@ design rules under a new name.</description>
 <contactref element="X1" pad="4"/>
 <contactref element="X1" pad="5"/>
 <contactref element="S1" pad="1"/>
-<wire x1="-20.64" y1="62.23" x2="-17.46" y2="62.23" width="0" layer="19" extent="1-1"/>
-<wire x1="-16.83" y1="55.88" x2="-17.46" y2="62.23" width="0" layer="19" extent="1-1"/>
-<wire x1="-24.45" y1="55.88" x2="-20.64" y2="62.23" width="0" layer="19" extent="1-1"/>
-<wire x1="-27.69" y1="51.24" x2="-24.45" y2="55.88" width="0" layer="19" extent="1-1"/>
+<contactref element="BR2" pad="2"/>
+<contactref element="BR1" pad="2"/>
+<wire x1="-80.495" y1="-5.06" x2="-80.495" y2="-11.41" width="0" layer="19" extent="1-1"/>
+<wire x1="-40.64" y1="10.16" x2="-80.495" y2="-5.06" width="0" layer="19" extent="1-1"/>
+<wire x1="-49.82" y1="28.88" x2="-40.64" y2="10.16" width="0" layer="19" extent="1-1"/>
+<wire x1="-49.82" y1="29.68" x2="-49.82" y2="28.88" width="0" layer="19" extent="1-1"/>
+<wire x1="-54.93" y1="44.45" x2="-49.82" y2="29.68" width="0" layer="19" extent="1-1"/>
+<wire x1="-48.9712" y1="47.9806" x2="-54.93" y2="44.45" width="0" layer="19" extent="1-1"/>
+<wire x1="-39.69" y1="55.88" x2="-48.9712" y2="47.9806" width="0" layer="19" extent="1-1"/>
+<wire x1="-32.07" y1="55.88" x2="-39.69" y2="55.88" width="0" layer="19" extent="1-1"/>
+<wire x1="-27.69" y1="51.24" x2="-32.07" y2="55.88" width="0" layer="19" extent="1-1"/>
 <wire x1="-23.69" y1="49.24" x2="-27.69" y2="51.24" width="0" layer="19" extent="1-1"/>
+<wire x1="-24.45" y1="55.88" x2="-27.69" y2="51.24" width="0" layer="19" extent="1-1"/>
 <wire x1="-32.19" y1="47.74" x2="-27.69" y2="51.24" width="0" layer="19" extent="1-1"/>
-<wire x1="-32.07" y1="55.88" x2="-27.69" y2="51.24" width="0" layer="19" extent="1-1"/>
 <wire x1="-28.19" y1="42.74" x2="-32.19" y2="47.74" width="0" layer="19" extent="1-1"/>
-<wire x1="-39.69" y1="55.88" x2="-32.07" y2="55.88" width="0" layer="19" extent="1-1"/>
-<wire x1="-48.9712" y1="47.9806" x2="-39.69" y2="55.88" width="0" layer="19" extent="1-1"/>
-<wire x1="-54.93" y1="44.45" x2="-48.9712" y2="47.9806" width="0" layer="19" extent="1-1"/>
+<wire x1="-20.64" y1="62.23" x2="-24.45" y2="55.88" width="0" layer="19" extent="1-1"/>
+<wire x1="-17.46" y1="62.23" x2="-20.64" y2="62.23" width="0" layer="19" extent="1-1"/>
+<wire x1="-16.83" y1="55.88" x2="-17.46" y2="62.23" width="0" layer="19" extent="1-1"/>
 <wire x1="-21.59" y1="31.75" x2="-28.19" y2="42.74" width="0" layer="19" extent="1-1"/>
-<wire x1="-49.82" y1="29.68" x2="-54.93" y2="44.45" width="0" layer="19" extent="1-1"/>
-<wire x1="-49.82" y1="28.88" x2="-49.82" y2="29.68" width="0" layer="19" extent="1-1"/>
-<wire x1="-40.64" y1="10.16" x2="-49.82" y2="28.88" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCC">
 <contactref element="U1" pad="36"/>
@@ -2182,6 +2244,31 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$4">
 <contactref element="IC1" pad="1"/>
+</signal>
+<signal name="POE+">
+<contactref element="BR1" pad="1"/>
+<contactref element="BR2" pad="1"/>
+<wire x1="-80.495" y1="-2.56" x2="-80.495" y2="-8.91" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="1_VC+">
+<contactref element="J2" pad="8"/>
+<contactref element="BR1" pad="4"/>
+<wire x1="-75.565" y1="20.95" x2="-74.445" y2="-2.56" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="1_VC-">
+<contactref element="J2" pad="9"/>
+<contactref element="BR1" pad="3"/>
+<wire x1="-76.835" y1="18.41" x2="-74.445" y2="-5.06" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="2_VC+">
+<contactref element="J2" pad="10"/>
+<contactref element="BR2" pad="4"/>
+<wire x1="-78.105" y1="20.95" x2="-74.445" y2="-8.91" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="2_VC-">
+<contactref element="J2" pad="11"/>
+<contactref element="BR2" pad="3"/>
+<wire x1="-76.835" y1="23.49" x2="-74.445" y2="-11.41" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

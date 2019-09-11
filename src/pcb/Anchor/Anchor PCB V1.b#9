@@ -1297,65 +1297,6 @@ MELF 0.10 W</description>
 </package>
 </packages>
 </library>
-<library name="SparkFun-Connectors">
-<description>&lt;h3&gt;SparkFun Connectors&lt;/h3&gt;
-This library contains electrically-functional connectors. 
-&lt;br&gt;
-&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
-&lt;br&gt;
-&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
-&lt;br&gt;
-&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
-&lt;br&gt;
-&lt;br&gt;
-You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
-<packages>
-<package name="MAGJACK-POE">
-<description>&lt;h3&gt;RJ45 PoE MagJack&lt;/h3&gt;
-This RJ-45 jack with magnetics, gives you access to the unused twisted pair (10BASE-T, and 100BASE-T) which usually carries power in a power-over-ethernet system.
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count:10&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;MAGJACK-POE&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<wire x1="-8.05" y1="-1.7" x2="-8.05" y2="10.8" width="0.1778" layer="21"/>
-<wire x1="-8.05" y1="10.8" x2="8.05" y2="10.8" width="0.1778" layer="21"/>
-<wire x1="8.05" y1="10.8" x2="8.05" y2="-1.7" width="0.1778" layer="21"/>
-<wire x1="9.24" y1="3.98" x2="8.7868" y2="5.3192" width="0.1778" layer="51" curve="-59.756232"/>
-<wire x1="8.7868" y1="5.3192" x2="9.34" y2="9.31" width="0.1778" layer="51"/>
-<wire x1="9.34" y1="9.31" x2="8.05" y2="10.8" width="0.1778" layer="51" curve="89.99231"/>
-<wire x1="-9.24" y1="3.98" x2="-8.7868" y2="5.3192" width="0.1778" layer="51" curve="59.756232"/>
-<wire x1="-8.7868" y1="5.3192" x2="-9.34" y2="9.31" width="0.1778" layer="51"/>
-<wire x1="-9.34" y1="9.31" x2="-8.05" y2="10.8" width="0.1778" layer="51" curve="-89.99231"/>
-<wire x1="8.05" y1="-10.8" x2="-8.05" y2="-10.8" width="0.1778" layer="21"/>
-<wire x1="-8.05" y1="-10.8" x2="-8.05" y2="-4.7" width="0.1778" layer="21"/>
-<wire x1="8.05" y1="-10.8" x2="8.05" y2="-4.7" width="0.1778" layer="21"/>
-<pad name="GND0" x="-7.745" y="-3.17" drill="1.63"/>
-<pad name="GND1" x="7.745" y="-3.17" drill="1.63"/>
-<pad name="5" x="0.64" y="-8.89" drill="0.89"/>
-<pad name="4" x="1.91" y="-6.35" drill="0.89"/>
-<pad name="2" x="4.45" y="-6.35" drill="0.89"/>
-<pad name="6" x="-0.63" y="-6.35" drill="0.89"/>
-<pad name="8" x="-3.17" y="-6.35" drill="0.89"/>
-<pad name="10" x="-5.71" y="-6.35" drill="0.89"/>
-<pad name="3" x="3.18" y="-8.89" drill="0.89"/>
-<pad name="1" x="5.72" y="-8.89" drill="0.89"/>
-<pad name="7" x="-1.9" y="-8.89" drill="0.89"/>
-<pad name="9" x="-4.44" y="-8.89" drill="0.89"/>
-<pad name="14" x="-6.625" y="4.08" drill="1.02"/>
-<pad name="11" x="6.625" y="4.08" drill="1.02"/>
-<pad name="12" x="4.085" y="4.08" drill="1.02"/>
-<pad name="13" x="-4.085" y="4.08" drill="1.02"/>
-<hole x="-5.715" y="-0.12" drill="3.25"/>
-<hole x="5.715" y="-0.12" drill="3.25"/>
-<text x="-1.905" y="8.255" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
-<text x="-1.905" y="6.985" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
-</package>
-</packages>
-</library>
 <library name="crystal" urn="urn:adsk.eagle:library:204">
 <description>&lt;b&gt;Crystals and Crystal Resonators&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -1786,6 +1727,51 @@ Source: http://www.hirose.co.jp/cataloge_hp/e24000019.pdf</description>
 </package3d>
 </packages3d>
 </library>
+<library name="Stewart Connector - SI-52008-F">
+<description>Upverter Parts Library
+
+Created by Upverter.com</description>
+<packages>
+<package name="STEWART_CONNECTOR_SI-52008-F_0">
+<description>Modular Connectors / Ethernet Connectors RJ45 Connector</description>
+<wire x1="-8.99" y1="-12.7" x2="-8.99" y2="12.7" width="0.15" layer="51"/>
+<wire x1="-8.99" y1="12.7" x2="8.99" y2="12.7" width="0.15" layer="51"/>
+<wire x1="8.99" y1="12.7" x2="8.99" y2="-12.7" width="0.15" layer="51"/>
+<wire x1="8.99" y1="-12.7" x2="-8.99" y2="-12.7" width="0.15" layer="51"/>
+<wire x1="-9.09" y1="-12.8" x2="-9.09" y2="12.8" width="0.1" layer="39"/>
+<wire x1="-9.09" y1="12.8" x2="9.09" y2="12.8" width="0.1" layer="39"/>
+<wire x1="9.09" y1="12.8" x2="9.09" y2="-12.8" width="0.1" layer="39"/>
+<wire x1="9.09" y1="-12.8" x2="-9.09" y2="-12.8" width="0.1" layer="39"/>
+<wire x1="8.98" y1="-12.7" x2="-9" y2="-12.7" width="0.15" layer="21"/>
+<wire x1="-9" y1="-12.7" x2="-9" y2="-0.3" width="0.15" layer="21"/>
+<wire x1="9" y1="-12.7" x2="9" y2="-0.3" width="0.15" layer="21"/>
+<wire x1="-8.975" y1="2.7" x2="-8.975" y2="12.7" width="0.15" layer="21"/>
+<wire x1="8.975" y1="2.7" x2="8.975" y2="12.7" width="0.15" layer="21"/>
+<wire x1="8.975" y1="12.7" x2="6.675" y2="12.7" width="0.15" layer="21"/>
+<wire x1="-6.675" y1="12.7" x2="-8.975" y2="12.7" width="0.15" layer="21"/>
+<text x="-8.815" y="13.125" size="1" layer="25">&gt;NAME</text>
+<circle x="9.86" y="4.315" radius="0.25" width="0" layer="21"/>
+<rectangle x1="-5.715" y1="-9.53" x2="5.715" y2="1.9" layer="41"/>
+<hole x="-5.715" y="-1.91" drill="3.215"/>
+<hole x="5.715" y="-1.91" drill="3.215"/>
+<pad name="17" x="7.745" y="1.14" drill="1.57" diameter="2.42"/>
+<pad name="16" x="-7.745" y="1.14" drill="1.57" diameter="2.42"/>
+<pad name="13" x="-2.925" y="11.81" drill="1.02" diameter="1.57"/>
+<pad name="12" x="-5.465" y="11.81" drill="1.02" diameter="1.57"/>
+<pad name="14" x="2.925" y="11.81" drill="1.02" diameter="1.57"/>
+<pad name="15" x="5.465" y="11.81" drill="1.02" diameter="1.57"/>
+<pad name="11" x="-4.445" y="9.52" drill="0.89" diameter="1.39"/>
+<pad name="10" x="-5.715" y="6.98" drill="0.89" diameter="1.39"/>
+<pad name="9" x="-4.445" y="4.44" drill="0.89" diameter="1.39"/>
+<pad name="8" x="-3.175" y="6.98" drill="0.89" diameter="1.39"/>
+<pad name="5" x="0.635" y="4.44" drill="0.89" diameter="1.39"/>
+<pad name="4" x="1.905" y="6.98" drill="0.89" diameter="1.39"/>
+<pad name="3" x="3.175" y="4.44" drill="0.89" diameter="1.39"/>
+<pad name="2" x="4.445" y="6.98" drill="0.89" diameter="1.39"/>
+<pad name="1" x="5.715" y="4.44" drill="0.89" diameter="1.39" shape="square"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2023,12 +2009,6 @@ design rules under a new name.</description>
 <attribute name="NAME" x="-20.32" y="50.8" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="-21.59" y="39.37" size="1.27" layer="27" ratio="10"/>
 </element>
-<element name="J1" library="SparkFun-Connectors" package="MAGJACK-POE" value="MAGJACK-POE" x="-22.86" y="11.43" smashed="yes">
-<attribute name="NAME" x="-24.765" y="19.685" size="0.6096" layer="25" font="vector" ratio="20"/>
-<attribute name="PROD_ID" value="CONN-10659" x="0" y="0" size="1.778" layer="27" display="off"/>
-<attribute name="SF_ID" value="PRT-13606" x="0" y="0" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="-24.765" y="18.415" size="0.6096" layer="27" font="vector" ratio="20"/>
-</element>
 <element name="Q1" library="crystal" library_urn="urn:adsk.eagle:library:204" package="CTS406" package3d_urn="urn:adsk.eagle:package:12089/1" value="48 MHz" x="-38.1" y="45.72" smashed="yes">
 <attribute name="MF" value="" x="0" y="0" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="0" y="0" size="1.778" layer="27" display="off"/>
@@ -2075,6 +2055,20 @@ design rules under a new name.</description>
 <attribute name="OC_FARNELL" value="unknown" x="0" y="0" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="0" y="0" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="-56.515" y="23.495" size="1.27" layer="27"/>
+</element>
+<element name="J2" library="Stewart Connector - SI-52008-F" package="STEWART_CONNECTOR_SI-52008-F_0" value="STEWART_CONNECTOR_SI-52008-FSTEWART_CONNECTOR_SI-52008-F_0_0" x="-72.39" y="13.97" smashed="yes">
+<attribute name="CENTROID_NOT_SPECIFIED" value="No" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="DATASHEET" value="https://belfuse.com/resources/StewartConnector/SI-52008-F.pdf" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="DIGIKEY_DESCRIPTION" value="CONN MAGJACK 1PORT 100 BASE-T" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="DIGIKEY_PART_NUMBER" value="SI-52008-F-ND" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="LEAD_FREE" value="yes" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Stewart Connector" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="530-SI-52008-F" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="SI-52008-F" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-81.205" y="27.095" size="1" layer="25"/>
+<attribute name="PACKAGE" value="CONN_PTH_JACK" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="PREFIX" value="J" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
+<attribute name="ROHS" value="yes" x="-72.39" y="13.97" size="1.778" layer="27" display="off"/>
 </element>
 </elements>
 <signals>

@@ -19735,8 +19735,8 @@ Created by Upverter.com</description>
 <attribute name="NAME" x="-228.6" y="138.43" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-228.6" y="135.89" size="1.778" layer="96"/>
 </instance>
-<instance part="J2" gate="G$0" x="-299.72" y="83.82" smashed="yes">
-<attribute name="NAME" x="-297.18" y="81.28" size="2.54" layer="95" align="top-left"/>
+<instance part="J2" gate="G$0" x="-896.62" y="22.86" smashed="yes">
+<attribute name="NAME" x="-894.08" y="20.32" size="2.54" layer="95" align="top-left"/>
 </instance>
 </instances>
 <busses>
