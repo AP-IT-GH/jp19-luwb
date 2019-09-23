@@ -1,12 +1,24 @@
-<p-toolbar>
-    <!-- <div class="ui-toolbar-group-left">
-      <a [routerLink] ="['/home']"><img src="assets/img/LogoDC2.png"></a>
-        
-    </div> -->
-    <div class="ui-toolbar-group-left">
-        <button pButton type="button" label="home"  [routerLink] ="['/home']" [routerLinkActive] ="['ui-button-success']" icon="pi pi-home"></button>
-        <button pButton type="button" label="page1" [routerLink] ="['/page1']" [routerLinkActive] ="['ui-button-success']"></button>
-        <button pButton type="button" label="page2" [routerLink] ="['/page2']" [routerLinkActive] ="['ui-button-success']"></button>
-        <button pButton type="button" label="page3" [routerLink] ="['/page3']" [routerLinkActive] ="['ui-button-success']" icon="pi pi-cog"></button>
-    </div>
-  </p-toolbar>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="/assets/img/uwb.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" id="home">
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/home']" data-target=".navbar-collapse.show">Home</a>
+          </li>
+          <li class="nav-item" id="tags-anchors" >
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/tags_anchors']" data-target=".navbar-collapse.show">Tags/Anchors</a>
+          </li>
+          <li class="nav-item" id="settings" >
+              <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/settings']" data-target=".navbar-collapse.show">Settings</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button> -->
+        </form>
+      </div>
+</nav>
