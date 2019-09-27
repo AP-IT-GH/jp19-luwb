@@ -38,6 +38,51 @@ namespace Server.Models
                 context.Measurements.Add(measure3);
                 context.SaveChanges();
             }
+            if (!context.Tags.Any())
+            {
+                Tag[] tags = {
+                    new Tag()
+                    {
+                        Mac = "1.1.1.1",
+                        Description = "Dit is een test",
+                        XPos = 50,
+                        YPos = 73
+                    },
+                    new Tag()
+                    {
+                         Mac = "2.2.2.2",
+                        Description = "Dit is een test",
+                        XPos = 32,
+                        YPos = 40
+                    }
+                };
+                foreach (var item in tags)
+                {
+                    context.Tags.Add(item);
+                }
+                context.SaveChanges();
+                Anchor[] anchors = {
+                    new Anchor()
+                    {
+                        Mac = "3.3.3.3",
+                        Description = "Dit is een test",
+                        XPos = 100,
+                        YPos = 100
+                    },
+                    new Anchor()
+                    {
+                        Mac = "4.4.4.4",
+                        Description = "Dit is een test",
+                        XPos = 200,
+                        YPos = 200
+                    }
+                };
+                foreach (var item in anchors)
+                {
+                    context.Anchors.Add(item);
+                }
+                context.SaveChanges();
+            }
         }
     }
 }

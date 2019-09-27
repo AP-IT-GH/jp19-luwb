@@ -1,1 +1,45 @@
-<p>tags-anchors works!</p>
+<body>
+    <section style="margin-left: 10px;">
+        <br>
+        <strong>Visual:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+        <p-selectButton [options]="listTypes" [(ngModel)]="TypeSelected" (onOptionClick)="FilterBy($event)" multiple="multiple"></p-selectButton><br><br>
+        <strong>Sort By:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+        <select class="custom-select" [(ngModel)]="apiService.sortBy" (ngModelChange)="GetTagsAndAnchors()">
+            <option *ngFor="let item of OrderByList" value="{{item}}">{{item}}</option>
+        </select><br><br> 
+    </section>
+    <section>
+        <ul class="list-group">
+            <li class="list-group-item row d-flex list-group-item-info">
+                <p class="col-1"><b>id</b></p>
+                <p class="col-1"><b>type</b></p>
+                <p class="col-1 mac"><b>mac</b></p>
+                <p class="col-1"><b>xPos</b></p>
+                <p class="col-1"><b>yPos</b></p>
+                <p class="col-3"><b>description</b></p>
+            </li>    
+            <div *ngFor="let item of visualList; let i = index">
+                <li class="list-group-item row d-flex" *ngIf="(i%2 == 0)">
+                    <p class="col-1">{{item.id}}</p>
+                    <p class="col-1">{{item.type}}</p>
+                    <p class="col-1 mac">{{item.mac}}</p>
+                    <p class="col-1">{{item.xPos}}</p>
+                    <p class="col-1">{{item.yPos}}</p>
+                    <p class="col-3">{{item.description}}</p>
+                </li>
+                <li class="list-group-item row d-flex list-group-item-secondary" *ngIf="!(i%2 == 0)">
+                    <p class="col-1">{{item.id}}</p>
+                    <p class="col-1">{{item.type}}</p>
+                    <p class="col-1 mac">{{item.mac}}</p>
+                    <p class="col-1">{{item.xPos}}</p>
+                    <p class="col-1">{{item.yPos}}</p>
+                    <p class="col-3">{{item.description}}</p>
+                </li>
+            </div>
+        </ul><br>
+        <button style="display:inline-block;" label="Previous Page" pButton type="button" class="ui-button-raised ui-button-rounded ui-button-info" (click)="PreviousPage()"></button>&nbsp;&nbsp;
+        <p style="display:inline-block;" ><strong>Current Page: {{apiService.pageNumber}}</strong></p>&nbsp;&nbsp;
+        <button style="display:inline-block;" label="Next Page" pButton type="button" class="ui-button-raised ui-button-rounded ui-button-info" (click)="NextPage()"></button> 
+    </section>
+</body>
+

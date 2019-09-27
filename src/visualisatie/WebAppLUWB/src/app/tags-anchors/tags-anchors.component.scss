@@ -1,0 +1,18 @@
+@media only screen and (min-width: 800px){
+    body{
+        display: grid;
+        grid-template-columns: 35% 65%;
+    }
+}
+.mac{
+    margin-right: 10px; 
+    margin-left: 15px;
+}
+select{
+    width: auto;
+}
+section{
+    ul{
+        margin-right: 15px;
+    }
+}

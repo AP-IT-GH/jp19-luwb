@@ -1,0 +1,6 @@
+<section>
+    <p>Number of Tags/Anchors shown in the list:</p>
+    <select class="custom-select" [(ngModel)]="apiService.pageSize">
+        <option *ngFor="let item of pageSizeList" value="{{item}}">{{item}}</option>
+    </select>
+</section>
