@@ -4,7 +4,7 @@
         <strong>Visual:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
         <p-selectButton [options]="listTypes" [(ngModel)]="TypeSelected" (onOptionClick)="FilterBy($event)" multiple="multiple"></p-selectButton><br><br>
         <strong>Sort By:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
-        <select class="custom-select" [(ngModel)]="apiService.sortBy" (ngModelChange)="GetTagsAndAnchors()">
+        <select class="custom-select" [(ngModel)]="apiService.sortBy" (ngModelChange)="GetSelectetObjects()">
             <option *ngFor="let item of OrderByList" value="{{item}}">{{item}}</option>
         </select><br><br> 
     </section>

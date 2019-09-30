@@ -49,6 +49,7 @@ namespace Server.Algorithm
                                                       double x1, double y1, double r1,
                                                       double x2, double y2, double r2)
         {
+            //define EPSILON to a small value that is acceptable for your application requirements (0.000001)
             double EPSILON = 400;
 
             double a, dx, dy, d, h, rx, ry;
@@ -123,6 +124,7 @@ namespace Server.Algorithm
             {
                 return new M { XPos = (int)Math.Round(intersectionPoint2_x), YPos = (int)Math.Round(intersectionPoint2_y) };
             }
+            /* no solution. the 3 circles doesn't intersect on 1 point */
             return new M { XPos = 3, YPos = 3 };
         }
     }
