@@ -1,10 +1,13 @@
-from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates
+from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates, DeviceCoordinates
 
-#Change the remote ID's for getting coordinates of another device
-device1 = 0x6642
+#Change the remote ID for checking coordinates from another device
+r_id = None
+
+#change the ID's for checking coordinates of another device
+device1 = 0x6734
 device2 = 0x671f
-device3 = 0x6734
-device4 = None
+device3 = 0x6e13
+device4 = 0x6642
 
 #Setup variables
 positionDevice1 = Coordinates()
@@ -21,15 +24,15 @@ else:
     print("No Pozyx port was found")
     exit()
 
-#Obtain the device Coordinates
-pozyx.getCoordinates(positionDevice1, device1)
-print(positionDevice1)
-pozyx.getCoordinates(positionDevice2, device2)
-print(positionDevice2)
-pozyx.getCoordinates(positionDevice3, device3)
-print(positionDevice3)
-pozyx.getCoordinates(positionDevice4, device4)
-print(positionDevice4)
+#Obtain the device coordinates from the device list
+pozyx.getDeviceCoordinates(device1,positionDevice1,r_id)
+print(str(device1) + ": " + str(positionDevice1))
+pozyx.getDeviceCoordinates(device2,positionDevice2,r_id)
+print(str(device2) + ": " + str(positionDevice2))
+pozyx.getDeviceCoordinates(device3,positionDevice3,r_id)
+print(str(device3) + ": " + str(positionDevice3))
+pozyx.getDeviceCoordinates(device4,positionDevice4,r_id)
+print(str(device4) + ": " + str(positionDevice4))
 
 
 #Exception exit
