@@ -152,9 +152,8 @@
 <wire x1="100" y1="0" x2="99.8984" y2="68.7224" width="0" layer="20"/>
 <wire x1="99.8984" y1="68.7224" x2="-0.1016" y2="68.7478" width="0" layer="20"/>
 <wire x1="-0.1016" y1="68.7478" x2="0" y2="0" width="0" layer="20"/>
-<dimension x1="0" y1="80" x2="100" y2="80" x3="50" y3="81.2038" textsize="1.778" layer="1"/>
-<dimension x1="100" y1="0" x2="100" y2="80" x3="102.1588" y3="40" textsize="1.778" layer="1"/>
 <dimension x1="100" y1="0" x2="99.8984" y2="68.7224" x3="111.78028125" y3="34.378690625" textsize="1.778" layer="1"/>
+<dimension x1="-0.1016" y1="68.7478" x2="99.8984" y2="68.7224" x3="49.89881875" y3="70.39534375" textsize="1.778" layer="1"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -1417,48 +1416,6 @@ grid 3.5 mm, diameter 8 mm</description>
 </package3d>
 </packages3d>
 </library>
-<library name="crystal" urn="urn:adsk.eagle:library:204">
-<description>&lt;b&gt;Crystals and Crystal Resonators&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="CTS406" urn="urn:adsk.eagle:footprint:12012/1" library_version="1">
-<description>&lt;b&gt;Model 406 6.0x3.5mm Low Cost Surface Mount Crystal&lt;/b&gt;&lt;p&gt;
-Source: 008-0260-0_E.pdf</description>
-<wire x1="-2.475" y1="1.65" x2="-1.05" y2="1.65" width="0.2032" layer="51"/>
-<wire x1="-1.05" y1="1.65" x2="1.05" y2="1.65" width="0.2032" layer="21"/>
-<wire x1="1.05" y1="1.65" x2="2.475" y2="1.65" width="0.2032" layer="51"/>
-<wire x1="2.9" y1="1.225" x2="2.9" y2="0.3" width="0.2032" layer="51"/>
-<wire x1="2.9" y1="0.3" x2="2.9" y2="-0.3" width="0.2032" layer="21"/>
-<wire x1="2.9" y1="-0.3" x2="2.9" y2="-1.225" width="0.2032" layer="51"/>
-<wire x1="2.475" y1="-1.65" x2="1.05" y2="-1.65" width="0.2032" layer="51"/>
-<wire x1="1.05" y1="-1.65" x2="-1.05" y2="-1.65" width="0.2032" layer="21"/>
-<wire x1="-1.05" y1="-1.65" x2="-2.475" y2="-1.65" width="0.2032" layer="51"/>
-<wire x1="-2.9" y1="-1.225" x2="-2.9" y2="-0.3" width="0.2032" layer="51"/>
-<wire x1="-2.9" y1="-0.3" x2="-2.9" y2="0.3" width="0.2032" layer="21"/>
-<wire x1="-2.9" y1="0.3" x2="-2.9" y2="1.225" width="0.2032" layer="51"/>
-<wire x1="-2.9" y1="1.225" x2="-2.475" y2="1.65" width="0.2032" layer="51" curve="89.516721"/>
-<wire x1="2.475" y1="1.65" x2="2.9" y2="1.225" width="0.2032" layer="51" curve="89.516721"/>
-<wire x1="2.9" y1="-1.225" x2="2.475" y2="-1.65" width="0.2032" layer="51" curve="89.516721"/>
-<wire x1="-2.475" y1="-1.65" x2="-2.9" y2="-1.225" width="0.2032" layer="51" curve="89.516721"/>
-<circle x="-2.05" y="-0.2" radius="0.182" width="0" layer="21"/>
-<smd name="1" x="-2.2" y="-1.2" dx="1.9" dy="1.4" layer="1"/>
-<smd name="2" x="2.2" y="-1.2" dx="1.9" dy="1.4" layer="1"/>
-<smd name="3" x="2.2" y="1.2" dx="1.9" dy="1.4" layer="1"/>
-<smd name="4" x="-2.2" y="1.2" dx="1.9" dy="1.4" layer="1"/>
-<text x="-2.54" y="2.54" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
-</package>
-</packages>
-<packages3d>
-<package3d name="CTS406" urn="urn:adsk.eagle:package:12089/1" type="box" library_version="1">
-<description>Model 406 6.0x3.5mm Low Cost Surface Mount Crystal
-Source: 008-0260-0_E.pdf</description>
-<packageinstances>
-<packageinstance name="CTS406"/>
-</packageinstances>
-</package3d>
-</packages3d>
-</library>
 <library name="SparkFun-Switches">
 <description>&lt;h3&gt;SparkFun Switches, Buttons, Encoders&lt;/h3&gt;
 In this library you'll find switches, buttons, joysticks, and anything that moves to create or disrupt an electrical connection.
@@ -2550,6 +2507,20 @@ Please send your comments to the mail address above.</description>
 </package>
 </packages>
 </library>
+<library name="abracon">
+<packages>
+<package name="ABS07">
+<smd name="1" x="-1.25" y="0" dx="1.1" dy="1.9" layer="1"/>
+<smd name="2" x="1.25" y="0" dx="1.1" dy="1.9" layer="1"/>
+<wire x1="-1.6" y1="0.75" x2="1.6" y2="0.75" width="0.1" layer="21"/>
+<wire x1="1.6" y1="0.75" x2="1.6" y2="-0.75" width="0.1" layer="21"/>
+<wire x1="1.6" y1="-0.75" x2="-1.6" y2="-0.75" width="0.1" layer="21"/>
+<wire x1="-1.6" y1="-0.75" x2="-1.6" y2="0.75" width="0.1" layer="21"/>
+<text x="-1.75" y="1.25" size="0.8128" layer="25" font="vector" ratio="12">&gt;NAME</text>
+<text x="-1.5" y="-2" size="0.8128" layer="27" font="vector" ratio="12">&gt;VALUE</text>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2773,12 +2744,8 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="C" x="70.866" y="-35.306" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="28.956" y="18.034" size="1.27" layer="27"/>
 </element>
-<element name="Q1" library="crystal" library_urn="urn:adsk.eagle:library:204" package="CTS406" package3d_urn="urn:adsk.eagle:package:12089/1" value="32 MHz" x="30.226" y="15.748" smashed="yes" rot="R270">
-<attribute name="MF" value="" x="-15.494" y="-22.352" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="" x="-15.494" y="-22.352" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="Q1" library="abracon" package="ABS07" value="32 MHz" x="30.226" y="15.748" smashed="yes" rot="R270">
 <attribute name="NAME" x="32.766" y="18.288" size="1.27" layer="25" rot="R270"/>
-<attribute name="OC_FARNELL" value="unknown" x="-15.494" y="-22.352" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="-15.494" y="-22.352" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="26.416" y="18.288" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" package="M0805" package3d_urn="urn:adsk.eagle:package:23556/1" value="10 kΩ" x="16.002" y="10.414" smashed="yes" rot="R270">
@@ -3805,28 +3772,29 @@ design rules under a new name.</description>
 <signal name="XTAL1">
 <contactref element="U1" pad="1"/>
 <contactref element="C5" pad="1"/>
-<contactref element="Q1" pad="3"/>
-<wire x1="31.242" y1="13.2588" x2="31.242" y2="10.668" width="0.1524" layer="1"/>
-<wire x1="31.3944" y1="13.4112" x2="31.242" y2="13.2588" width="0.1524" layer="1"/>
+<contactref element="Q1" pad="2"/>
+<wire x1="31.242" y1="12.04024375" x2="31.242" y2="10.668" width="0.1524" layer="1"/>
 <wire x1="31.242" y1="10.668" x2="31.176" y2="10.668" width="0.1524" layer="1"/>
-<wire x1="31.3944" y1="13.4112" x2="31.426" y2="13.548" width="0.1524" layer="1"/>
-<wire x1="29.4132" y1="15.5448" x2="22.86" y2="15.5448" width="0.1524" layer="1"/>
-<wire x1="31.3944" y1="13.5636" x2="29.4132" y2="15.5448" width="0.1524" layer="1"/>
+<wire x1="31.242" y1="12.04024375" x2="30.226" y2="12.9852875" width="0.1524" layer="1"/>
+<wire x1="30.226" y1="12.9852875" x2="30.226" y2="14.498" width="0.1524" layer="1"/>
+<wire x1="29.1846" y1="15.5448" x2="22.86" y2="15.5448" width="0.1524" layer="1"/>
+<wire x1="30.226" y1="14.5034" x2="29.1846" y2="15.5448" width="0.1524" layer="1"/>
 <wire x1="22.86" y1="15.5448" x2="22.792" y2="15.538" width="0.1524" layer="1"/>
-<wire x1="31.3944" y1="13.5636" x2="31.426" y2="13.548" width="0.1524" layer="1"/>
+<wire x1="30.226" y1="14.5034" x2="30.226" y2="14.498" width="0.1524" layer="1"/>
 </signal>
 <signal name="XTAL2">
 <contactref element="U1" pad="2"/>
 <contactref element="Q1" pad="1"/>
 <contactref element="C6" pad="1"/>
 <wire x1="27.2796" y1="16.1544" x2="22.86" y2="16.1544" width="0.1524" layer="1"/>
-<wire x1="28.956" y1="17.8308" x2="27.2796" y2="16.1544" width="0.1524" layer="1"/>
+<wire x1="28.12484375" y1="16.99964375" x2="27.2796" y2="16.1544" width="0.1524" layer="1"/>
 <wire x1="22.86" y1="16.1544" x2="22.792" y2="16.038" width="0.1524" layer="1"/>
-<wire x1="28.956" y1="17.8308" x2="29.026" y2="17.948" width="0.1524" layer="1"/>
-<wire x1="29.2608" y1="18.1356" x2="29.2608" y2="20.574" width="0.1524" layer="1"/>
-<wire x1="29.1084" y1="17.9832" x2="29.2608" y2="18.1356" width="0.1524" layer="1"/>
+<wire x1="28.127353125" y1="16.998" x2="30.226" y2="16.998" width="0.1524" layer="1"/>
+<wire x1="28.127353125" y1="16.998" x2="28.12484375" y2="16.99964375" width="0.1524" layer="1"/>
+<wire x1="29.2608" y1="19.3704625" x2="29.2608" y2="20.574" width="0.1524" layer="1"/>
 <wire x1="29.2608" y1="20.574" x2="29.276" y2="20.574" width="0.1524" layer="1"/>
-<wire x1="29.1084" y1="17.9832" x2="29.026" y2="17.948" width="0.1524" layer="1"/>
+<wire x1="30.226" y1="18.519609375" x2="30.226" y2="16.998" width="0.1524" layer="1"/>
+<wire x1="30.226" y1="18.519609375" x2="29.2608" y2="19.3704625" width="0.1524" layer="1"/>
 </signal>
 <signal name="RESET">
 <contactref element="U1" pad="40"/>

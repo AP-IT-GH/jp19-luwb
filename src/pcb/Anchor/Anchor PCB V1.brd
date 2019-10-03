@@ -3468,8 +3468,6 @@ design rules under a new name.</description>
 <wire x1="57.6126" y1="45.6946" x2="58.2984" y2="45.6946" width="0.1524" layer="1"/>
 <wire x1="48.5394" y1="53.8734" x2="53.6194" y2="53.8734" width="0.1524" layer="1"/>
 <wire x1="52.959" y1="45.4406" x2="52.5424" y2="49.0982" width="0" layer="19" extent="1-16"/>
-<wire x1="7.0612" y1="5.1816" x2="7.015" y2="5.11" width="0" layer="19" extent="1-1"/>
-<wire x1="76.962" y1="15.0876" x2="73.66" y2="15.2654" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCC">
 <contactref element="U1" pad="44"/>
@@ -3915,11 +3913,10 @@ design rules under a new name.</description>
 <signal name="TMR">
 <contactref element="IC2" pad="1"/>
 <contactref element="C12" pad="1"/>
-<wire x1="54.5592" y1="35.052" x2="53.7972" y2="35.052" width="0.1524" layer="1"/>
-<wire x1="55.1688" y1="34.4424" x2="54.5592" y2="35.052" width="0.1524" layer="1"/>
-<wire x1="55.1688" y1="27.432" x2="55.1688" y2="34.4424" width="0.1524" layer="1"/>
+<wire x1="54.483" y1="35.179" x2="53.721" y2="35.179" width="0.1524" layer="1"/>
+<wire x1="55.1688" y1="34.4932" x2="54.483" y2="35.179" width="0.1524" layer="1"/>
+<wire x1="55.1688" y1="27.432" x2="55.1688" y2="34.4932" width="0.1524" layer="1"/>
 <wire x1="55.626" y1="26.9748" x2="55.1688" y2="27.432" width="0.1524" layer="1"/>
-<wire x1="53.7972" y1="35.052" x2="53.721" y2="35.179" width="0.1524" layer="1"/>
 <wire x1="55.626" y1="26.9748" x2="55.692" y2="26.924" width="0.1524" layer="1"/>
 </signal>
 <signal name="FREQ">
@@ -4022,11 +4019,8 @@ design rules under a new name.</description>
 <wire x1="33.9852" y1="33.9852" x2="32.6136" y2="33.9852" width="0.6096" layer="1"/>
 <wire x1="28.0416" y1="33.9852" x2="27.94" y2="33.835" width="0.6096" layer="1"/>
 <wire x1="33.9852" y1="33.9852" x2="34.036" y2="33.848" width="0.6096" layer="1"/>
-<wire x1="47.5488" y1="31.9278" x2="53.721" y2="31.9278" width="0.6096" layer="1"/>
-<wire x1="46.4566" y1="33.02" x2="47.5488" y2="31.9278" width="0.6096" layer="1"/>
-<wire x1="44.0436" y1="33.02" x2="46.4566" y2="33.02" width="0.254" layer="1"/>
-<wire x1="43.2562" y1="32.2326" x2="44.0436" y2="33.02" width="0.6096" layer="1"/>
-<wire x1="40.9448" y1="32.2326" x2="43.2562" y2="32.2326" width="0.6096" layer="1"/>
+<wire x1="42.8498" y1="32.2326" x2="43.561" y2="32.9438" width="0.6096" layer="1"/>
+<wire x1="40.9448" y1="32.2326" x2="42.8498" y2="32.2326" width="0.6096" layer="1"/>
 <wire x1="40.9448" y1="32.2326" x2="39.944" y2="33.2334" width="0.6096" layer="1"/>
 <wire x1="39.944" y1="33.528" x2="39.944" y2="33.2334" width="0.6096" layer="1"/>
 <wire x1="38.2524" y1="33.9852" x2="32.6136" y2="33.9852" width="0.6096" layer="16"/>
@@ -4074,6 +4068,14 @@ design rules under a new name.</description>
 <wire x1="59.5122" y1="48.4632" x2="58.4454" y2="47.3964" width="0.6096" layer="1"/>
 <wire x1="59.5122" y1="48.8188" x2="58.1152" y2="48.8188" width="0.6096" layer="16"/>
 <wire x1="59.5122" y1="50.0888" x2="59.5122" y2="48.8188" width="0.6096" layer="1"/>
+<via x="43.561" y="32.9438" extent="1-16" drill="0.35"/>
+<via x="46.7868" y="32.5882" extent="1-16" drill="0.35"/>
+<wire x1="46.4058" y1="32.9438" x2="43.561" y2="32.9438" width="0.6096" layer="16"/>
+<wire x1="46.7614" y1="32.5882" x2="46.7868" y2="32.5882" width="0.6096" layer="16"/>
+<wire x1="46.7614" y1="32.5882" x2="46.4058" y2="32.9438" width="0.6096" layer="16"/>
+<wire x1="47.6758" y1="31.9278" x2="47.0154" y2="32.5882" width="0.6096" layer="1"/>
+<wire x1="47.0154" y1="32.5882" x2="46.7868" y2="32.5882" width="0.6096" layer="1"/>
+<wire x1="53.721" y1="31.9278" x2="47.6758" y2="31.9278" width="0.6096" layer="1"/>
 </signal>
 <signal name="VBIAS">
 <contactref element="C17" pad="1"/>
@@ -4324,7 +4326,7 @@ design rules under a new name.</description>
 <wire x1="4.3942" y1="6.4516" x2="4.3942" y2="5.134" width="0.254" layer="1"/>
 <wire x1="2.8956" y1="7.4676" x2="2.794" y2="7.578" width="0.1524" layer="1"/>
 <contactref element="J2" pad="1"/>
-<wire x1="4.3942" y1="5.134" x2="4.415" y2="4.707" width="0" layer="19" extent="1-1"/>
+<wire x1="4.415" y1="4.707" x2="4.3942" y2="5.134" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCAP">
 <contactref element="IC1" pad="1"/>
