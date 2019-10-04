@@ -64,14 +64,14 @@ namespace Server.Models
                 Anchor[] anchors = {
                     new Anchor()
                     {
-                        Mac = "3.3.3.3",
+                        Mac = "192.168.1.3",
                         Description = "Dit is een test",
                         XPos = 100,
                         YPos = 100
                     },
                     new Anchor()
                     {
-                        Mac = "4.4.4.4",
+                        Mac = "192.168.1.4",
                         Description = "Dit is een test",
                         XPos = 200,
                         YPos = 200

@@ -17,6 +17,10 @@ export class TagsAnchorsComponent implements OnInit {
   TypeSelected: string[] = ["1","2"];
   selected: string = "id";
   OrderByList: string[] = ["id","mac","xPos","yPos"];
+  addTagAnchor: TagAnchor = {mac:null,description:null,xPos:null,yPos:null,type:"Choose..."};
+  errorAdd: boolean = false;
+  successAdd: boolean = false;
+  pageSizeList: number[] = [2,4,6,8,10,20,30,40,50];
   ngOnInit() {
     this.GetTagsAndAnchors();
   }
@@ -27,11 +31,11 @@ export class TagsAnchorsComponent implements OnInit {
     else if(element == "2" && this.TypeSelected.length == 2) this.TypeSelected = ["1"];
     else if (element == "1" || element == "2") this.TypeSelected = [];
     else this.TypeSelected.push(`${event.option.value}`);
-    this.apiService.pageNumber = 1;
     this.GetSelectetObjects();
   }
-  GetSelectetObjects(){
+  GetSelectetObjects(paging?:boolean){
     this.visualList = [];
+    if(!paging)this.apiService.pageNumber = 1;
     if(this.TypeSelected.length != 2) this.apiService.pageSizeDivider = 1;
     else this.apiService.pageSizeDivider = 2;
     if (this.TypeSelected.length == 2) this.GetTagsAndAnchors();
@@ -60,17 +64,56 @@ export class TagsAnchorsComponent implements OnInit {
       this.visualList.push(element);
     });
   }
+  AddTagAnchor(){
+    if(this.addTagAnchor.type == "Tag")
+      this.apiService.AddTag(this.addTagAnchor).subscribe(
+        (val) => {
+          this.successAdd = true;
+          this.GetSelectetObjects(true);
+          this.addTagAnchor = {mac:null,description:null,xPos:null,yPos:null,type:"Choose..."};
+        },
+        response => {
+          this.errorAdd = true;
+          console.log("test");
+        },
+        () => {
+          //console.log("The GET observable is now completed.");
+        }
+      );
+    else if(this.addTagAnchor.type == "Anchor")
+      this.apiService.AddAnchor(this.addTagAnchor).subscribe(
+        (val) => {
+          this.successAdd = true;
+          this.GetSelectetObjects(true);
+          this.addTagAnchor = {mac:null,description:null,xPos:null,yPos:null,type:"Choose..."};
+        },
+        response => {
+          this.errorAdd = true;
+        },
+        () => {
+          //console.log("The GET observable is now completed.");
+        }
+      );
+  }
+  CloseMessage(){
+    this.errorAdd = false;
+    this.successAdd = false;
+  }
 
   PreviousPage(){
     if(this.apiService.pageNumber > 1){
       this.apiService.pageNumber--;
-      this.GetSelectetObjects();
+      this.GetSelectetObjects(true);
     }
   }
   NextPage(){
-    if(this.visualList[this.apiService.pageSize/this.apiService.pageSizeDivider-1]){
+    var aantal;
+    if(this.TypeSelected.length == 2)
+      aantal = this.apiService.pageSize-1;
+    else aantal = this.apiService.pageSize/this.apiService.pageSizeDivider-1;
+    if(this.visualList[aantal]){
       this.apiService.pageNumber++;
-      this.GetSelectetObjects();
+      this.GetSelectetObjects(true);
     }
   }
 }

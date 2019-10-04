@@ -24,10 +24,16 @@ export class CallapiService {
     .toPromise();
     //return this.http.get<TagAnchor[]>(`${this.domain}anchors`);
   }
+  public AddTag(addTagAnchor: TagAnchor){
+    return this.http.post<TagAnchor>(`${this.domain}tags`,addTagAnchor);
+  }
+  public AddAnchor(addTagAnchor: TagAnchor){
+    return this.http.post<TagAnchor>(`${this.domain}anchors`,addTagAnchor);
+  }
 }
 
 export interface TagAnchor {
-  id: number;
+  id?: number;
   mac: string;
   description: string;
   xPos: number;
