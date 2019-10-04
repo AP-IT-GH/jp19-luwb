@@ -1,7 +1,6 @@
 # 1. Software
-## 1.1 Geruikte software
+## 1.1 Gebruikte software
 -	Tag + anchors met Arduino (C/C++)
--	Opslagen data lokaal op Raspberry Pi (via PHP)
 -	Data wordt doorgestuurd door de Raspberry Pi (python script)
 -	Data wordt opgeslagen in een ASP.NET server
 -	Data wordt visueel weergegeven in Angular
@@ -33,7 +32,7 @@ Voorbeeld: TAG5;ANCHOR1;25;1557475973
 - Het listenAndPostScriptMQTT.py script luistert naar de socket. Stuurt bij het ontvangen van data de data door via MQTT.
 1. Leest de config.ini file uit voor configuratie.
 2. Luistert naar de socket op ingestelde ip + poort.
-3. Stuurt de ontvangen data door via MQTT naar ingestelde topic.
+3. Stuurt de ontvangen data door via MQTT naar de ingestelde topic.
 Het formaat van de doorgestuurde data is:
 TAGx;ANCHORy;distance;unixtimestamp
 Met: x het tagnummer, y het anchornummer, distance de afstand van anchor naar tag en unixtimestamp de datum  
