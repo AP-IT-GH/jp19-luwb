@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2019-10-04T10:38:00Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.3.0"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "Anchor PCB V1"
+        },
+        "Owner": "Hector Brasfalean <hector.brasfalean@student.ap.be>",
+        "Size": {
+            "X": 100.1016,
+            "Y": 68.7478
+        }
+    }
+}
