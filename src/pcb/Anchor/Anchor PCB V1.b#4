@@ -38,7 +38,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -154,6 +154,9 @@
 <wire x1="-0.1016" y1="68.7478" x2="0" y2="0" width="0" layer="20"/>
 <dimension x1="100" y1="0" x2="99.8984" y2="68.7224" x3="111.78028125" y3="34.378690625" textsize="1.778" layer="1"/>
 <dimension x1="-0.1016" y1="68.7478" x2="99.8984" y2="68.7224" x3="49.89881875" y3="70.39534375" textsize="1.778" layer="1"/>
+<hole x="41.7322" y="7.239" drill="1"/>
+<hole x="5.08" y="60.0202" drill="0.35"/>
+<hole x="91.2368" y="61.087" drill="0.35"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
