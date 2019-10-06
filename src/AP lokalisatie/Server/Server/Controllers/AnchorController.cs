@@ -93,12 +93,18 @@ namespace Server.Controllers
         [HttpPut]
         public ActionResult<Anchor> UpdateTag([FromBody]Anchor anchor)
         {
-            var anchorId = anchor.Id;
-            if (context.Anchors.Find(anchorId) == null)
-                return NotFound();
-            context.Anchors.Update(anchor);
-            context.SaveChanges();
-            return Ok(anchor);
+            //var anchorId = anchor.Id;
+            //if (context.Anchors.Find(anchor.Id) == null)
+            //    return NotFound();
+            try
+            {
+                context.Anchors.Update(anchor);
+                context.SaveChanges();
+                return Ok(anchor);
+            }
+            catch{}
+            return NotFound();
+
         }
 
         [Route("{id}")]

@@ -94,12 +94,17 @@ namespace Server.Controllers
         [HttpPut]
         public ActionResult<Tag> UpdateTag([FromBody]Tag tag)
         {
-            var tagId = tag.Id;
-            if (context.Tags.Find(tagId) == null)
-                return NotFound();
-            context.Tags.Update(tag);
-            context.SaveChanges();
-            return Ok(tag);
+            //var tagId = tag.Id;
+            //if (context.Tags.Find(tagId) == null)
+            //    return NotFound();
+            try
+            {
+                context.Tags.Update(tag);
+                context.SaveChanges();
+                return Ok(tag);
+            }
+            catch {}
+            return NotFound();
         }
 
         [Route("{id}")]
