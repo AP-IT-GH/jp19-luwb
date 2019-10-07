@@ -33,7 +33,8 @@
       It then adds the ID's and coordinates of the set devices to the device list of the device.  
       It can be saved to the flash but this is disabled due to testing purposes.
    * setCoordinates.py  
-      
+      This script changes the coordinates of the given devices in the memory of those devices.
+      It also prints all the set coordinates as a check.
    * discoverDevices.py  
       It discovers the devices with the same UWB-settings which are in range.  
       And prints them to the terminal.
@@ -45,4 +46,6 @@
       The script gets the coordinates of the asked devices out of the device list of the device where the script is executed.  
       It can be used after the setupAnchors script.
    * positioningTag.py  
-   
+      This is the script you will use the most.
+      This does the positioning of the given device and prints it to the terminal.
+      It is looped so you have to stop the script.
