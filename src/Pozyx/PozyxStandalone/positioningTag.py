@@ -1,7 +1,7 @@
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates
 
 #Change the remote ID for positioning another device
-r_id = None
+r_id = 0x673a
 
 #Setup variables
 positionTag = Coordinates()
@@ -15,10 +15,10 @@ else:
     print("No Pozyx port was found")
     exit()
 
-
-while True:
-    pozyx.doPositioning(positionTag, remote_id=r_id)
-    print(positionTag)
+try:
+    while True:
+        pozyx.doPositioning(positionTag, remote_id=r_id)
+        print(positionTag)
 
 #Exception exit
 except:

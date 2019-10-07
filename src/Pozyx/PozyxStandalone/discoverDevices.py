@@ -12,13 +12,14 @@ else:
     print("No Pozyx port was found")
     exit()
 
-#Clears the device list
-pozyx.clearDevices(r_id)
+try:
+    #Clears the device list
+    pozyx.clearDevices(r_id)
 
-#Does discovery on the device and print the found devices
-if pozyx.doDiscovery(discovery_type=PozyxConstants.DISCOVERY_ALL_DEVICES, remote_id=r_id) == POZYX_SUCCESS:
-    print("Found devices:")
-    pozyx.printDeviceList(r_id ,include_coordinates=True)
+    #Does discovery on the device and print the found devices
+    if pozyx.doDiscovery(discovery_type=PozyxConstants.DISCOVERY_ALL_DEVICES, remote_id=r_id) == POZYX_SUCCESS:
+        print("Found devices:")
+        pozyx.printDeviceList(r_id ,include_coordinates=False)
 
 #Exception exit
 except:

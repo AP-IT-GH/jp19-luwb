@@ -1,7 +1,7 @@
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates, DeviceCoordinates
 
 #Change the remote ID for set-up from another device
-r_id = None
+r_id = 0x673a
 
 #Setup variables
 positionAnchor = Coordinates()
@@ -15,26 +15,29 @@ else:
     print("No Pozyx port was found")
     exit()
 
+try:
+    ##Setup anchors
+    #Clear previous setup
+    pozyx.clearDevices()
+    print("List cleared.")
 
-##Setup anchors
-#Clear previous setup
-pozyx.clearDevices()
+    #Anchor variables
+    anchor0x6734 = DeviceCoordinates(0x6734,1,Coordinates(711,0,1954))
+    anchor0x6642 = DeviceCoordinates(0x6642,1,Coordinates(10,5998,2504))
+    anchor0x6e13 = DeviceCoordinates(0x6e13,1,Coordinates(4398,5930,2206))
+    anchor0x671f = DeviceCoordinates(0x671f,1,Coordinates(4153,0,2524))
+    print("Coordinates set.")
 
-#Anchor variables
-anchor0x6734 = DeviceCoordinates(0x6734,1,Coordinates(2212,0,2912))
-anchor0x671f = DeviceCoordinates(0x671f,1,Coordinates(100,3875,2424))
-anchor0x6e13 = DeviceCoordinates(0x6e13,1,Coordinates(4497,9878,1981))
-anchor0x6642 = DeviceCoordinates(0x6642,1,Coordinates(100,9929,2533))
+    #Add Anchors to the device list
+    pozyx.addDevice(anchor0x6734, remote_id=r_id)
+    pozyx.addDevice(anchor0x6642, remote_id=r_id)
+    pozyx.addDevice(anchor0x6e13, remote_id=r_id)
+    pozyx.addDevice(anchor0x671f, remote_id=r_id)
+    print("Devices added.")
 
-#Add Anchors to the tag device list
-pozyx.addDevice(anchor0x6734, remote_id=tagId)
-pozyx.addDevice(anchor0x671f, remote_id=tagId)
-pozyx.addDevice(anchor0x6e13, remote_id=tagId)
-pozyx.addDevice(anchor0x6642, remote_id=tagId)
-
-#Don't abuse function, flash will fail
-#Save configuration of the anchors
-#pozyx.saveNetwork(remote_id=tagId)
+    #Don't abuse function, flash will fail
+    #Save configuration of the anchors
+    #pozyx.saveNetwork(remote_id=tagId)
 
 #Exception exit
 except:
