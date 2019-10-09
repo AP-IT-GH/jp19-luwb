@@ -19,18 +19,24 @@ namespace Server.Models
                 var measure1 = new Measurement()
                 {
                     Mac_Anchor = "ANCHOR1",
-                    Mac_Tag = "TAG5"
+                    Mac_Tag = "TAG5",
+                    Unix_Timestamp = "1570293770",
+                    Distance = 100
                 };
                 var measure2 = new Measurement()
                 {
                     Mac_Anchor = "ANCHOR2",
-                    Mac_Tag = "TAG5"
+                    Mac_Tag = "TAG5",
+                    Unix_Timestamp = "1570293770",
+                    Distance = 200
                 };
 
                 var measure3 = new Measurement()
                 {
                     Mac_Anchor = "ANCHOR3",
-                    Mac_Tag = "TAG5"
+                    Mac_Tag = "TAG5",
+                    Unix_Timestamp = "1570293770",
+                    Distance = 300
                 };
 
                 context.Measurements.Add(measure1);
@@ -43,17 +49,17 @@ namespace Server.Models
                 Tag[] tags = {
                     new Tag()
                     {
-                        Mac = "1.1.1.1",
+                        Mac = "TAG5",
                         Description = "Dit is een test",
-                        XPos = 50,
-                        YPos = 73
+                        XPos = 0,
+                        YPos = 0
                     },
                     new Tag()
                     {
-                         Mac = "2.2.2.2",
-                        Description = "Dit is een test",
-                        XPos = 32,
-                        YPos = 40
+                         Mac = "TAG6",
+                         Description = "Dit is een test",
+                         XPos = 0,
+                         YPos = 0
                     }
                 };
                 foreach (var item in tags)
@@ -64,17 +70,24 @@ namespace Server.Models
                 Anchor[] anchors = {
                     new Anchor()
                     {
-                        Mac = "192.168.1.3",
+                        Mac = "Anchor1",
                         Description = "Dit is een test",
-                        XPos = 100,
-                        YPos = 100
+                        XPos = 20,
+                        YPos = 20
                     },
                     new Anchor()
                     {
-                        Mac = "192.168.1.4",
+                        Mac = "Anchor2",
                         Description = "Dit is een test",
-                        XPos = 200,
-                        YPos = 200
+                        XPos = 67,
+                        YPos = 27
+                    },
+                    new Anchor()
+                    {
+                        Mac = "Anchor3",
+                        Description = "Dit is een test",
+                        XPos = 42,
+                        YPos = 46
                     }
                 };
                 foreach (var item in anchors)

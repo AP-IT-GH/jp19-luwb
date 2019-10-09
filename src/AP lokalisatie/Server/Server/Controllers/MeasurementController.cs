@@ -31,7 +31,7 @@ namespace Server.Controllers
         [HttpPost]
         public ActionResult<Measurement> Create([FromBody]Measurement item)
         {
-            Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).Where(a => a.Mac_Tag == item.Mac_Tag).LastOrDefault();
+            Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).Where(a => a.Mac_Tag == item.Mac_Tag).FirstOrDefault();
             if (measure != null) {
                 measure.Distance = item.Distance;
                 measure.Unix_Timestamp = item.Unix_Timestamp;
