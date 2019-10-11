@@ -30,6 +30,12 @@ export class CallapiService {
   public AddAnchor(addTagAnchor: TagAnchor){
     return this.http.post<TagAnchor>(`${this.domain}anchors`,addTagAnchor);
   }
+  public DeleteTag(id: number){
+    return this.http.delete(`${this.domain}tags/${id}`);
+  }
+  public DeleteAnchor(id: number){
+    return this.http.delete(`${this.domain}anchors/${id}`);
+  }
 }
 
 export interface TagAnchor {

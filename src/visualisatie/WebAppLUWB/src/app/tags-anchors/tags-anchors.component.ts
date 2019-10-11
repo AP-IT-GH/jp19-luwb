@@ -21,6 +21,9 @@ export class TagsAnchorsComponent implements OnInit {
   errorAdd: boolean = false;
   successAdd: boolean = false;
   pageSizeList: number[] = [2,4,6,8,10,20,30,40,50];
+  deleteTagAnchor: TagAnchor;
+  errorDelete: boolean = false;
+  succesDelete: boolean = false;
   ngOnInit() {
     this.GetTagsAndAnchors();
   }
@@ -74,10 +77,6 @@ export class TagsAnchorsComponent implements OnInit {
         },
         response => {
           this.errorAdd = true;
-          console.log("test");
-        },
-        () => {
-          //console.log("The GET observable is now completed.");
         }
       );
     else if(this.addTagAnchor.type == "Anchor")
@@ -89,15 +88,8 @@ export class TagsAnchorsComponent implements OnInit {
         },
         response => {
           this.errorAdd = true;
-        },
-        () => {
-          //console.log("The GET observable is now completed.");
         }
       );
-  }
-  CloseMessage(){
-    this.errorAdd = false;
-    this.successAdd = false;
   }
 
   PreviousPage(){
@@ -115,5 +107,33 @@ export class TagsAnchorsComponent implements OnInit {
       this.apiService.pageNumber++;
       this.GetSelectetObjects(true);
     }
+  }
+  DeleteItem(object: TagAnchor){
+    this.deleteTagAnchor = object;
+  }
+  ConfirmedDelete(){
+    if(this.deleteTagAnchor.type == "Anchor"){
+      this.apiService.DeleteAnchor(this.deleteTagAnchor.id).subscribe(
+        (val) => {
+          this.succesDelete = true;
+          this.GetSelectetObjects(true);
+        },
+        response => {
+          this.errorDelete = true;
+        }
+      );
+    }
+    else{
+      this.apiService.DeleteTag(this.deleteTagAnchor.id).subscribe(
+        (val) => {
+          this.succesDelete = true;
+          this.GetSelectetObjects(true);
+        },
+        response => {
+          this.errorDelete = true;
+        }
+      );
+    }
+    this.deleteTagAnchor = null;
   }
 }
