@@ -2008,8 +2008,8 @@ design rules under a new name.</description>
 <attribute name="NAME" x="9.853" y="35.233" size="1.27" layer="25" rot="R90"/>
 <attribute name="SPICEPREFIX" value="C" x="79.703" y="92.383" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="H1" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="MOUNT-HOLE3.0" x="50.714" y="40.394" smashed="yes"/>
-<element name="H2" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="MOUNT-HOLE3.0" x="4.134" y="40.366" smashed="yes"/>
+<element name="H1" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="MOUNT-HOLE3.0" x="50.014" y="39.894" smashed="yes"/>
+<element name="H2" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="MOUNT-HOLE3.0" x="4.584" y="40.166" smashed="yes"/>
 <element name="IC1" library="ATMEGA328P-AU" package="QFP80P900X900X120-32N" value="ATMEGA328P-AU" x="17.508" y="24.132" smashed="yes">
 <attribute name="ARROW_PART_NUMBER" value="ATMEGA328P-AU" x="61.958" y="-12.698" size="1.778" layer="27" display="off"/>
 <attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/atmega328p-au/microchip-technology" x="61.958" y="-12.698" size="1.778" layer="27" display="off"/>
@@ -2041,8 +2041,8 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="17.17" y="42.78" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="top-center"/>
 </element>
 <element name="U$2" library="Eigen Library" package="UART-6PIN" value="UART-6PIN" x="20.46" y="32.94" smashed="yes" rot="R180"/>
-<element name="H3" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="MOUNT-HOLE3.0" x="4.195" y="4.284" smashed="yes"/>
-<element name="H4" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="MOUNT-HOLE3.0" x="50.555" y="4.186" smashed="yes"/>
+<element name="H3" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="MOUNT-HOLE3.0" x="5.245" y="5.134" smashed="yes"/>
+<element name="H4" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="MOUNT-HOLE3.0" x="50.155" y="4.736" smashed="yes"/>
 <element name="IC2" library="DWM1000" package="DWM1000" value="DWM1000" x="41.84" y="9.46" smashed="yes" rot="R90">
 <attribute name="ARROW_PART_NUMBER" value="DWM1000" x="41.84" y="9.46" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ARROW_PRICE-STOCK" value="" x="41.84" y="9.46" size="1.778" layer="27" rot="R90" display="off"/>

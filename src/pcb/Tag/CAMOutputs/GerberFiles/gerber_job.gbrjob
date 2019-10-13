@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2019-10-12T17:27:27Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.3.0"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "Tag_V1"
+        },
+        "Owner": "Hector Brasfalean <hector.brasfalean@student.ap.be>",
+        "Size": {
+            "X": 55.17,
+            "Y": 44.54
+        }
+    }
+}
