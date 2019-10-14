@@ -1,1 +1,25 @@
-<p>home works!</p>
+<body>
+    <section class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <img src="assets/img/APSelfMade.png" class="card-img-top" alt="Picture of self made project" [routerLink]="['/map']">
+        <div class="card-body">
+            <h5 class="card-title">AP self made project</h5>
+            <p class="card-text">
+                The tags and anchors of this project are made by students of AP Hogeschool.
+                There are 2 version available of this project. The main difference is the atsamd21g18 and the power over ethernet.
+            </p>
+            <button [routerLink]="['/map']" class="btn btn-primary">Check out the project now!</button>
+        </div>
+    </section>
+    <section class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <img src="assets/img/POZYX.png" class="card-img-top" alt="Picture of POZYX integrated project" [routerLink]="['/map']">
+        <div class="card-body">
+            <h5 class="card-title">POZYX integrated project</h5>
+            <p class="card-text">
+                The tags and anchors of this project are from POZYX. The main purpose of this project is to make the system of POZYX standalone. 
+                Self made scripts get the position of the tags.
+            </p>
+            <button [routerLink]="['/map']" class="btn btn-primary">Check out the project now!</button>
+        </div>
+    </section>
+</body>
+
