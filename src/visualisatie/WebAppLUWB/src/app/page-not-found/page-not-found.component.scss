@@ -1,0 +1,19 @@
+div{
+    text-align: center;
+    margin-top: 10px;
+}
+img{
+    height: 400px;
+    width: 800px;
+    margin-bottom: 10px;
+}
+a{
+    background-color: white;
+    border-radius: 5px; 
+    padding: 5px;
+    color: black;
+}
+a:hover, a:active {
+    background-color: lightgray;
+    color: black;
+  }

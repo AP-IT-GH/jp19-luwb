@@ -19,6 +19,7 @@ using Hangfire;
 using System.IO;
 using uPLibrary.Networking.M2Mqtt.Messages;
 using uPLibrary.Networking.M2Mqtt;
+using Server.Controllers;
 
 namespace Server
 {
@@ -159,28 +160,65 @@ namespace Server
             using (var context = new DatabaseContext(optionsBuilder.Options))
             {
                 // Verglijken mac van de anchors en opslaan in measure indien ze overeenkomen
-                Measurement measure = context.Measurements.Where(a => a.Mac_Anchor == data[1]).FirstOrDefault();
-                if (measure != null)
+                try
                 {
-                    // Opslaan van afstand en timestamp
-                    measure.Distance = int.Parse(data[2]);
-                    measure.Unix_Timestamp = data[3];
-                }
-                // Indien de mac anchor niet gevonden wordt, word er een nieuw object aangemaakt
-                else
-                {
-                    context.Measurements.Add(
-                        new Measurement()
+                    Measurement measure = context.Measurements.Where(a => a.Mac_Anchor == data[1]).Where(a => a.Mac_Tag == data[0]).FirstOrDefault();
+                    if (measure != null)
+                    {
+                        // Opslaan van afstand en timestamp
+                        measure.Distance = int.Parse(data[2]);
+                        measure.Unix_Timestamp = data[3];
+                    }
+                    // Indien de mac anchor niet gevonden wordt, word er een nieuw object aangemaakt
+                    else
+                    {
+                        context.Measurements.Add(
+                            new Measurement()
+                            {
+                                Mac_Tag = data[0],
+                                Mac_Anchor = data[1],
+                                Distance = int.Parse(data[2]),
+                                Unix_Timestamp = data[3]
+                            }
+                        );
+                    }
+                    // Alle measurements zoeken van de meegegeven mac tag
+                    var measurements = context.Measurements.Where(a => a.Mac_Tag == data[0]).ToList();
+                    string firstMeasurementTimestamp = measurements[0].Unix_Timestamp;
+                    bool checkAllMeasurements = false;
+                    // Controleren of alle measurements van hetzelfde tijdstip zijn
+                    foreach (var measurement in measurements)
+                    {
+                        if (measurement.Unix_Timestamp != firstMeasurementTimestamp)
+                            checkAllMeasurements = true;
+                        if (checkAllMeasurements == true) break;
+                    }
+                    // Indien alle measurements van hetzelfde tijdstip zijn, wordt de locatie van de tag berekend
+                    List<Data> dataList = new List<Data>();
+                    if (!checkAllMeasurements)
+                    {
+                        foreach (var measurement in measurements)
                         {
-                            Mac_Tag = data[0],
-                            Mac_Anchor = data[1],
-                            Distance = int.Parse(data[2]),
-                            Unix_Timestamp = data[3]
+                            Anchor anchor = context.Anchors.Where(a => a.Mac == measurement.Mac_Anchor).LastOrDefault();
+                            if (anchor != null)
+                                dataList.Add(new Data { Distance = measurement.Distance, X_Pos = anchor.XPos, Y_Pos = anchor.YPos });
                         }
-                    );
+                        // Berekenen van de locatie van de tag
+                        double[] pos = Algorithm.Algorithm.Calculate(dataList);
+                        // Opslaan van de locatie van de tag
+                        Tag tag = context.Tags.Where(a => a.Mac == data[0]).LastOrDefault();
+                        if (tag != null)
+                        {
+                            tag.XPos = Convert.ToInt32(pos[0]);
+                            tag.YPos = Convert.ToInt32(pos[1]);
+                            context.Tags.Update(tag);
+                        }
+                    }
+                    context.SaveChanges();
                 }
+                catch { }
                 // Opslaan van veranderingen
-                context.SaveChanges();
+                
             }
 
         }
