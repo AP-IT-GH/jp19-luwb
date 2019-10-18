@@ -1,7 +1,12 @@
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, PozyxConstants, POZYX_SUCCESS
+from configparser import ConfigParser
 
-#Change the remote ID for discovering from another device
-r_id = None
+#read setup file
+parser = ConfigParser()
+parser.read('config.ini')
+
+#Change the remote ID for discovering from another device from config file
+r_id = parser.get('default','remote_id')
 
 #Check if connected
 serial_port = get_first_pozyx_serial_port()

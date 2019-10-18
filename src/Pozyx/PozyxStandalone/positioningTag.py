@@ -1,7 +1,12 @@
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates
+from configparser import ConfigParser
 
-#Change the remote ID for positioning another device
-r_id = 0x673a
+#read setup file
+parser = ConfigParser()
+parser.read('config.ini')
+
+#Change the remote ID for positioning from another device from config file
+r_id = parser.get('default','remote_id')
 
 #Setup variables
 positionTag = Coordinates()

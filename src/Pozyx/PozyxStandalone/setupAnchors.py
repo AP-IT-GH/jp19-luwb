@@ -1,10 +1,18 @@
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates, DeviceCoordinates
+from configparser import ConfigParser
 
-#Change the remote ID for set-up from another device
-r_id = 0x673a
+#read setup file
+parser = ConfigParser()
+parser.read('config.ini')
+
+#Change the remote ID for set-up from another device from config file
+r_id = parser.get('default','remote_id')
 
 #Setup variables
-positionAnchor = Coordinates()
+anchor1 = parser.get('default','anchor1_id')
+anchor2 = parser.get('default','anchor2_id')
+anchor3 = parser.get('default','anchor3_id')
+anchor4 = parser.get('default','anchor4_id')
 
 #Check if connected
 serial_port = get_first_pozyx_serial_port()
@@ -18,21 +26,21 @@ else:
 try:
     ##Setup anchors
     #Clear previous setup
-    pozyx.clearDevices()
+    pozyx.clearDevices(remote_id=r_id)
     print("List cleared.")
 
     #Anchor variables
-    anchor0x6734 = DeviceCoordinates(0x6734,1,Coordinates(711,0,1954))
-    anchor0x6642 = DeviceCoordinates(0x6642,1,Coordinates(10,5998,2504))
-    anchor0x6e13 = DeviceCoordinates(0x6e13,1,Coordinates(4398,5930,2206))
-    anchor0x671f = DeviceCoordinates(0x671f,1,Coordinates(4153,0,2524))
+    anchor1 = DeviceCoordinates(anchor1,1,Coordinates(parser.get('default','anchor1_coordinates')))
+    anchor2 = DeviceCoordinates(anchor2,1,Coordinates(parser.get('default','anchor2_coordinates')))
+    anchor3 = DeviceCoordinates(anchor3,1,Coordinates(parser.get('default','anchor3_coordinates')))
+    anchor4 = DeviceCoordinates(anchor4,1,Coordinates(parser.get('default','anchor4_coordinates')))
     print("Coordinates set.")
 
     #Add Anchors to the device list
-    pozyx.addDevice(anchor0x6734, remote_id=r_id)
-    pozyx.addDevice(anchor0x6642, remote_id=r_id)
-    pozyx.addDevice(anchor0x6e13, remote_id=r_id)
-    pozyx.addDevice(anchor0x671f, remote_id=r_id)
+    pozyx.addDevice(anchor1, remote_id=r_id)
+    pozyx.addDevice(anchor2, remote_id=r_id)
+    pozyx.addDevice(anchor3, remote_id=r_id)
+    pozyx.addDevice(anchor4, remote_id=r_id)
     print("Devices added.")
 
     #Don't abuse function, flash will fail
