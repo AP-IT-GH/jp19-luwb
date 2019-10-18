@@ -1,1 +1,19 @@
-<p>map works!</p>
+<!--Er kunnen niet meer dan 25 tags en 25 anchors getoond worden op de kaart, deze restrictie heeft te maken met het maximaal aantal dat je kan opvragen per pagina.
+    Dit kan omzeild worden door meerdere pagina's op te vragen tot je ale anchors/tags hebt gehad of door de restrictie af te zetten of te vergroten in de server.
+-->
+<body>
+    <div class="boundary">
+        <div [style.width.px]="width[0]" [style.height.px]="height[0]" class="example-box crossed" cdkDragBoundary=".boundary" cdkDrag>
+            Table
+        </div>
+        <div [style.width.px]="width[1]" [style.height.px]="height[1]" class="example-box crossed" cdkDragBoundary=".boundary" cdkDrag>
+            Table
+        </div>
+        <div [style.width.px]="width[2]" [style.height.px]="height[2]" class="example-box crossed" cdkDragBoundary=".boundary" cdkDrag>
+            Table
+        </div>
+        <div [style.width.px]="width[3]" [style.height.px]="height[3]" class="example-box crossed" cdkDragBoundary=".boundary" cdkDrag>
+            Table
+        </div>
+    </div>         
+</body>

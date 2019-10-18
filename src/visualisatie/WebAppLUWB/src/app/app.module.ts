@@ -17,7 +17,7 @@ import { CallapiService } from './common/callapi.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './settings/settings.component';
 import { MapComponent } from './map/map.component';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import { MapComponent } from './map/map.component';
     FormsModule,
     ButtonModule,
     HttpClientModule,
-    SelectButtonModule
+    SelectButtonModule,
+    DragDropModule
   ],
   providers: [
     CallapiService
