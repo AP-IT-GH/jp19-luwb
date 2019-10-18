@@ -207,14 +207,18 @@ namespace Server
                         double[] pos = Algorithm.Algorithm.Calculate(dataList);
                         // Opslaan van de locatie van de tag
                         Tag tag = context.Tags.Where(a => a.Mac == data[0]).LastOrDefault();
-                        tag.XPos = Convert.ToInt32(pos[0]);
-                        tag.YPos = Convert.ToInt32(pos[1]);
-                        context.Tags.Update(tag);
+                        if (tag != null)
+                        {
+                            tag.XPos = Convert.ToInt32(pos[0]);
+                            tag.YPos = Convert.ToInt32(pos[1]);
+                            context.Tags.Update(tag);
+                        }
                     }
+                    context.SaveChanges();
                 }
                 catch { }
                 // Opslaan van veranderingen
-                context.SaveChanges();
+                
             }
 
         }

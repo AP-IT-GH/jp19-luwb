@@ -24,6 +24,11 @@ export class TagsAnchorsComponent implements OnInit {
   deleteTagAnchor: TagAnchor;
   errorDelete: boolean = false;
   succesDelete: boolean = false;
+  editTagAnchor: TagAnchor;
+  errorEdit: boolean = false;
+  succesEdit: boolean = false;
+
+  gettingTagsAnchors = false;
   ngOnInit() {
     this.GetTagsAndAnchors();
   }
@@ -36,14 +41,18 @@ export class TagsAnchorsComponent implements OnInit {
     else this.TypeSelected.push(`${event.option.value}`);
     this.GetSelectetObjects();
   }
-  GetSelectetObjects(paging?:boolean){
-    this.visualList = [];
-    if(!paging)this.apiService.pageNumber = 1;
-    if(this.TypeSelected.length != 2) this.apiService.pageSizeDivider = 1;
-    else this.apiService.pageSizeDivider = 2;
-    if (this.TypeSelected.length == 2) this.GetTagsAndAnchors();
-    else if (this.TypeSelected[0] == "1") this.GetTags();
-    else if (this.TypeSelected[0] == "2") this.GetAnchors();
+  async GetSelectetObjects(paging?:boolean){
+    if(!this.gettingTagsAnchors){
+      this.gettingTagsAnchors = true;
+      this.visualList = [];
+      if(!paging)this.apiService.pageNumber = 1;
+      if(this.TypeSelected.length != 2) this.apiService.pageSizeDivider = 1;
+      else this.apiService.pageSizeDivider = 2;
+      if (this.TypeSelected.length == 2) await this.GetTagsAndAnchors();
+      else if (this.TypeSelected[0] == "1") await this.GetTags();
+      else if (this.TypeSelected[0] == "2") await this.GetAnchors();
+      this.gettingTagsAnchors = false;
+    }
   }
 
   async GetTagsAndAnchors(){
@@ -75,9 +84,7 @@ export class TagsAnchorsComponent implements OnInit {
           this.GetSelectetObjects(true);
           this.addTagAnchor = {mac:null,description:null,xPos:null,yPos:null,type:"Choose..."};
         },
-        response => {
-          this.errorAdd = true;
-        }
+        response => { this.errorAdd = true; }
       );
     else if(this.addTagAnchor.type == "Anchor")
       this.apiService.AddAnchor(this.addTagAnchor).subscribe(
@@ -86,10 +93,7 @@ export class TagsAnchorsComponent implements OnInit {
           this.GetSelectetObjects(true);
           this.addTagAnchor = {mac:null,description:null,xPos:null,yPos:null,type:"Choose..."};
         },
-        response => {
-          this.errorAdd = true;
-        }
-      );
+        response => { this.errorAdd = true; });
   }
 
   PreviousPage(){
@@ -114,26 +118,43 @@ export class TagsAnchorsComponent implements OnInit {
   ConfirmedDelete(){
     if(this.deleteTagAnchor.type == "Anchor"){
       this.apiService.DeleteAnchor(this.deleteTagAnchor.id).subscribe(
-        (val) => {
-          this.succesDelete = true;
-          this.GetSelectetObjects(true);
+        (val) => { 
+          this.succesDelete = true; 
+          this.GetSelectetObjects(true); 
         },
-        response => {
-          this.errorDelete = true;
-        }
-      );
+        response => { this.errorDelete = true; });
     }
     else{
       this.apiService.DeleteTag(this.deleteTagAnchor.id).subscribe(
-        (val) => {
-          this.succesDelete = true;
-          this.GetSelectetObjects(true);
+        (val) => { 
+          this.succesDelete = true; 
+          this.GetSelectetObjects(true); 
         },
-        response => {
-          this.errorDelete = true;
-        }
-      );
+        response => { this.errorDelete = true; });
     }
     this.deleteTagAnchor = null;
+  }
+  EditItem(object: TagAnchor){
+    this.editTagAnchor = Object.assign({}, object);
+  }
+  ConfirmedEdit(){
+    console.log(this.editTagAnchor);
+    if(this.editTagAnchor.type == "Anchor"){
+      this.apiService.EditAnchor(this.editTagAnchor).subscribe(
+        (val) => { 
+          this.succesEdit = true; 
+          this.GetSelectetObjects(true); 
+        },
+        response => { this.errorEdit = true; });
+    }
+    else{
+      this.apiService.EditTag(this.editTagAnchor).subscribe(
+        (val) => { 
+          this.succesEdit = true; 
+          this.GetSelectetObjects(true); 
+        },
+        response => { this.errorEdit = true; });
+    }
+    this.editTagAnchor = null;
   }
 }

@@ -32,6 +32,14 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="errorDelete = False">&times;</a>
             <strong>Failed to delete the Tag/Anchor. The API isn't responding.</strong>
         </div>
+        <div class="alert alert-success alert-dismissible" *ngIf="succesEdit">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="succesEdit = False">&times;</a>
+            <strong>Successfully edited the Tag/Anchor!</strong>
+        </div>
+        <div class="alert alert-danger alert-dismissible" *ngIf="errorEdit">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="errorEdit = False">&times;</a>
+            <strong>Failed to edit the Tag/Anchor. The API isn't responding.</strong>
+        </div>
         <br><br>
     </section>
     <section>
@@ -50,7 +58,10 @@
                 <td>{{item.mac}}</td>
                 <td>{{item.xPos}}</td>
                 <td>{{item.yPos}}</td>
-                <td>{{item.description}} <a style="cursor: pointer;" data-toggle="modal" data-target="#deleteTagAnchor" (click)="DeleteItem(item)"><i class="fas fa-trash float-right"></i></a></td>
+                <td>{{item.description}} 
+                    <a class="float-right" style="cursor: pointer; margin-left: 5px;" data-toggle="modal" data-target="#deleteTagAnchor" (click)="DeleteItem(item)"><i class="fas fa-trash"></i></a>
+                    <a class="float-right" style="cursor: pointer;" data-toggle="modal" data-target="#editTagAnchor" (click)="EditItem(item)"><i class="fas fa-edit"></i></a>
+                </td>
             </tr>
         </table><br>
         <button style="display:inline-block;" type="button" class="btn btn-primary" (click)="PreviousPage()">Previous Page</button>&nbsp;&nbsp;
@@ -74,7 +85,7 @@
                             <option value="Tag">Tag</option>
                             <option value="Anchor">Anchor</option>
                     </select><br><br>
-                    <b>Mac Address: </b><input class="col-sm-3" type="text" placeholder="TAG1" [(ngModel)]="addTagAnchor.mac"><br><br>
+                    <b>Mac: </b><input class="col-sm-3" type="text" placeholder="TAG1" [(ngModel)]="addTagAnchor.mac"><br><br>
                     <b>Position: </b>&nbsp;&nbsp;<b>X: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="addTagAnchor.xPos">
                     <b>Y: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="addTagAnchor.yPos"><br><br>
                     <b>Description: </b><textarea class="form-control" rows="2" placeholder="Extra information" [(ngModel)]="addTagAnchor.description"></textarea>
@@ -105,6 +116,31 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="ConfirmedDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="editTagAnchor" *ngIf="editTagAnchor">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Changing {{editTagAnchor.mac}} with id {{editTagAnchor.id}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <b>Mac: </b><input class="col-sm-3" type="text" placeholder="TAG1" [(ngModel)]="editTagAnchor.mac"><br><br>
+                        <b>Position: </b>&nbsp;&nbsp;<b>X: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="editTagAnchor.xPos">
+                        <b>Y: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="editTagAnchor.yPos"><br><br>
+                        <b>Description: </b><textarea class="form-control" rows="2" placeholder="Extra information" [(ngModel)]="editTagAnchor.description"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" (click)="ConfirmedEdit()">Save changes</button>
                 </div>
             </div>
         </div>

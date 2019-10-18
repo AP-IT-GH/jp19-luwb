@@ -36,6 +36,12 @@ export class CallapiService {
   public DeleteAnchor(id: number){
     return this.http.delete(`${this.domain}anchors/${id}`);
   }
+  public EditTag(editTag: TagAnchor){
+    return this.http.put(`${this.domain}tags`,editTag);
+  }
+  public EditAnchor(editAnchor: TagAnchor){
+    return this.http.put(`${this.domain}anchors`,editAnchor);
+  }
 }
 
 export interface TagAnchor {
