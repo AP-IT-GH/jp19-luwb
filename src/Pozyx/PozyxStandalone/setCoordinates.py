@@ -1,16 +1,38 @@
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates
+from configparser import ConfigParser
 
-#change the ID's for setting coordinates of another device
-device1 = 0x6734
-device2 = 0x6642
-device3 = 0x6e13
-device4 = None
+#read setup file
+cParser = ConfigParser()
+cParser.read('config.ini')
+connectedDevice = int(cParser.get('default','connected_id'),16)
+anchor1ID = int(cParser.get('default','anchor1_id'),16)
+anchor2ID = int(cParser.get('default','anchor2_id'),16)
+anchor3ID = int(cParser.get('default','anchor3_id'),16)
+anchor4ID = int(cParser.get('default','anchor4_id'),16)
+anchor1X = int(cParser.get('default','anchor1_X'))
+anchor1Y = int(cParser.get('default','anchor1_Y'))
+anchor1Z = int(cParser.get('default','anchor1_Z'))
+anchor2X = int(cParser.get('default','anchor2_X'))
+anchor2Y = int(cParser.get('default','anchor2_Y'))
+anchor2Z = int(cParser.get('default','anchor2_Z'))
+anchor3X = int(cParser.get('default','anchor3_X'))
+anchor3Y = int(cParser.get('default','anchor3_Y'))
+anchor3Z = int(cParser.get('default','anchor3_Z'))
+anchor4X = int(cParser.get('default','anchor4_X'))
+anchor4Y = int(cParser.get('default','anchor4_Y'))
+anchor4Z = int(cParser.get('default','anchor4_Z'))
+
+#change the ID's for setting coordinates of devices from config file
+anchor1 = anchor1ID if connectedDevice != anchor1ID else None
+anchor2 = anchor2ID if connectedDevice != anchor2ID else None
+anchor3 = anchor3ID if connectedDevice != anchor3ID else None
+anchor4 = anchor4ID if connectedDevice != anchor4ID else None
 
 #Setup variables
-coordinatesDevice1 = Coordinates()
-coordinatesDevice2 = Coordinates()
-coordinatesDevice3 = Coordinates()
-coordinatesDevice4 = Coordinates()
+coordinatesAnchor1 = Coordinates()
+coordinatesAnchor2 = Coordinates()
+coordinatesAnchor3 = Coordinates()
+coordinatesAnchor4 = Coordinates()
 
 #Check if connected
 serial_port = get_first_pozyx_serial_port()
@@ -23,21 +45,21 @@ else:
 
 try:
     #Set the coordinates in the device
-    pozyx.setCoordinates(Coordinates(711,0,1954), device1)
-    pozyx.setCoordinates(Coordinates(10,5998,2504), device2)
-    pozyx.setCoordinates(Coordinates(4398,5930,2206), device3)
-    pozyx.setCoordinates(Coordinates(4153,0,2524), device4)
+    pozyx.setCoordinates(Coordinates(anchor1X,anchor1Y,anchor1Z), anchor1)
+    pozyx.setCoordinates(Coordinates(anchor2X,anchor2Y,anchor2Z), anchor2)
+    pozyx.setCoordinates(Coordinates(anchor3X,anchor3Y,anchor3Z), anchor3)
+    pozyx.setCoordinates(Coordinates(anchor4X,anchor4Y,anchor4Z), anchor4)
     print("Coordinates set.")
 
     #get the coordinates of the device
-    pozyx.getCoordinates(coordinatesDevice1, device1)
-    print(coordinatesDevice1)
-    pozyx.getCoordinates(coordinatesDevice2, device2)
-    print(coordinatesDevice2)
-    pozyx.getCoordinates(coordinatesDevice3, device3)
-    print(coordinatesDevice3)
-    pozyx.getCoordinates(coordinatesDevice4, device4)
-    print(coordinatesDevice4)
+    pozyx.getCoordinates(coordinatesAnchor1, anchor1)
+    print(hex(anchor1ID) + ": " + str(coordinatesAnchor1))
+    pozyx.getCoordinates(coordinatesAnchor2, anchor2)
+    print(hex(anchor2ID) + ": " + str(coordinatesAnchor2))
+    pozyx.getCoordinates(coordinatesAnchor3, anchor3)
+    print(hex(anchor3ID) + ": " + str(coordinatesAnchor3))
+    pozyx.getCoordinates(coordinatesAnchor4, anchor4)
+    print(hex(anchor4ID) + ": " + str(coordinatesAnchor4))
 
 #Exception exit
 except:

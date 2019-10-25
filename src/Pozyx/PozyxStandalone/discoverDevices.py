@@ -1,7 +1,12 @@
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, PozyxConstants, POZYX_SUCCESS
+from configparser import ConfigParser
 
-#Change the remote ID for discovering from another device
-r_id = None
+#read setup file
+cParser = ConfigParser()
+cParser.read('config.ini')
+
+#Get the connected device
+connectedDevice = int(cParser.get('default','connected_id'),16)
 
 #Check if connected
 serial_port = get_first_pozyx_serial_port()
@@ -13,13 +18,11 @@ else:
     exit()
 
 try:
-    #Clears the device list
-    pozyx.clearDevices(r_id)
-
     #Does discovery on the device and print the found devices
-    if pozyx.doDiscovery(discovery_type=PozyxConstants.DISCOVERY_ALL_DEVICES, remote_id=r_id) == POZYX_SUCCESS:
+    if pozyx.doDiscovery(discovery_type=PozyxConstants.DISCOVERY_ALL_DEVICES) == POZYX_SUCCESS:
+        print("Connected Device: " + hex(connectedDevice))
         print("Found devices:")
-        pozyx.printDeviceList(r_id ,include_coordinates=False)
+        pozyx.printDeviceList(include_coordinates=False)
 
 #Exception exit
 except:

@@ -1,16 +1,26 @@
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates
+from configparser import ConfigParser
 
-#Change the remote ID's for getting coordinates of another device
-device1 = 0x6734
-device2 = 0x6642
-device3 = 0x6e13
-device4 = None
+#read setup file
+cParser = ConfigParser()
+cParser.read('config.ini')
+connectedDevice = int(cParser.get('default','connected_id'),16)
+anchor1ID = int(cParser.get('default','anchor1_id'),16)
+anchor2ID = int(cParser.get('default','anchor2_id'),16) 
+anchor3ID = int(cParser.get('default','anchor3_id'),16) 
+anchor4ID = int(cParser.get('default','anchor4_id'),16)  
+
+#Change the remote ID's for getting coordinates of another device from config file
+anchor1 = anchor1ID if connectedDevice != anchor1ID else None
+anchor2 = anchor2ID if connectedDevice != anchor2ID else None
+anchor3 = anchor3ID if connectedDevice != anchor3ID else None
+anchor4 = anchor4ID if connectedDevice != anchor4ID else None
 
 #Setup variables
-positionDevice1 = Coordinates()
-positionDevice2 = Coordinates()
-positionDevice3 = Coordinates()
-positionDevice4 = Coordinates()
+coordinatesAnchor1 = Coordinates()
+coordinatesAnchor2 = Coordinates()
+coordinatesAnchor3 = Coordinates()
+coordinatesAnchor4 = Coordinates()
 
 #Check if connected
 serial_port = get_first_pozyx_serial_port()
@@ -23,14 +33,14 @@ else:
 
 try:
     #Obtain the device Coordinates
-    pozyx.getCoordinates(positionDevice1, device1)
-    print(positionDevice1)
-    pozyx.getCoordinates(positionDevice2, device2)
-    print(positionDevice2)
-    pozyx.getCoordinates(positionDevice3, device3)
-    print(positionDevice3)
-    pozyx.getCoordinates(positionDevice4, device4)
-    print(positionDevice4)
+    pozyx.getCoordinates(coordinatesAnchor1, anchor1)
+    print(hex(anchor1ID) + ": " + str(coordinatesAnchor1))
+    pozyx.getCoordinates(coordinatesAnchor2, anchor2)
+    print(hex(anchor2ID) + ": " + str(coordinatesAnchor2))
+    pozyx.getCoordinates(coordinatesAnchor3, anchor3)
+    print(hex(anchor3ID) + ": " + str(coordinatesAnchor3))
+    pozyx.getCoordinates(coordinatesAnchor4, anchor4)
+    print(hex(anchor4ID) + ": " + str(coordinatesAnchor4))
 
 #Exception exit
 except:
