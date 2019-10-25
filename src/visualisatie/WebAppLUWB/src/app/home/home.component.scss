@@ -1,0 +1,37 @@
+@media only screen and (min-width: 800px){
+}
+body{
+    margin: auto;
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(auto-fit,minmax(300px, 550px));
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+p{
+    font-size: large;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-width: 500px;
+}
+h5{
+    font-weight: bold;
+    margin-top: auto;
+}
+button{
+    font-size: large;
+    border-radius: 18px;
+}
+section{
+    max-width: 500px;
+    margin: 25px;
+    border: 0;
+    justify-self: center;
+}

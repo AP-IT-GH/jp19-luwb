@@ -15,92 +15,108 @@ namespace Server.Controllers
     [EnableCors("AllowAllMethods")]
     public class TagController : Controller
     {
-        private readonly DatabaseContext _context;
-        public TagController(DatabaseContext context)
+        private readonly DatabaseContext context;
+        public TagController(DatabaseContext _context)
         {
-            _context = context;
-            //if (_context.Tags.Count() == 0)
-            //{
-            //    _context.Tags.Add(new Tag { Mac = "11:11:11:11" });
-            //    _context.Tags.Add(new Tag { Mac = "22:22:22:22" });
-            //    _context.SaveChanges();
-            //}
+            context = _context;
+        }
+
+        [HttpGet]
+        public List<Tag> GetTagsParam(string mac, string description,
+                                            string sortBy, string direction = "asc",
+                                            int pageSize = 5, int pageNumber = 0)
+        {
+            IQueryable<Tag> query = context.Tags;
+            if (!string.IsNullOrEmpty(mac))
+                query = query.Where(b => b.Mac == mac);
+            if (!string.IsNullOrEmpty(description))
+                query = query.Where(b => b.Description == description);
+
+            if (string.IsNullOrEmpty(sortBy)) sortBy = "default";
+            switch (sortBy.ToLower())
+            {
+                case "mac":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.Mac);
+                    else
+                        query = query.OrderByDescending(b => b.Mac);
+                    break;
+                case "description":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.Description);
+                    else
+                        query = query.OrderByDescending(b => b.Description);
+                    break;
+                case "xpos":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.XPos);
+                    else
+                        query = query.OrderByDescending(b => b.XPos);
+                    break;
+                case "ypos":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.YPos);
+                    else
+                        query = query.OrderByDescending(b => b.YPos);
+                    break;
+                default:
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.Id);
+                    else
+                        query = query.OrderByDescending(b => b.Id);
+                    break;
+            }
+            query = query.Skip(pageNumber * pageSize);
+            if (pageSize > 25) pageSize = 25;
+            if (pageSize <= 0) pageSize = 5;
+            query = query.Take(pageSize);
+            return query.ToList();
+        }
+
+        [Route("{id}")]
+        [HttpGet]
+        public ActionResult<Tag> GetTag(long id)
+        {
+            var tag = context.Tags.Find(id);
+            if (tag == null)
+                return NotFound();
+            return tag;
         }
 
         [HttpPost]
-        [Route("{userId}/{mapId}")]
-        public IActionResult Create(Tag item, int userId, long mapId)
+        public ActionResult<Tag> AddTag([FromBody]Tag tag)
         {
-            User user = _context.Users.Find(userId);
-            Map map = _context.Maps.Find(mapId);
-            item.User = user;
-            item.Map = map;
-            _context.Tags.Add(item);
-
-            if (_context.SaveChanges() > 0)
-                return Ok(item);
-
-            return NotFound();
+            context.Tags.Add(tag);
+            context.SaveChanges();
+            return Created("", tag);
         }
 
-        //// GET: api/<controller>
-        //[HttpGet]
-        //public ActionResult<List<Tag>> GetAll()
-        //{
-        //    return _context.Tags.ToList();
-        //}
-        [Route("{userId}")]
-        [HttpGet]
-        public IActionResult GetTags(int userId)
-        {
-            var tags = _context.Tags.Where(m => m.User.Id == userId).ToList();
-            if (tags != null)
-                return Ok(tags);
-            return NotFound();
-        }
-
-        [Route("{userId}/{tagId}")]
-        [HttpGet]
-        public IActionResult GetTag(int userId, long tagId)
-        {
-            var tag = _context.Tags.Where(d => d.User.Id == userId).Where(m => m.Id == tagId).First();
-            if (tag == null)
-                return NotFound();
-
-            return Ok(tag);
-        }
-
-        [Route("{tagId}")]
         [HttpPut]
-        public IActionResult Put([FromBody] Tag updateTag, long tagId)
+        public ActionResult<Tag> UpdateTag([FromBody]Tag tag)
         {
-            var tag = _context.Tags.Find(tagId);
-            if (tag == null)
-                return NotFound();
-
-            tag.Description = updateTag.Description;
-            _context.SaveChanges();
-            return Ok(tag);
+            //var tagId = tag.Id;
+            //if (context.Tags.Find(tagId) == null)
+            //    return NotFound();
+            try
+            {
+                context.Tags.Update(tag);
+                context.SaveChanges();
+                return Ok(tag);
+            }
+            catch {}
+            return NotFound();
         }
 
         [Route("{id}")]
         [HttpDelete]
         public IActionResult Delete(long id)
         {
-            var tag = _context.Tags.Find(id);
+            var tag = context.Tags.Find(id);
             if (tag == null)
                 return NotFound();
-            _context.Tags.Remove(tag);
-            _context.SaveChanges();
+            context.Tags.Remove(tag);
+            context.SaveChanges();
             return Ok();
         }
-    }
-
-    public class DetailTag
-    {
-        public long Id { get; set; }
-        public string Description { get; set; }
-        public string Mac { get; set; }
-        //public List<>
     }
 }
