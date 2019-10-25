@@ -2,17 +2,29 @@ from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates, Devic
 from configparser import ConfigParser
 
 #read setup file
-parser = ConfigParser()
-parser.read('config.ini')
+cParser = ConfigParser()
+cParser.read('config.ini')
 
 #Change the remote ID for set-up from another device from config file
-r_id = parser.get('default','remote_id')
+r_id = int(cParser.get('default','remote_id'),16)
 
 #Setup variables
-anchor1 = parser.get('default','anchor1_id')
-anchor2 = parser.get('default','anchor2_id')
-anchor3 = parser.get('default','anchor3_id')
-anchor4 = parser.get('default','anchor4_id')
+anchor1 = int(cParser.get('default','anchor1_id'),16)
+anchor2 = int(cParser.get('default','anchor2_id'),16)
+anchor3 = int(cParser.get('default','anchor3_id'),16)
+anchor4 = int(cParser.get('default','anchor4_id'),16)
+anchor1X = int(cParser.get('default','anchor1_X'))
+anchor1Y = int(cParser.get('default','anchor1_Y'))
+anchor1Z = int(cParser.get('default','anchor1_Z'))
+anchor2X = int(cParser.get('default','anchor2_X'))
+anchor2Y = int(cParser.get('default','anchor2_Y'))
+anchor2Z = int(cParser.get('default','anchor2_Z'))
+anchor3X = int(cParser.get('default','anchor3_X'))
+anchor3Y = int(cParser.get('default','anchor3_Y'))
+anchor3Z = int(cParser.get('default','anchor3_Z'))
+anchor4X = int(cParser.get('default','anchor4_X'))
+anchor4Y = int(cParser.get('default','anchor4_Y'))
+anchor4Z = int(cParser.get('default','anchor4_Z'))
 
 #Check if connected
 serial_port = get_first_pozyx_serial_port()
@@ -30,10 +42,10 @@ try:
     print("List cleared.")
 
     #Anchor variables
-    anchor1 = DeviceCoordinates(anchor1,1,Coordinates(parser.get('default','anchor1_coordinates')))
-    anchor2 = DeviceCoordinates(anchor2,1,Coordinates(parser.get('default','anchor2_coordinates')))
-    anchor3 = DeviceCoordinates(anchor3,1,Coordinates(parser.get('default','anchor3_coordinates')))
-    anchor4 = DeviceCoordinates(anchor4,1,Coordinates(parser.get('default','anchor4_coordinates')))
+    anchor1 = DeviceCoordinates(anchor1,1,Coordinates(anchor1X,anchor1Y,anchor1Z))
+    anchor2 = DeviceCoordinates(anchor2,1,Coordinates(anchor2X,anchor2Y,anchor2Z))
+    anchor3 = DeviceCoordinates(anchor3,1,Coordinates(anchor3X,anchor3Y,anchor3Z))
+    anchor4 = DeviceCoordinates(anchor4,1,Coordinates(anchor4X,anchor4Y,anchor4Z))
     print("Coordinates set.")
 
     #Add Anchors to the device list

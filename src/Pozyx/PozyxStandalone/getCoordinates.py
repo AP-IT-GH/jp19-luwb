@@ -2,15 +2,19 @@ from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates
 from configparser import ConfigParser
 
 #read setup file
-parser = ConfigParser()
-parser.read('config.ini')
-connectedDevice = parser.get('default','connected_id')
+cParser = ConfigParser()
+cParser.read('config.ini')
+connectedDevice = int(cParser.get('default','connected_id'),16)
+anchor1ID = int(cParser.get('default','anchor1_id'),16)
+anchor2ID = int(cParser.get('default','anchor2_id'),16) 
+anchor3ID = int(cParser.get('default','anchor3_id'),16) 
+anchor4ID = int(cParser.get('default','anchor4_id'),16)  
 
 #Change the remote ID's for getting coordinates of another device from config file
-anchor1 = parser.get('default','anchor1_id') if connectedDevice != parser.get('default','anchor1_id') else None
-anchor2 = parser.get('default','anchor2_id') if connectedDevice != parser.get('default','anchor2_id') else None
-anchor3 = parser.get('default','anchor3_id') if connectedDevice != parser.get('default','anchor3_id') else None
-anchor4 = parser.get('default','anchor4_id') if connectedDevice != parser.get('default','anchor4_id') else None
+anchor1 = anchor1ID if connectedDevice != anchor1ID else None
+anchor2 = anchor2ID if connectedDevice != anchor2ID else None
+anchor3 = anchor3ID if connectedDevice != anchor3ID else None
+anchor4 = anchor4ID if connectedDevice != anchor4ID else None
 
 #Setup variables
 coordinatesAnchor1 = Coordinates()
@@ -30,13 +34,13 @@ else:
 try:
     #Obtain the device Coordinates
     pozyx.getCoordinates(coordinatesAnchor1, anchor1)
-    print(coordinatesAnchor1)
+    print(hex(anchor1ID) + ": " + str(coordinatesAnchor1))
     pozyx.getCoordinates(coordinatesAnchor2, anchor2)
-    print(coordinatesAnchor2)
+    print(hex(anchor2ID) + ": " + str(coordinatesAnchor2))
     pozyx.getCoordinates(coordinatesAnchor3, anchor3)
-    print(coordinatesAnchor3)
+    print(hex(anchor3ID) + ": " + str(coordinatesAnchor3))
     pozyx.getCoordinates(coordinatesAnchor4, anchor4)
-    print(coordinatesAnchor4)
+    print(hex(anchor4ID) + ": " + str(coordinatesAnchor4))
 
 #Exception exit
 except:
