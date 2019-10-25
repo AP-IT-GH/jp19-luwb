@@ -61,8 +61,8 @@ namespace Server.Controllers
                                       .Where(m => m.Map.Id == mapId)
                                       .Select(e => new Anchor
                                       {
-                                          X_Pos = e.X_Pos,
-                                          Y_Pos = e.Y_Pos,
+                                          XPos = e.XPos,
+                                          YPos = e.YPos,
                                           Mac = e.Mac
                                       })
                                       .ToList();
@@ -88,8 +88,8 @@ namespace Server.Controllers
 
                         dataList.Add(new Data
                         {
-                            X_Pos = anchor.X_Pos,
-                            Y_Pos = anchor.Y_Pos,
+                            X_Pos = anchor.XPos,
+                            Y_Pos = anchor.YPos,
                             Distance = measurement.Distance
                         });
                     }

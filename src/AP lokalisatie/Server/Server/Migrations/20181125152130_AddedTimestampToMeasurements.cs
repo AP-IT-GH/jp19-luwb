@@ -9,12 +9,12 @@ namespace Server.Migrations
             migrationBuilder.RenameColumn(
                 name: "YPos",
                 table: "Anchors",
-                newName: "Y_Pos");
+                newName: "YPos");
 
             migrationBuilder.RenameColumn(
                 name: "XPos",
                 table: "Anchors",
-                newName: "X_Pos");
+                newName: "XPos");
 
             migrationBuilder.AddColumn<string>(
                 name: "Unix_Timestamp",
@@ -29,12 +29,12 @@ namespace Server.Migrations
                 table: "Measurements");
 
             migrationBuilder.RenameColumn(
-                name: "Y_Pos",
+                name: "YPos",
                 table: "Anchors",
                 newName: "YPos");
 
             migrationBuilder.RenameColumn(
-                name: "X_Pos",
+                name: "XPos",
                 table: "Anchors",
                 newName: "XPos");
         }

@@ -35,9 +35,9 @@ namespace Server.Migrations
 
                     b.Property<int?>("UserId");
 
-                    b.Property<int>("X_Pos");
+                    b.Property<int>("XPos");
 
-                    b.Property<int>("Y_Pos");
+                    b.Property<int>("YPos");
 
                     b.HasKey("Id");
 

@@ -1,0 +1,51 @@
+$inputShadow: 6px 6px 20px 0px rgba(51,51,51,0.3);
+@media only screen and (min-width: 800px){
+    body{
+        display: grid;
+        grid-template-columns: 35% 65%;
+    }
+}
+select{
+    width: auto;
+    border: 0px;
+    box-shadow: $inputShadow;
+}
+section{
+    ul{
+        margin-right: 15px;
+    }
+}
+input{
+    border: 0px;
+    box-shadow: $inputShadow;
+    padding: 10px;
+    height: 38px;
+    margin-right: 10px; 
+}
+button{
+    border-radius: 18px;
+}
+table,th,td{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 10px;
+}
+table{
+    width: 100%;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+tr:nth-child(odd){
+    background-color: #c6c8ca;
+}
+tr:nth-child(even){
+    background-color: white;
+}
+th{
+    color: white;
+}
+section{
+    div{
+        margin-right: 10px;
+    }
+}

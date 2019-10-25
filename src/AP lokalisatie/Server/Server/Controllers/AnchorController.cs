@@ -14,70 +14,110 @@ namespace Server.Controllers
     [EnableCors("AllowAllMethods")]
     public class AnchorController : Controller
     {
-        private readonly DatabaseContext _context;
-        public AnchorController(DatabaseContext context)
+        private readonly DatabaseContext context;
+        public AnchorController(DatabaseContext _context)
         {
-            _context = context;
-            //if (_context.Tags.Count() == 0)
-            //{
-            //    _context.Tags.Add(new Tags { Mac = "11:11:11:11" });
-            //    _context.Tags.Add(new Tags { Mac = "22:22:22:22" });
-            //    _context.SaveChanges();
-            //}
+            context = _context;
+        }
+
+        [HttpGet]
+        public List<Anchor> GetAnchorsParam(string mac, string description,
+                                            string sortBy, string direction = "asc",
+                                            int pageSize = 5, int pageNumber = 0)
+        {
+            IQueryable<Anchor> query = context.Anchors;
+            if (!string.IsNullOrEmpty(mac))
+                query = query.Where(b => b.Mac == mac);
+            if (!string.IsNullOrEmpty(description))
+                query = query.Where(b => b.Description == description);
+
+            if (string.IsNullOrEmpty(sortBy)) sortBy = "default";
+            switch (sortBy.ToLower())
+            {
+                case "mac":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.Mac);
+                    else
+                        query = query.OrderByDescending(b => b.Mac);
+                    break;
+                case "description":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.Description);
+                    else
+                        query = query.OrderByDescending(b => b.Description);
+                    break;
+                case "xpos":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.XPos);
+                    else
+                        query = query.OrderByDescending(b => b.XPos);
+                    break;
+                case "ypos":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.YPos);
+                    else
+                        query = query.OrderByDescending(b => b.YPos);
+                    break;
+                default:
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.Id);
+                    else
+                        query = query.OrderByDescending(b => b.Id);
+                    break;
+            }
+            query = query.Skip(pageNumber * pageSize);
+            if (pageSize > 25) pageSize = 25;
+            if (pageSize <= 0) pageSize = 5;
+            query = query.Take(pageSize);
+            return query.ToList();
+        }
+
+        [Route("{id}")]
+        [HttpGet]
+        public ActionResult<Anchor> GetAnchor(long id)
+        {
+            var anchor = context.Anchors.Find(id);
+            if (anchor == null)
+                return NotFound();
+            return anchor;
         }
 
         [HttpPost]
-        [Route("{userId}/{mapId}")]
-        public IActionResult AddAnchor(Anchor item, int userId, long mapId)
+        public ActionResult<Anchor> AddAnchor([FromBody]Anchor anchor)
         {
-            var user = _context.Users.Find(userId);
-            var map = _context.Maps.Find(mapId);
-            item.User = user;
-            item.Map = map;
-            _context.Anchors.Add(item);
-
-            if (_context.SaveChanges() > 0)
-                return Ok();
-
-            return NotFound();
+            context.Anchors.Add(anchor);
+            context.SaveChanges();
+            return Created("", anchor);
         }
 
-        // GET: api/<controller>
-        [HttpGet]
-        public ActionResult<List<Anchor>> GetAll()
+        [HttpPut]
+        public ActionResult<Anchor> UpdateTag([FromBody]Anchor anchor)
         {
-            return _context.Anchors.ToList();
+            //var anchorId = anchor.Id;
+            //if (context.Anchors.Find(anchor.Id) == null)
+            //    return NotFound();
+            try
+            {
+                context.Anchors.Update(anchor);
+                context.SaveChanges();
+                return Ok(anchor);
+            }
+            catch{}
+            return NotFound();
+
         }
 
         [Route("{id}")]
         [HttpDelete]
         public IActionResult Delete(long id)
         {
-            var anchor = _context.Anchors.Find(id);
+            var anchor = context.Anchors.Find(id);
             if (anchor == null)
                 return NotFound();
-
-            _context.Anchors.Remove(anchor);
-            _context.SaveChanges();
+            context.Anchors.Remove(anchor);
+            context.SaveChanges();
             return Ok();
 
         }
-
-        [Route("{anchorId}")]
-        [HttpPut]
-        public IActionResult Edit([FromBody] Anchor updateAnchor, long anchorId)
-        {
-            var anchor = _context.Anchors.Find(anchorId);
-            if (anchor == null)
-                return NotFound(updateAnchor);
-            if (updateAnchor.Description != null) { anchor.Description = updateAnchor.Description; }
-            if (updateAnchor.X_Pos != 0) { anchor.X_Pos = updateAnchor.X_Pos; }
-            if (updateAnchor.Y_Pos != 0) { anchor.Y_Pos = updateAnchor.Y_Pos; }
-            if (_context.SaveChanges() >= 0)
-                return Ok(anchor);
-            return NotFound(anchor);
-        }
-
-        
     }
 }
