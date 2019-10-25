@@ -22,10 +22,6 @@ clientID = eParser.get('default','mqtt_clientid')
 #Setup variables
 positionTag = Coordinates()
 
-def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
-    client.subscribe("topic")
-
 #Check if connected
 serial_port = get_first_pozyx_serial_port()
 if serial_port is not None:
@@ -39,7 +35,6 @@ try:
     if exportFile is "y": f = open("position.txt", "a+")
     if exportMQTT is "y":
         client = mqtt.Client(client_id=clientID)
-        client.on_connect = on_connect
         client.connect("broker.mqttdashboard.com")
         client.loop_start()
     while True:
