@@ -19,7 +19,7 @@ export class MapComponent implements OnInit {
   async ngOnInit() {
     await this.GetTags();
     await this.GetAnchors();
-    this.interval = setInterval(() => { this.GetTags(); }, this.timer);
+    this.interval = window.setInterval(() => { this.GetTags(); }, this.timer);
   }
   async GetTags(){
     this.tags = await this.apiService.GetTags();
