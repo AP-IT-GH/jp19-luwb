@@ -10,7 +10,6 @@
     text-align: center;
     background: #fff;
     border-radius: 4px;
-    margin-right: 25px;
     position: relative;
     z-index: 1;
     box-sizing: border-box;
@@ -30,14 +29,16 @@
   
   .boundary {
     width: 100%;
-    height: 100%;
+    height: 90%;
     max-width: 100%;
     border: dotted rgba(0, 0, 0, 0.12) 2px;
+    position: relative;
   }
   body{
-      height: 88vh;
+      height: 84vh;
       width: 97vw;
-      margin:15px;
+      margin: auto;
+      margin-top: 15px;
   }
   .crossed {
     background:
@@ -54,4 +55,32 @@
             rgba(0,0,0,0) calc(50% + 0.8px),
             rgba(0,0,0,0) 100%),
             #fff;
+}
+
+.tagAnchor{
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 12px !important;
+  color: white !important;
+  margin: 0 !important;
+  cursor: default !important;
+  position: absolute !important;
+  p{
+    position: absolute;
+    margin-top: -20px;
+    color:black;
+    font-weight: bold;
+  }
+}
+.tag{
+  background-color: blue !important;
+  border: solid 1px blue !important;
+  
+}
+.anchor{
+  background-color: red !important;
+  border: solid 1px red !important;
+}
+.info{
+  margin-bottom: 15px;
 }

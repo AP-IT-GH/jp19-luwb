@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CallapiService, TagAnchor } from '../common/callapi.service';
 
 @Component({
   selector: 'app-map',
@@ -7,11 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService: CallapiService) { }
 
   width: number[] = [250,80,100,150];
   height: number[] = [100,60,120,350];
-  ngOnInit() {
+  tags: TagAnchor[] = [];
+  anchors: TagAnchor[] = [];
+  timer: number = 1000;
+  interval;
+  async ngOnInit() {
+    await this.GetTags();
+    await this.GetAnchors();
+    this.interval = setInterval(() => { this.GetTags(); }, this.timer);
   }
-
+  async GetTags(){
+    this.tags = await this.apiService.GetTags();
+  }
+  async GetAnchors(){
+    this.anchors = await this.apiService.GetAnchors();
+  }
+  ngOnDestroy(){
+    clearInterval(this.interval);
+  }
 }
