@@ -10,8 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DatabaseContext\" />
-    <Folder Include="wwwroot\" />
+    <Compile Remove="DatabaseContext\**" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="DatabaseContext\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="DatabaseContext\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="DatabaseContext\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
