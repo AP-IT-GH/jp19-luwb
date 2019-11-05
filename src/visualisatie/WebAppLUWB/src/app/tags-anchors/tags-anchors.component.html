@@ -5,12 +5,12 @@
         <p-selectButton [options]="listTypes" [(ngModel)]="TypeSelected" (onOptionClick)="FilterBy($event)" multiple="multiple"></p-selectButton><br><br>
 
         <strong>Sort By:&nbsp;&nbsp;&nbsp;</strong>
-        <select class="custom-select" [(ngModel)]="apiService.sortBy" (ngModelChange)="GetSelectetObjects()">
+        <select class="custom-select" [(ngModel)]="sortBy" (ngModelChange)="GetSelectetObjects()">
             <option *ngFor="let item of OrderByList" value="{{item}}">{{item}}</option>
         </select><br><br>
         
         <strong>Number of items in list:&nbsp;&nbsp;&nbsp;</strong>
-        <select class="custom-select" [(ngModel)]="apiService.pageSize" (ngModelChange)="GetSelectetObjects()">
+        <select class="custom-select" [(ngModel)]="pageSize" (ngModelChange)="GetSelectetObjects()">
             <option *ngFor="let item of pageSizeList" value="{{item}}">{{item}}</option>
         </select><br><br>
 
@@ -65,7 +65,7 @@
             </tr>
         </table><br>
         <button style="display:inline-block;" type="button" class="btn btn-primary" (click)="PreviousPage()">Previous Page</button>&nbsp;&nbsp;
-        <p style="display:inline-block;" ><strong>Current Page: {{apiService.pageNumber}}</strong></p>&nbsp;&nbsp;
+        <p style="display:inline-block;" ><strong>Current Page: {{pageNumber}}</strong></p>&nbsp;&nbsp;
         <button style="display:inline-block;" type="button" class="btn btn-primary" (click)="NextPage()">Next Page</button> 
     </section>
 
