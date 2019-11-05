@@ -21,13 +21,17 @@ export class MapComponent implements OnInit {
     await this.GetAnchors();
     this.interval = window.setInterval(() => { this.GetTags(); }, this.timer);
   }
+  ngOnDestroy(){
+    clearInterval(this.interval);
+  }
   async GetTags(){
     this.tags = await this.apiService.GetTags();
   }
   async GetAnchors(){
     this.anchors = await this.apiService.GetAnchors();
   }
-  ngOnDestroy(){
+  ChangeRefreshTimer(){
     clearInterval(this.interval);
+    this.interval = window.setInterval(() => { this.GetTags(); }, this.timer);
   }
 }

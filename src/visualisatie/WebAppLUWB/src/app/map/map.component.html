@@ -5,6 +5,10 @@
     <div class="info">
         Tag: &nbsp;<div class="tag tagAnchor example-box" cdkDragBoundary=".boundary">0</div><br>
         Anchor: &nbsp;<div class="tagAnchor anchor example-box" cdkDragBoundary=".boundary">0</div>
+        <form class="range-field">
+            Refresh time: {{timer}} ms <br>
+            <input type="range" min="100" max="1000" step="10" [(ngModel)]="timer" name="slider" (ngModelChange)="ChangeRefreshTimer()">
+        </form>
     </div>
     <div class="boundary">
         <div *ngFor="let tag of tags" [style.left.px]="tag.xPos" [style.top.px]="tag.yPos" class="tag tagAnchor example-box" cdkDragBoundary=".boundary">
