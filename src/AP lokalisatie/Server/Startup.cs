@@ -45,7 +45,7 @@ namespace Server
         {
 
             services.AddHangfire( configuration => {
-                configuration.UseSqlServerStorage("Server=(localdb)\\mssqllocaldb; Database = LibraryDB");
+                configuration.UseSqlServerStorage("DefaultConnection");
             });
           
             services.AddDbContext<DatabaseContext>(options =>
@@ -86,17 +86,18 @@ namespace Server
         }
 
         // Variabelen voor MQTT
-        string connectionString;
+        string connectionString = "broker.mqttdashboard.com";
         MqttClient client;
         string[] dataArray;
         string data;
-        string topic;
+        string topic = "LUWB/TAG5";
         string payload;
 
         void SetupMQTT()
         {
+            // ERROR BIJ AZURE 
             // Uiltezen MqttSetup.txt file
-            using (StreamReader sr = new StreamReader("Setup/MqttSetup.txt"))
+            /* using (StreamReader sr = new StreamReader("Setup/MqttSetup.txt"))
             {
                 // Indien er een lijn leesbaar is in de file, wordt deze uitgelezen
                 while ((data = sr.ReadLine()) != null)
@@ -107,7 +108,7 @@ namespace Server
                     connectionString = dataArray[0];
                     topic = dataArray[1];
                 }
-            }
+            }*/
             // Verbinding maken met MQTT Broker
             ConnectToBroker();
 
@@ -155,7 +156,7 @@ namespace Server
             string[] data = payload.Split(';');
 
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=LibraryDB");
+            optionsBuilder.UseSqlServer("DefaultConnection");
             // Aanmaken nieuw databasecontext object
             using (var context = new DatabaseContext(optionsBuilder.Options))
             {
