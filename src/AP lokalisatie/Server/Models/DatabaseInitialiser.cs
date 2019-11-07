@@ -13,7 +13,7 @@ namespace Server.Models
             context.Database.EnsureCreated();
 
             //Are there already books present ?
-            if (!context.Measurements.Any())
+            if (context.Measurements.Count() == 0)
             {
 
                 var measure1 = new Measurement()
@@ -44,7 +44,7 @@ namespace Server.Models
                 context.Measurements.Add(measure3);
                 context.SaveChanges();
             }
-            if (!context.Tags.Any())
+            if (context.Tags.Count() == 0)
             {
                 Tag[] tags = {
                     new Tag()
