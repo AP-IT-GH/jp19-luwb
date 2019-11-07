@@ -9,7 +9,7 @@ import { SelectItem } from 'primeng/components/common/selectitem';
 })
 export class TagsAnchorsComponent implements OnInit {
 
-  constructor(public apiService: CallapiService) { }
+  constructor(private apiService: CallapiService) { }
   visualList: TagAnchor[] = [];
   tags: TagAnchor[] = [];
   anchors: TagAnchor[] = [];
@@ -18,9 +18,12 @@ export class TagsAnchorsComponent implements OnInit {
   selected: string = 'id';
   OrderByList: string[] = ['id', 'mac', 'xPos', 'yPos'];
   addTagAnchor: TagAnchor = {mac: null, description: null, xPos: null, yPos: null, type: 'Choose...'};
+  pageSizeList: number[] = [2, 4, 6, 8, 10, 20, 30, 40, 50];
+  sortBy: string = "id";
+  pageSize: number = 10;
+  pageNumber: number = 1;
   errorAdd: boolean = false;
   successAdd: boolean = false;
-  pageSizeList: number[] = [2, 4, 6, 8, 10, 20, 30, 40, 50];
   deleteTagAnchor: TagAnchor;
   errorDelete: boolean = false;
   succesDelete: boolean = false;
@@ -30,6 +33,9 @@ export class TagsAnchorsComponent implements OnInit {
 
   gettingTagsAnchors = false;
   ngOnInit() {
+    this.sortBy = this.apiService.sortBy;
+    this.pageSize = this.apiService.pageSize;
+    this.pageNumber = this.apiService.pageNumber;
     this.GetTagsAndAnchors();
   }
 
@@ -42,6 +48,8 @@ export class TagsAnchorsComponent implements OnInit {
     this.GetSelectetObjects();
   }
   async GetSelectetObjects(paging?: boolean) {
+    this.apiService.sortBy = this.sortBy;
+    this.apiService.pageSize = this.pageSize;
     if (!this.gettingTagsAnchors) {
       this.gettingTagsAnchors = true;
       this.visualList = [];
@@ -98,7 +106,8 @@ export class TagsAnchorsComponent implements OnInit {
 
   PreviousPage() {
     if (this.apiService.pageNumber > 1) {
-      this.apiService.pageNumber--;
+      this.pageNumber--;
+      this.apiService.pageNumber = this.pageNumber;
       this.GetSelectetObjects(true);
     }
   }
@@ -108,7 +117,8 @@ export class TagsAnchorsComponent implements OnInit {
       aantal = this.apiService.pageSize - 1;
     else aantal = this.apiService.pageSize / this.apiService.pageSizeDivider - 1;
     if (this.visualList[aantal]) {
-      this.apiService.pageNumber++;
+      this.pageNumber++;
+      this.apiService.pageNumber = this.pageNumber;
       this.GetSelectetObjects(true);
     }
   }
