@@ -1,5 +1,11 @@
 # Internet Of Things - *Location Ultra Wide Band*
 
+## Angular
+[![Build Status](https://dev.azure.com/LUWB/LUWB/_apis/build/status/Angular?branchName=master)](https://dev.azure.com/LUWB/LUWB/_build/latest?definitionId=1&branchName=master)
+
+## API
+[![Build Status](https://dev.azure.com/LUWB/LUWB/_apis/build/status/API?branchName=master)](https://dev.azure.com/LUWB/LUWB/_build/latest?definitionId=2&branchName=master)
+
 **Teammembers**
 * Hector Brasfalean
 * Davy Cools
