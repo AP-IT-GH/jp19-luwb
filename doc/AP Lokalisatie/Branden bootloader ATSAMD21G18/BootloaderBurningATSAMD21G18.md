@@ -7,6 +7,18 @@ De URL waar u dit programma kan downloaden is het volgende : [https://www.microc
 U zal de volgende repository moeten downloaden zodat u de bootloader voor de ATSAMD21G18 ter beschikking heeft.
 [https://github.com/sparkfun/SAMD21_Dev_Breakout](https://github.com/sparkfun/SAMD21_Dev_Breakout)
 ## 3. Aansluitingen hardware
+U sluit de J-link EDU aan via usb op uw computer. U sluit de 20 pin naar 10 pin adapter (J-TAG) aan op de J-link EDU. Vervolgens sluit je de ribbon cable aan op de adapter. De volgende signalen zijn de belangrijkste bij het aansluiten van de header:
+
+ - SWDIO ( Grijze female jumper )
+ - SWCLK ( Witte female jumper ) 
+ - GND ( Paarse en groene female jumper ) 
+ - VCC ( Gele female jumper ) 
+ - RESET ( Blauwe female jumper ) 
+ 
+![Aansluitingen hardware](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/AansluitingHardware.PNG "Aansluitingen hardware")
+![Aansluitingen hardware 1](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/AansluitingHeader1.jpg "Aansluitingen hardware 1")
+![Aansluitingen hardware 2](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/AansluitingHeader2.jpg "Aansluitingen hardware 2")
+![Aansluitingen hardware 3](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/AansluitingHeader3.jpg "Aansluitingen hardware 3")
 
 ## 4. Verwijderen ATSAMD21G18 chip
 Zodra het programma geïnstalleerd is, zal u indien u het programma opstart het volgende scherm bekomen:
