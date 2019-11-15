@@ -38,27 +38,28 @@ namespace Server
         {
             services.AddControllers();
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddDbContext<DatabaseContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddHangfire(configuration => {
                 configuration.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"));
             });
-
-            services.AddDbContext<DatabaseContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseContext context)
         {
+            // Vaste measurement per anchor aanmaken indien de db leeg is
+            DatabaseInitialiser.Initialize(context);
+
             app.UseHangfireServer();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            // Vaste measurement per anchor aanmaken indien de db leeg is
-            DatabaseInitialiser.Initialize(context);
 
             app.UseCors(builder =>
                 builder.AllowAnyOrigin()
