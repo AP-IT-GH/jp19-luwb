@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>354faaee-0e92-4a63-9ff7-8976a6b7dc44</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DatabaseContext\**" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="DatabaseContext\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="DatabaseContext\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="DatabaseContext\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="M2Mqtt" Version="4.3.0" />
+    <PackageReference Include="System.Net.Mqtt" Version="0.5.42-beta" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.6.17" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.6.17" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="MQTTnet" Version="3.0.0" />
+  </ItemGroup>
+
+</Project>

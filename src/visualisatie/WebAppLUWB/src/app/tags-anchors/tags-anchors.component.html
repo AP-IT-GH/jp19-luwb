@@ -5,39 +5,39 @@
         <p-selectButton [options]="listTypes" [(ngModel)]="TypeSelected" (onOptionClick)="FilterBy($event)" multiple="multiple"></p-selectButton><br><br>
 
         <strong>Sort By:&nbsp;&nbsp;&nbsp;</strong>
-        <select class="custom-select" [(ngModel)]="apiService.sortBy" (ngModelChange)="GetSelectetObjects()">
+        <select class="custom-select" [(ngModel)]="sortBy" (ngModelChange)="GetSelectetObjects()">
             <option *ngFor="let item of OrderByList" value="{{item}}">{{item}}</option>
         </select><br><br>
         
         <strong>Number of items in list:&nbsp;&nbsp;&nbsp;</strong>
-        <select class="custom-select" [(ngModel)]="apiService.pageSize" (ngModelChange)="GetSelectetObjects()">
+        <select class="custom-select" [(ngModel)]="pageSize" (ngModelChange)="GetSelectetObjects()">
             <option *ngFor="let item of pageSizeList" value="{{item}}">{{item}}</option>
         </select><br><br>
 
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTagAnchor"><i class="fas fa-plus-circle"></i>&nbsp;Add Tag/Anchor</button><br><br>
         <button type="button" class="btn btn-primary" (click)="GetSelectetObjects()"><i class="fas fa-redo-alt"></i>&nbsp;Refresh list</button><br><br>
         <div class="alert alert-success alert-dismissible" *ngIf="successAdd">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="successAdd = False">&times;</a>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="successAddFalse()">&times;</a>
                 <strong>Successfully added the Tag/Anchor!</strong>
             </div>
         <div class="alert alert-danger alert-dismissible" *ngIf="errorAdd">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="errorAdd = False">&times;</a>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="errorAddFalse()">&times;</a>
             <strong>Failed to add the Tag/Anchor. The API isn't responding.</strong>
         </div>
         <div class="alert alert-success alert-dismissible" *ngIf="succesDelete">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="succesDelete = False">&times;</a>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="succesDeleteFalse()">&times;</a>
                 <strong>Successfully deleted the Tag/Anchor!</strong>
             </div>
         <div class="alert alert-danger alert-dismissible" *ngIf="errorDelete">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="errorDelete = False">&times;</a>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="errorDeleteFalse()">&times;</a>
             <strong>Failed to delete the Tag/Anchor. The API isn't responding.</strong>
         </div>
         <div class="alert alert-success alert-dismissible" *ngIf="succesEdit">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="succesEdit = False">&times;</a>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="succesEditFalse()">&times;</a>
             <strong>Successfully edited the Tag/Anchor!</strong>
         </div>
         <div class="alert alert-danger alert-dismissible" *ngIf="errorEdit">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="errorEdit = False">&times;</a>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="errorEditFalse()">&times;</a>
             <strong>Failed to edit the Tag/Anchor. The API isn't responding.</strong>
         </div>
         <br><br>
@@ -65,7 +65,7 @@
             </tr>
         </table><br>
         <button style="display:inline-block;" type="button" class="btn btn-primary" (click)="PreviousPage()">Previous Page</button>&nbsp;&nbsp;
-        <p style="display:inline-block;" ><strong>Current Page: {{apiService.pageNumber}}</strong></p>&nbsp;&nbsp;
+        <p style="display:inline-block;" ><strong>Current Page: {{pageNumber}}</strong></p>&nbsp;&nbsp;
         <button style="display:inline-block;" type="button" class="btn btn-primary" (click)="NextPage()">Next Page</button> 
     </section>
 
