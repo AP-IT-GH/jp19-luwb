@@ -1,21 +1,32 @@
 <!--Er kunnen niet meer dan 25 tags en 25 anchors getoond worden op de kaart, deze restrictie heeft te maken met het maximaal aantal dat je kan opvragen per pagina.
     Dit kan omzeild worden door meerdere pagina's op te vragen tot je ale anchors/tags hebt gehad of door de restrictie af te zetten of te vergroten in de server.
 -->
-<body>
+<section>
     <div class="info">
-        Tag: &nbsp;<div class="tag tagAnchor example-box" cdkDragBoundary=".boundary">0</div><br>
-        Anchor: &nbsp;<div class="tagAnchor anchor example-box" cdkDragBoundary=".boundary">0</div>
-        <form class="range-field">
-            Refresh time: {{timer}} ms <br>
-            <input type="range" min="100" max="1000" step="10" [(ngModel)]="timer" name="slider" (ngModelChange)="ChangeRefreshTimer()">
-        </form>
+        <div>
+            Tag: &nbsp;<div class="tag tagAnchor example-box" cdkDragBoundary=".boundary">0</div><br>
+            Anchor: &nbsp;<div class="tagAnchor anchor example-box" cdkDragBoundary=".boundary">0</div>
+        </div>
+        <div class="interval">
+            <form class="range-field">
+                Refresh time: {{timer}} ms <br>
+                <input type="range" min="100" max="1000" step="10" [(ngModel)]="timer" name="slider" (ngModelChange)="ChangeRefreshTimer()">
+            </form>
+        </div>
+        <div class="coordinates">
+            Show coordinates:
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitches" [(ngModel)]="coordinatesVisible">
+                <label class="custom-control-label" for="customSwitches"></label>
+            </div>
+        </div>
     </div>
     <div class="boundary">
         <div *ngFor="let tag of tags" [style.left.px]="tag.xPos" [style.top.px]="tag.yPos" class="tag tagAnchor example-box" cdkDragBoundary=".boundary">
-            {{tag.mac | slice:3:5}}<p>{{tag.xPos}},{{tag.yPos}}</p>
+            {{tag.mac | slice:3:5}}<p *ngIf="coordinatesVisible">{{tag.xPos}},{{tag.yPos}}</p>
         </div>
         <div *ngFor="let anchor of anchors" [style.left.px]="anchor.xPos" [style.top.px]="anchor.yPos" class="tagAnchor anchor example-box" cdkDragBoundary=".boundary">
-            {{anchor.mac | slice:6:8}}<p>{{anchor.xPos}},{{anchor.yPos}}</p>
+            {{anchor.mac | slice:6:8}}<p *ngIf="coordinatesVisible">{{anchor.xPos}},{{anchor.yPos}}</p>
         </div>
         <!-- <div [style.width.px]="width[0]" [style.height.px]="height[0]" class="example-box crossed" cdkDragBoundary=".boundary" cdkDrag>
             Table
@@ -30,4 +41,4 @@
             Table
         </div> -->
     </div>         
-</body>
+</section>

@@ -8,6 +8,7 @@ export class CallapiService {
   constructor(private http: HttpClient) {}
 
   domain:string = 'https://luwb-api.azurewebsites.net/api/';
+  //domain:string = 'https://localhost:44321/api/';
   sortBy: string = 'id';
   pageSize: number = 10;
   pageSizeDivider: number = 2;

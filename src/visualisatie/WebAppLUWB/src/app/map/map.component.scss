@@ -34,7 +34,7 @@
     border: dotted rgba(0, 0, 0, 0.12) 2px;
     position: relative;
   }
-  body{
+  section{
       height: 84vh;
       width: 97vw;
       margin: auto;
@@ -83,13 +83,20 @@
 }
 .info{
   margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-
-
-.range-field{
-  position: absolute;
-  margin-top: -50px;
-  margin-left: 175px;
+.coordinates{
+  margin-left: 75px;
+}
+.interval{
+  margin-left: 100px;
+}
+.custom-switch{
+  display: inline-block;
+  margin-left: 8px;
+  top: 2px;
 }
 input[type=range] {
   height: 25px;
@@ -183,4 +190,15 @@ input[type=range]:focus::-ms-fill-upper {
 }
 input{
   background: none;
+}
+@media only screen and (max-width: 620px){
+  .info{
+    display: block;
+  }
+  .coordinates{
+    margin-left: 0;
+  }
+  .interval{
+    margin-left: 20px;
+  }
 }

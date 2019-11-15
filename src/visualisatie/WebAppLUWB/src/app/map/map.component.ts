@@ -15,6 +15,7 @@ export class MapComponent implements OnInit {
   tags: TagAnchor[] = [];
   anchors: TagAnchor[] = [];
   timer: number = 1000;
+  coordinatesVisible: boolean = true;
   interval;
   async ngOnInit() {
     await this.GetTags();
