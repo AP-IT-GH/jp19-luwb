@@ -45,7 +45,7 @@ namespace Server
         {
 
             services.AddHangfire( configuration => {
-                configuration.UseSqlServerStorage("DefaultConnection");
+                configuration.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"));
             });
           
             services.AddDbContext<DatabaseContext>(options =>
@@ -156,7 +156,7 @@ namespace Server
             string[] data = payload.Split(';');
 
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer("DefaultConnection");
+            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             // Aanmaken nieuw databasecontext object
             using (var context = new DatabaseContext(optionsBuilder.Options))
             {
