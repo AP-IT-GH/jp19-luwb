@@ -42,11 +42,10 @@ namespace Server
                 configuration.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
             services.AddDbContext<DatabaseContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +60,10 @@ namespace Server
             // Vaste measurement per anchor aanmaken indien de db leeg is
             DatabaseInitialiser.Initialize(context);
 
+            app.UseCors(builder =>
+                builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                         .AllowAnyMethod());
             app.UseHttpsRedirection();
 
             app.UseRouting();
