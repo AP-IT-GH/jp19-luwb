@@ -75,7 +75,6 @@
 .tag{
   background-color: blue !important;
   border: solid 1px blue !important;
-  
 }
 .anchor{
   background-color: red !important;
@@ -84,8 +83,12 @@
 .info{
   margin-bottom: 15px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  button{
+    margin-top: 10px;
+    margin-left: 10px;
+    height: fit-content;
+  }
 }
 .coordinates{
   margin-left: 75px;
@@ -97,6 +100,31 @@
   display: inline-block;
   margin-left: 8px;
   top: 2px;
+}
+button{
+  border-radius: 18px;
+}
+table,th,td{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 10px;
+}
+.modal-body{
+  margin: auto;
+}
+table{
+  width: 100%;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+tr:nth-child(odd){
+  background-color: #c6c8ca;
+}
+tr:nth-child(even){
+  background-color: white;
+}
+th{
+  color: white;
 }
 input[type=range] {
   height: 25px;
