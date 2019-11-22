@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle>
+    <drawing>
+        <grid unitdist="mm" unit="mm"/>
+        <layers>
+            <layer name="Top" color="4" number="1" visible="yes" active="yes" fill="1"/>
+            <layer name="Bottom" color="4" number="16" visible="yes" active="yes" fill="1"/>
+            <layer name="tPlace" color="7" number="21" visible="yes" active="yes" fill="1"/>
+            <layer name="bPlace" color="7" number="22" visible="yes" active="yes" fill="1"/>
+            <layer name="tNames" color="7" number="25" visible="yes" active="yes" fill="1"/>
+            <layer name="bNames" color="7" number="26" visible="yes" active="yes" fill="1"/>
+            <layer name="tValues" color="7" number="27" visible="yes" active="yes" fill="1"/>
+            <layer name="bValues" color="7" number="28" visible="yes" active="yes" fill="1"/>
+            <layer name="tStop" color="7" number="29" visible="yes" active="yes" fill="1"/>
+            <layer name="bStop" color="7" number="30" visible="yes" active="yes" fill="1"/>
+            <layer name="tCream" color="7" number="31" visible="yes" active="yes" fill="1"/>
+            <layer name="bCream" color="7" number="32" visible="yes" active="yes" fill="1"/>
+            <layer name="tKeepout" color="4" number="39" visible="yes" active="yes" fill="1"/>
+            <layer name="bKeepout" color="4" number="40" visible="yes" active="yes" fill="1"/>
+            <layer name="tRestrict" color="0" number="41" visible="yes" active="yes" fill="1"/>
+            <layer name="bRestrict" color="0" number="42" visible="yes" active="yes" fill="1"/>
+            <layer name="tDocu" color="7" number="51" visible="yes" active="yes" fill="1"/>
+            <layer name="bDocu" color="7" number="52" visible="yes" active="yes" fill="1"/>
+            <layer name="Nets" color="2" number="91" visible="yes" active="yes" fill="1"/>
+            <layer name="Busses" color="1" number="92" visible="yes" active="yes" fill="1"/>
+            <layer name="Pins" color="2" number="93" visible="yes" active="yes" fill="1"/>
+            <layer name="Symbols" color="4" number="94" visible="yes" active="yes" fill="1"/>
+            <layer name="Names" color="7" number="95" visible="yes" active="yes" fill="1"/>
+            <layer name="Values" color="7" number="96" visible="yes" active="yes" fill="1"/>
+            <layer name="Info" color="7" number="97" visible="yes" active="yes" fill="1"/>
+            <layer name="Guide" color="6" number="98" visible="yes" active="yes" fill="1"/>
+        </layers>
+        <library name="Upverter Library">
+            <description>Upverter Parts Library
+
+Created by Upverter.com</description>
+            <packages>
+                <package name="STEWART_CONNECTOR_SI-52008-F_0">
+                    <description>Modular Connectors / Ethernet Connectors RJ45 Connector</description>
+                    <wire layer="51" y2="12.7" width="0.15" x2="-8.99" y1="-12.7" x1="-8.99"/>
+                    <wire layer="51" y2="12.7" width="0.15" x2="8.99" y1="12.7" x1="-8.99"/>
+                    <wire layer="51" y2="-12.7" width="0.15" x2="8.99" y1="12.7" x1="8.99"/>
+                    <wire layer="51" y2="-12.7" width="0.15" x2="-8.99" y1="-12.7" x1="8.99"/>
+                    <wire layer="39" y2="12.8" width="0.1" x2="-9.09" y1="-12.8" x1="-9.09"/>
+                    <wire layer="39" y2="12.8" width="0.1" x2="9.09" y1="12.8" x1="-9.09"/>
+                    <wire layer="39" y2="-12.8" width="0.1" x2="9.09" y1="12.8" x1="9.09"/>
+                    <wire layer="39" y2="-12.8" width="0.1" x2="-9.09" y1="-12.8" x1="9.09"/>
+                    <wire layer="21" y2="-12.7" width="0.15" x2="-9.0" y1="-12.7" x1="8.98"/>
+                    <wire layer="21" y2="-0.3" width="0.15" x2="-9.0" y1="-12.7" x1="-9.0"/>
+                    <wire layer="21" y2="-0.3" width="0.15" x2="9.0" y1="-12.7" x1="9.0"/>
+                    <wire layer="21" y2="12.7" width="0.15" x2="-8.975" y1="2.7" x1="-8.975"/>
+                    <wire layer="21" y2="12.7" width="0.15" x2="8.975" y1="2.7" x1="8.975"/>
+                    <wire layer="21" y2="12.7" width="0.15" x2="6.675" y1="12.7" x1="8.975"/>
+                    <wire layer="21" y2="12.7" width="0.15" x2="-8.975" y1="12.7" x1="-6.675"/>
+                    <text layer="25" align="bottom-left" y="13.125" x="-8.815" rot="R0" size="1.0">&gt;NAME</text>
+                    <circle y="4.315" x="9.86" layer="21" radius="0.25" width="0.0"/>
+                    <rectangle layer="41" y2="1.9" x2="5.715" y1="-9.53" x1="-5.715"/>
+                    <hole y="-1.91" x="-5.715" drill="3.215"/>
+                    <hole y="-1.91" x="5.715" drill="3.215"/>
+                    <pad diameter="2.42" name="17" shape="round" drill="1.57" y="1.14" x="7.745" rot="R0"/>
+                    <pad diameter="2.42" name="16" shape="round" drill="1.57" y="1.14" x="-7.745" rot="R0"/>
+                    <pad diameter="1.57" name="13" shape="round" drill="1.02" y="11.81" x="-2.925" rot="R0"/>
+                    <pad diameter="1.57" name="12" shape="round" drill="1.02" y="11.81" x="-5.465" rot="R0"/>
+                    <pad diameter="1.57" name="14" shape="round" drill="1.02" y="11.81" x="2.925" rot="R0"/>
+                    <pad diameter="1.57" name="15" shape="round" drill="1.02" y="11.81" x="5.465" rot="R0"/>
+                    <pad diameter="1.39" name="11" shape="round" drill="0.89" y="9.52" x="-4.445" rot="R0"/>
+                    <pad diameter="1.39" name="10" shape="round" drill="0.89" y="6.98" x="-5.715" rot="R0"/>
+                    <pad diameter="1.39" name="9" shape="round" drill="0.89" y="4.44" x="-4.445" rot="R0"/>
+                    <pad diameter="1.39" name="8" shape="round" drill="0.89" y="6.98" x="-3.175" rot="R0"/>
+                    <pad diameter="1.39" name="5" shape="round" drill="0.89" y="4.44" x="0.635" rot="R0"/>
+                    <pad diameter="1.39" name="4" shape="round" drill="0.89" y="6.98" x="1.905" rot="R0"/>
+                    <pad diameter="1.39" name="3" shape="round" drill="0.89" y="4.44" x="3.175" rot="R0"/>
+                    <pad diameter="1.39" name="2" shape="round" drill="0.89" y="6.98" x="4.445" rot="R0"/>
+                    <pad diameter="1.39" name="1" shape="square" drill="0.89" y="4.44" x="5.715" rot="R0"/>
+                </package>
+            </packages>
+            <symbols>
+                <symbol name="STEWART_CONNECTOR_SI-52008-F_0_0">
+                    <description>Modular Connectors / Ethernet Connectors RJ45 Connector</description>
+                    <wire layer="94" y2="-5.08" width="0.254" x2="2.54" y1="-86.36" x1="2.54"/>
+                    <wire layer="94" y2="-5.08" width="0.254" x2="25.4" y1="-5.08" x1="2.54"/>
+                    <wire layer="94" y2="-86.36" width="0.254" x2="25.4" y1="-5.08" x1="25.4"/>
+                    <wire layer="94" y2="-86.36" width="0.254" x2="2.54" y1="-86.36" x1="25.4"/>
+                    <wire layer="94" y2="-10.16" width="0.508" x2="25.4" y1="-10.16" x1="14.732"/>
+                    <wire layer="94" y2="-15.24" width="0.508" x2="25.4" y1="-15.24" x1="14.732"/>
+                    <wire layer="94" y2="-20.32" width="0.508" x2="25.4" y1="-20.32" x1="14.732"/>
+                    <wire layer="94" y2="-25.4" width="0.508" x2="25.4" y1="-25.4" x1="14.732"/>
+                    <wire layer="94" y2="-30.48" width="0.508" x2="25.4" y1="-30.48" x1="14.732"/>
+                    <wire layer="94" y2="-35.56" width="0.508" x2="25.4" y1="-35.56" x1="14.732"/>
+                    <wire layer="94" y2="-40.64" width="0.508" x2="25.4" y1="-40.64" x1="14.732"/>
+                    <wire layer="94" y2="-45.72" width="0.508" x2="25.4" y1="-45.72" x1="14.732"/>
+                    <wire layer="94" y2="-50.8" width="0.508" x2="25.4" y1="-50.8" x1="14.732"/>
+                    <wire layer="94" y2="-55.88" width="0.508" x2="25.4" y1="-55.88" x1="14.732"/>
+                    <wire layer="94" y2="-60.96" width="0.508" x2="25.4" y1="-60.96" x1="14.732"/>
+                    <wire layer="94" y2="-66.04" width="0.508" x2="25.4" y1="-66.04" x1="14.732"/>
+                    <wire layer="94" y2="-71.12" width="0.508" x2="25.4" y1="-71.12" x1="14.732"/>
+                    <wire layer="94" y2="-76.2" width="0.508" x2="25.4" y1="-76.2" x1="14.732"/>
+                    <wire layer="94" y2="-81.28" width="0.508" x2="25.4" y1="-81.28" x1="14.732"/>
+                    <wire layer="94" y2="-10.16" width="0.15" x2="25.4" y1="-10.16" x1="25.4"/>
+                    <wire layer="94" y2="-15.24" width="0.15" x2="25.4" y1="-15.24" x1="25.4"/>
+                    <wire layer="94" y2="-20.32" width="0.15" x2="25.4" y1="-20.32" x1="25.4"/>
+                    <wire layer="94" y2="-25.4" width="0.15" x2="25.4" y1="-25.4" x1="25.4"/>
+                    <wire layer="94" y2="-30.48" width="0.15" x2="25.4" y1="-30.48" x1="25.4"/>
+                    <wire layer="94" y2="-35.56" width="0.15" x2="25.4" y1="-35.56" x1="25.4"/>
+                    <wire layer="94" y2="-40.64" width="0.15" x2="25.4" y1="-40.64" x1="25.4"/>
+                    <wire layer="94" y2="-45.72" width="0.15" x2="25.4" y1="-45.72" x1="25.4"/>
+                    <wire layer="94" y2="-50.8" width="0.15" x2="25.4" y1="-50.8" x1="25.4"/>
+                    <wire layer="94" y2="-55.88" width="0.15" x2="25.4" y1="-55.88" x1="25.4"/>
+                    <wire layer="94" y2="-60.96" width="0.15" x2="25.4" y1="-60.96" x1="25.4"/>
+                    <wire layer="94" y2="-66.04" width="0.15" x2="25.4" y1="-66.04" x1="25.4"/>
+                    <wire layer="94" y2="-71.12" width="0.15" x2="25.4" y1="-71.12" x1="25.4"/>
+                    <wire layer="94" y2="-76.2" width="0.15" x2="25.4" y1="-76.2" x1="25.4"/>
+                    <wire layer="94" y2="-81.28" width="0.15" x2="25.4" y1="-81.28" x1="25.4"/>
+                    <text layer="95" align="top-left" y="-2.54" x="2.54" rot="R0" size="2.54">&gt;NAME</text>
+                    <text layer="95" align="top-left" y="-86.868" x="2.286" rot="R0" size="2.54">SI-52008-F</text>
+                    <pin name="TD+" visible="pad" length="middle" y="-10.16" x="30.48" rot="R180"/>
+                    <pin name="COMMON_CT" visible="pad" length="middle" y="-15.24" x="30.48" rot="R180"/>
+                    <pin name="TD-" visible="pad" length="middle" y="-20.32" x="30.48" rot="R180"/>
+                    <pin name="RD+" visible="pad" length="middle" y="-25.4" x="30.48" rot="R180"/>
+                    <pin name="RD-" visible="pad" length="middle" y="-30.48" x="30.48" rot="R180"/>
+                    <pin name="1_VC+" visible="pad" length="middle" y="-35.56" x="30.48" rot="R180"/>
+                    <pin name="1_VC-" visible="pad" length="middle" y="-40.64" x="30.48" rot="R180"/>
+                    <pin name="2_VC+" visible="pad" length="middle" y="-45.72" x="30.48" rot="R180"/>
+                    <pin name="2_VC-" visible="pad" length="middle" y="-50.8" x="30.48" rot="R180"/>
+                    <pin name="GRN_ANODE" visible="pad" length="middle" y="-55.88" x="30.48" rot="R180"/>
+                    <pin name="GRN_CATHODE" visible="pad" length="middle" y="-60.96" x="30.48" rot="R180"/>
+                    <pin name="YEL_ANODE" visible="pad" length="middle" y="-66.04" x="30.48" rot="R180"/>
+                    <pin name="YEL_CATHODE" visible="pad" length="middle" y="-71.12" x="30.48" rot="R180"/>
+                    <pin name="MNT_1" visible="pad" length="middle" y="-76.2" x="30.48" rot="R180"/>
+                    <pin name="MNT_2" visible="pad" length="middle" y="-81.28" x="30.48" rot="R180"/>
+                    <circle y="-10.16" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-15.24" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-20.32" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-25.4" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-30.48" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-35.56" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-40.64" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-45.72" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-50.8" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-55.88" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-60.96" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-66.04" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-71.12" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-76.2" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                    <circle y="-81.28" x="13.97" layer="94" radius="0.762" width="0.254"/>
+                </symbol>
+            </symbols>
+            <devicesets>
+                <deviceset prefix="J" name="STEWART_CONNECTOR_SI-52008-F">
+                    <description>Modular Connectors / Ethernet Connectors RJ45 Connector</description>
+                    <gates>
+                        <gate name="G$0" symbol="STEWART_CONNECTOR_SI-52008-F_0_0" x="0"/>
+                    </gates>
+                    <devices>
+                        <device name="STEWART_CONNECTOR_SI-52008-F_0_0" package="STEWART_CONNECTOR_SI-52008-F_0">
+                            <connects>
+                                <connect gate="G$0" pad="1" pin="TD+"/>
+                                <connect gate="G$0" pad="2" pin="COMMON_CT"/>
+                                <connect gate="G$0" pad="3" pin="TD-"/>
+                                <connect gate="G$0" pad="4" pin="RD+"/>
+                                <connect gate="G$0" pad="5" pin="RD-"/>
+                                <connect gate="G$0" pad="8" pin="1_VC+"/>
+                                <connect gate="G$0" pad="9" pin="1_VC-"/>
+                                <connect gate="G$0" pad="10" pin="2_VC+"/>
+                                <connect gate="G$0" pad="11" pin="2_VC-"/>
+                                <connect gate="G$0" pad="12" pin="GRN_ANODE"/>
+                                <connect gate="G$0" pad="13" pin="GRN_CATHODE"/>
+                                <connect gate="G$0" pad="14" pin="YEL_ANODE"/>
+                                <connect gate="G$0" pad="15" pin="YEL_CATHODE"/>
+                                <connect gate="G$0" pad="16" pin="MNT_1"/>
+                                <connect gate="G$0" pad="17" pin="MNT_2"/>
+                            </connects>
+                            <technologies>
+                                <technology>
+                                    <attribute name="MPN" value="SI-52008-F"/>
+                                    <attribute name="mouser_part_number" value="530-SI-52008-F"/>
+                                    <attribute name="digikey_description" value="CONN MAGJACK 1PORT 100 BASE-T"/>
+                                    <attribute name="centroid_not_specified" value="No"/>
+                                    <attribute name="digikey_part_number" value="SI-52008-F-ND"/>
+                                    <attribute name="lead_free" value="yes"/>
+                                    <attribute name="rohs" value="yes"/>
+                                    <attribute name="prefix" value="J"/>
+                                    <attribute name="MF" value="Stewart Connector"/>
+                                    <attribute name="package" value="CONN_PTH_JACK"/>
+                                    <attribute name="datasheet" value="https://belfuse.com/resources/StewartConnector/SI-52008-F.pdf"/>
+                                </technology>
+                            </technologies>
+                        </device>
+                    </devices>
+                </deviceset>
+            </devicesets>
+        </library>
+    </drawing>
+</eagle>
