@@ -45,17 +45,30 @@ namespace Server.Models
                 Tag[] tags = {
                     new Tag()
                     {
+                        ProjecType = projectTypes.APLokalisatie,
                         Mac = "TAG5",
                         Description = "Dit is een test",
                         XPos = 0,
-                        YPos = 0
+                        YPos = 0,
+                        ZPos = 0
                     },
                     new Tag()
                     {
-                         Mac = "TAG6",
-                         Description = "Dit is een test",
-                         XPos = 0,
-                         YPos = 0
+                        ProjecType = projectTypes.APLokalisatie, 
+                        Mac = "TAG6",
+                        Description = "Dit is een test",
+                        XPos = 0,
+                        YPos = 0,
+                        ZPos = 0
+                    },
+                    new Tag()
+                    {
+                        ProjecType = projectTypes.Pozyx,
+                        Mac = "TAG1",
+                        Description = "Pozyx Tag",
+                        XPos = 0,
+                        YPos = 0,
+                        ZPos = 0
                     }
                 };
                 foreach (var item in tags)
