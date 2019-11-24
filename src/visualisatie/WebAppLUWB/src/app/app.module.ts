@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule} from "@angular/router"
+import {RouterModule} from '@angular/router'
 import {FormsModule} from '@angular/forms';
 
 import {ToolbarModule} from 'primeng/toolbar';
@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './settings/settings.component';
 import { MapComponent } from './map/map.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MsalService } from './services/msal.service';
+import { MsalGuard } from './guard/msal.guard';
 
 @NgModule({
   declarations: [
@@ -32,12 +34,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path:"home", component: HomeComponent},
-      {path:"tags_anchors", component: TagsAnchorsComponent},
-      {path:"settings", component: SettingsComponent},
-      {path:"map", component: MapComponent},
-      {path: "", redirectTo: "home", pathMatch:"full"},
-      {path: "**", component: PageNotFoundComponent}
+      {path: 'home', component: HomeComponent},
+      {path: 'tags_anchors', component: TagsAnchorsComponent},
+      {path: 'settings', component: SettingsComponent, canActivate: [MsalGuard]},
+      {path: 'map', component: MapComponent},
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: '**', component: PageNotFoundComponent}
     ]),
     ToolbarModule,
     FormsModule,
@@ -47,7 +49,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DragDropModule
   ],
   providers: [
-    CallapiService
+    CallapiService,
+    MsalService,
+    MsalGuard
   ],
   bootstrap: [AppComponent]
 })
