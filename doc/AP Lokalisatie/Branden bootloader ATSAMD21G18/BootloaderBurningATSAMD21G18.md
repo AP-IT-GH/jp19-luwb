@@ -22,7 +22,7 @@ U sluit de J-link EDU aan via usb op uw computer. U sluit de 20 pin naar 10 pin 
 
 ## 4. Verwijderen ATSAMD21G18 chip
 Zodra het programma geïnstalleerd is, zal u indien u het programma opstart het volgende scherm bekomen:
-![Atmel Studio start scherm](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/AtmelStudioStartScherm.png "Atmel Studio start scherm")
+![Atmel Studio start scherm](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/AtmelStudioStartScherm.PNG "Atmel Studio start scherm")
 
 Vanuit dit scherm gaat u naar **'Tools => Device programming'**. 
 ![Atmel Studio tools](https://github.com/AP-Elektronica-ICT/jp19-luwb/blob/master/doc/img/DeviceProgramming.jpg "Atmel Studio tools")
