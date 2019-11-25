@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class CallapiService {
 
   constructor(private http: HttpClient) {}
-
-  domain:string = 'https://luwb-api.azurewebsites.net/api/';
+  
   sortBy: string = 'id';
   pageSize: number = 10;
   pageSizeDivider: number = 2;
   pageNumber:number = 1;
+  domain: string = environment.domain;
+  
   public GetTags(){
     return this.http
     .get<TagAnchor[]>(`${this.domain}tags?sortBy=${this.sortBy}&pageSize=${this.pageSize/this.pageSizeDivider}&pageNumber=${this.pageNumber-1}`)
