@@ -3,30 +3,55 @@ import configparser
 
 config= configparser.ConfigParser()
 
-obj = []
-obj.append(input("What is the ID of the connected device? "))
-obj.append(input("What is the ID of the device to execute the scripts on? "))
-obj.append(input("What is the ID of anchor 1? "))
-obj.append(input("What is the X-coordinate of anchor 1? "))
-obj.append(input("What is the Y-coordinate of anchor 1? "))
-obj.append(input("What is the Z-coordinate of anchor 1? "))
-obj.append(input("What is the ID of anchor 2? "))
-obj.append(input("What is the X-coordinate of anchor 1? "))
-obj.append(input("What is the Y-coordinate of anchor 1? "))
-obj.append(input("What is the Z-coordinate of anchor 1? "))
-obj.append(input("What is the ID of anchor 3? "))
-obj.append(input("What is the X-coordinate of anchor 1? "))
-obj.append(input("What is the Y-coordinate of anchor 1? "))
-obj.append(input("What is the Z-coordinate of anchor 1? "))
-obj.append(input("What is the ID of anchor 4? "))
-obj.append(input("What is the X-coordinate of anchor 1? "))
-obj.append(input("What is the Y-coordinate of anchor 1? "))
-obj.append(input("What is the Z-coordinate of anchor 1? "))
+settings = ["",""]
 
-config['default'] = {'connected_id': obj[0],'remote_id':obj[1],
-'anchor1_id':obj[2],'anchor1_X':obj[3],'anchor1_Y':obj[4],'anchor1_Z':obj[5],
-'anchor2_id':obj[6],'anchor2_X':obj[7],'anchor2_Y':obj[8],'anchor2_Z':obj[9],
-'anchor3_id':obj[10],'anchor3_X':obj[11],'anchor3_Y':obj[12],'anchor3_Z':obj[13],
-'anchor4_id':obj[14],'anchor4_X':obj[15],'anchor4_Y':obj[16],'anchor4_Z':obj[17],}
+class Anchor:
+	def __init__(self):
+		self.id = 0
+		self.x = 0
+		self.y = 0
+		self.z = 0
+	def get_id(self):
+		return self.id
+	def get_x(self):
+		return self.x
+	def get_y(self):
+		return self.y
+	def get_z(self):
+		return self.z
+	def set_id(self,id):
+		self.id = id
+	def set_x(self,x):
+		self.x = x
+	def set_y(self,y):
+		self.y = y
+	def set_z(self,z):
+		self.z = z
+
+anchors = []
+
+for anchor in range(4):
+  anchors.append(Anchor())
+
+changeConnected = input("Do you want to change the connected device? Y/N ").lower()
+if changeConnected == 'y':
+	settings[0] = input("What is the ID of the connected device? ")
+changeRemote = input("Do you want to change the device to execute the sripts on? Y/N ").lower()
+if changeRemote == 'y':
+	settings[1] = input("What is the ID of the device to execute the scripts on? ")
+
+for index, anchor in enumerate(anchors):
+	changeAnchor = input("Do you want to change the settings of anchor " + str(index+1) + "? Y/N ").lower()
+	if changeAnchor == 'y':
+		anchor.set_id = input("What is the ID of anchor " + str(index+1) + "? ")
+		anchor.set_x = input("What is the X-coordinate of anchor " + str(index+1) + "? ")
+		anchor.set_y = input("What is the Y-coordinate of anchor " + str(index+1) + "? ")
+		anchor.set_z = input("What is the Z-coordinate of anchor " + str(index+1) + "? ")
+
+config['default'] = {'connected_id': settings[0],'remote_id':settings[1],
+'anchor1_id':anchors[0].get_id,'anchor1_X':anchors[0].get_x,'anchor1_Y':anchors[0].get_y,'anchor1_Z':anchors[0].get_z,
+'anchor2_id':anchors[1].get_id,'anchor2_X':anchors[1].get_x,'anchor2_Y':anchors[1].get_y,'anchor2_Z':anchors[1].get_z,
+'anchor3_id':anchors[2].get_id,'anchor3_X':anchors[2].get_x,'anchor3_Y':anchors[2].get_y,'anchor3_Z':anchors[2].get_z,
+'anchor4_id':anchors[3].get_id,'anchor4_X':anchors[3].get_x,'anchor4_Y':anchors[3].get_y,'anchor4_Z':anchors[3].get_z}
 with open('config.ini','+w') as f:
 	config.write(f)

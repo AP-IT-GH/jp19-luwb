@@ -37,13 +37,14 @@ try:
         client = mqtt.Client(client_id=clientID)
         client.connect("broker.mqttdashboard.com")
         client.loop_start()
+    cursor = conn.cursor()
     while True:
         pozyx.doPositioning(positionTag, remote_id=r_id)
         publishString = hex(r_id) + ": " + str(positionTag)
         print(publishString)
         if exportFile is "y": f.write(publishString + "\n")
         if exportMQTT is "y": client.publish(topic,publishString)
-
+        
 #Exception exit
 except:
     if exportFile is "y": f.close()
