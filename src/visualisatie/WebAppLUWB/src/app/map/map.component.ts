@@ -85,10 +85,10 @@ export class MapComponent implements OnInit, OnDestroy {
     item.visible = !item.visible;
   }
 
-  get GetTimer() {
+  get Timer() {
     return this.mapService.timer;
   }
-  set GetTimer(timer){
+  set Timer(timer){
     this.mapService.timer = timer;
   }
   get GetVisualListTags(){
@@ -97,5 +97,10 @@ export class MapComponent implements OnInit, OnDestroy {
   get GetVisualListAnchors(){
     return this.mapService.visualListAnchors
   }
-  
+  get CoordinatesVisible(){
+    return this.mapService.coordinatesVisible;
+  }
+  set CoordinatesVisible(bool){
+    this.mapService.coordinatesVisible = bool;
+  }
 }

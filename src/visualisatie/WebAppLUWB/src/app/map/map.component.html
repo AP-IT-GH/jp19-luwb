@@ -9,8 +9,8 @@
         </div>
         <div class="interval">
             <form class="range-field">
-                Refresh time: {{GetTimer}} ms <br>
-                <input type="range" min="100" max="1000" step="10" [(ngModel)]="GetTimer" name="slider"
+                Refresh time: {{Timer}} ms <br>
+                <input type="range" min="100" max="1000" step="10" [(ngModel)]="Timer" name="slider"
                     (ngModelChange)="ChangeRefreshTimer()">
             </form>
         </div>
@@ -18,7 +18,7 @@
             Show coordinates:
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="customSwitches"
-                    [(ngModel)]="mapService.coordinatesVisible">
+                    [(ngModel)]="CoordinatesVisible">
                 <label class="custom-control-label" for="customSwitches"></label>
             </div>
         </div>
@@ -31,13 +31,13 @@
         <div *ngFor="let tag of tags; index as i">
             <div *ngIf="GetVisualListTags[i].visible" [style.left.px]="tag.xPos" [style.top.px]="tag.yPos"
                 class="tag tagAnchor example-box" cdkDragBoundary=".boundary">
-                {{tag.mac | slice:3:5}}<p *ngIf="mapService.coordinatesVisible">{{tag.xPos}},{{tag.yPos}}</p>
+                {{tag.mac | slice:3:5}}<p *ngIf="CoordinatesVisible">{{tag.xPos}},{{tag.yPos}}</p>
             </div>
         </div>
         <div *ngFor="let anchor of anchors; index as i">
             <div *ngIf="GetVisualListAnchors[i].visible" [style.left.px]="anchor.xPos" [style.top.px]="anchor.yPos"
                 class="tagAnchor anchor example-box" cdkDragBoundary=".boundary">
-                {{anchor.mac | slice:6:8}}<p *ngIf="mapService.coordinatesVisible">{{anchor.xPos}},{{anchor.yPos}}</p>
+                {{anchor.mac | slice:6:8}}<p *ngIf="CoordinatesVisible">{{anchor.xPos}},{{anchor.yPos}}</p>
             </div>
         </div>
 
