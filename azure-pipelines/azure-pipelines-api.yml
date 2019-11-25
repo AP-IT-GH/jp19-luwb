@@ -9,7 +9,7 @@ trigger:
       - master
   paths:
     include:
-      - src/AP lokalisatie/Server/*
+      - src/Server/*
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -22,7 +22,7 @@ steps:
   displayName: Build
   inputs:
     command: 'build'
-    projects: 'src/AP lokalisatie/Server/Server.csproj'
+    projects: 'src/Server/Server.csproj'
     arguments: '--configuration $(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
