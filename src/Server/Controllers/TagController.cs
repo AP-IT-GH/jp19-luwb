@@ -29,6 +29,12 @@ namespace Server.Controllers
             if (string.IsNullOrEmpty(sortBy)) sortBy = "default";
             switch (sortBy.ToLower())
             {
+                case "projecttype":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.ProjecType);
+                    else
+                        query = query.OrderByDescending(b => b.ProjecType);
+                    break;
                 case "mac":
                     if (direction == "asc")
                         query = query.OrderBy(b => b.Mac);
@@ -52,6 +58,12 @@ namespace Server.Controllers
                         query = query.OrderBy(b => b.YPos);
                     else
                         query = query.OrderByDescending(b => b.YPos);
+                    break;
+                case "zpos":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.ZPos);
+                    else
+                        query = query.OrderByDescending(b => b.ZPos);
                     break;
                 default:
                     if (direction == "asc")
