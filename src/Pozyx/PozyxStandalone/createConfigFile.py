@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import configparser
+from configparser import ConfigParser
 
-config= configparser.ConfigParser()
-
-settings = ["",""]
+config= ConfigParser()
+cParser = ConfigParser()
+cParser.read('config.ini')
 
 class Anchor:
 	def __init__(self):
@@ -28,10 +28,20 @@ class Anchor:
 	def set_z(self,z):
 		self.z = z
 
+settings = ["",""]
+settings[0] = cParser.get('default','connected_id')
+settings[1] = cParser.get('default','remote_id')
+
 anchors = []
 
 for anchor in range(4):
   anchors.append(Anchor())
+
+for index, anchor in enumerate(anchors):
+	anchor.set_id(cParser.get('default','anchor' + str(index+1) + '_id'))
+	anchor.set_x(cParser.get('default','anchor' + str(index+1) + '_X'))
+	anchor.set_y(cParser.get('default','anchor' + str(index+1) + '_Y'))
+	anchor.set_z(cParser.get('default','anchor' + str(index+1) + '_Z'))
 
 changeConnected = input("Do you want to change the connected device? Y/N ").lower()
 if changeConnected == 'y':
@@ -49,9 +59,9 @@ for index, anchor in enumerate(anchors):
 		anchor.set_z = input("What is the Z-coordinate of anchor " + str(index+1) + "? ")
 
 config['default'] = {'connected_id': settings[0],'remote_id':settings[1],
-'anchor1_id':anchors[0].get_id,'anchor1_X':anchors[0].get_x,'anchor1_Y':anchors[0].get_y,'anchor1_Z':anchors[0].get_z,
-'anchor2_id':anchors[1].get_id,'anchor2_X':anchors[1].get_x,'anchor2_Y':anchors[1].get_y,'anchor2_Z':anchors[1].get_z,
-'anchor3_id':anchors[2].get_id,'anchor3_X':anchors[2].get_x,'anchor3_Y':anchors[2].get_y,'anchor3_Z':anchors[2].get_z,
-'anchor4_id':anchors[3].get_id,'anchor4_X':anchors[3].get_x,'anchor4_Y':anchors[3].get_y,'anchor4_Z':anchors[3].get_z}
+'anchor1_id':anchors[0].get_id(),'anchor1_X':anchors[0].get_x(),'anchor1_Y':anchors[0].get_y(),'anchor1_Z':anchors[0].get_z(),
+'anchor2_id':anchors[1].get_id(),'anchor2_X':anchors[1].get_x(),'anchor2_Y':anchors[1].get_y(),'anchor2_Z':anchors[1].get_z(),
+'anchor3_id':anchors[2].get_id(),'anchor3_X':anchors[2].get_x(),'anchor3_Y':anchors[2].get_y(),'anchor3_Z':anchors[2].get_z(),
+'anchor4_id':anchors[3].get_id(),'anchor4_X':anchors[3].get_x(),'anchor4_Y':anchors[3].get_y(),'anchor4_Z':anchors[3].get_z()}
 with open('config.ini','+w') as f:
 	config.write(f)

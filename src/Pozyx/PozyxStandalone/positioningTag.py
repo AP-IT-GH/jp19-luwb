@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates
 from configparser import ConfigParser
 import paho.mqtt.client as mqtt
