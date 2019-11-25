@@ -147,7 +147,6 @@ export class TagsAnchorsComponent implements OnInit {
     this.editTagAnchor = Object.assign({}, object);
   }
   ConfirmedEdit() {
-    console.log(this.editTagAnchor);
     if (this.editTagAnchor.type === 'Anchor') {
       this.apiService.EditAnchor(this.editTagAnchor).subscribe(
         (val) => {

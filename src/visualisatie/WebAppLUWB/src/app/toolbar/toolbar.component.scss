@@ -5,3 +5,26 @@ li{
     font-size: 20px;
     font-weight: bold;
 }
+nav{
+
+    box-shadow: 0 4px 4px -2px black;
+    z-index: 3;
+}
+.center{
+    display: inline-flex;
+}
+p{
+    font-size: 16px;
+    margin: auto;
+    font-family: 'Roboto';
+    font-weight: bolder;
+    display: inline;
+    margin-left: 10px;
+    color: white;
+}
+button{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: white;
+}

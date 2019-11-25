@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CallapiService } from './callapi.service';
+import { MsalService } from './msal.service';
 import { HttpClientModule } from '@angular/common/http';
 
-describe('CallapiService', () => {
+describe('MsalService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientModule]
+    imports: [ HttpClientModule]
   }));
 
   it('should be created', () => {
-    const service: CallapiService = TestBed.get(CallapiService);
+    const service: MsalService = TestBed.get(MsalService);
     expect(service).toBeTruthy();
   });
 });
