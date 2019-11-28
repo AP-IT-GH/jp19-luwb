@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from pypozyx import PozyxSerial, get_first_pozyx_serial_port, Coordinates
 from configparser import ConfigParser
 import paho.mqtt.client as mqtt
@@ -22,10 +23,6 @@ clientID = eParser.get('default','mqtt_clientid')
 #Setup variables
 positionTag = Coordinates()
 
-def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
-    client.subscribe("topic")
-
 #Check if connected
 serial_port = get_first_pozyx_serial_port()
 if serial_port is not None:
@@ -39,16 +36,16 @@ try:
     if exportFile is "y": f = open("position.txt", "a+")
     if exportMQTT is "y":
         client = mqtt.Client(client_id=clientID)
-        client.on_connect = on_connect
         client.connect("broker.mqttdashboard.com")
         client.loop_start()
+    cursor = conn.cursor()
     while True:
         pozyx.doPositioning(positionTag, remote_id=r_id)
         publishString = hex(r_id) + ": " + str(positionTag)
         print(publishString)
         if exportFile is "y": f.write(publishString + "\n")
         if exportMQTT is "y": client.publish(topic,publishString)
-
+        
 #Exception exit
 except:
     if exportFile is "y": f.close()
