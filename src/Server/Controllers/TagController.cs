@@ -116,13 +116,13 @@ namespace Server.Controllers
 
         [Route("pozyx")]
         [HttpPut]
-        public ActionResult<Tag> UpdatePozyxTag(string mac, int xpos, int ypos, int zpos)
+        public ActionResult<Tag> UpdatePozyxTag(string mac, string xpos, string ypos, string zpos)
         {
             var tag = context.Tags.Where(a => a.Mac == mac)
                                   .FirstOrDefault();
-            tag.XPos = xpos;
-            tag.YPos = ypos;
-            tag.ZPos = zpos;
+            tag.XPos = int.Parse(xpos);
+            tag.YPos = int.Parse(ypos);
+            tag.ZPos = int.Parse(zpos);
 
             try
             {
