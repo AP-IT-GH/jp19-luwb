@@ -50,12 +50,10 @@ try:
         if exportMQTT is "y": client.publish(topic,publishString)
         if exportAPI is "y":
             pos = str(positionTag).split(" ")
-            xPos = pos[1]
-            yPos = pos[3]
+            xPos = pos[1][:-1]
+            yPos = pos[3][:-1]
             zPos = pos[5]
-            print(xPos + yPos + zPos)
-            apiData = {'mac': apiTag,'xpos': xPos, 'ypos': yPos, 'zpos': zPos}
-            requests.put(apiUrl, params = apiData)
+            requests.put(apiUrl + "/" + apiTag + "/" + xPos + "/" + yPos + "/" + zPos)
         
 #Exception exit
 except:
