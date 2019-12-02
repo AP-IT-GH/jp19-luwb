@@ -9,7 +9,7 @@ import { CallapiService } from '../common/callapi.service';
 export class SettingsComponent implements OnInit {
 
 
-  constructor(private apiService: CallapiService) { }
+  constructor() { }
 
   ngOnInit() {
   }
