@@ -25,18 +25,22 @@
         <div class="mapButton">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editMap"
                 (click)="ChangeMap()">Change map</button>
+            <button type="button" class="btn btn-primary" (click)="GetAnchors()">Reload Anchors</button>
         </div>
     </div>
-    <div class="boundary" *ngIf="tags.length != 0 && GetVisualListAnchors.length != 0 && GetVisualListTags.length != 0">
+    <div id="map" class="boundary"
+        *ngIf="tags.length != 0 && GetVisualListAnchors.length != 0 && GetVisualListTags.length != 0"
+        (window:resize)="onResize($event)">
         <div *ngFor="let tag of tags; index as i">
-            <div *ngIf="GetVisualListTags[i].visible" [style.left.px]="tag.xPos" [style.top.px]="tag.yPos"
-                class="tag tagAnchor example-box" cdkDragBoundary=".boundary">
+            <div *ngIf="GetVisualListTags[i].visible" [style.left.px]="tag.xPos*widthScaler"
+                [style.top.px]="tag.yPos*heightScaler" class="tag tagAnchor example-box" cdkDragBoundary=".boundary">
                 {{tag.mac | slice:3:5}}<p *ngIf="CoordinatesVisible">{{tag.xPos}},{{tag.yPos}}</p>
             </div>
         </div>
         <div *ngFor="let anchor of anchors; index as i">
-            <div *ngIf="GetVisualListAnchors[i].visible" [style.left.px]="anchor.xPos" [style.top.px]="anchor.yPos"
-                class="tagAnchor anchor example-box" cdkDragBoundary=".boundary">
+            <div *ngIf="GetVisualListAnchors[i].visible" [style.left.px]="anchor.xPos*widthScaler"
+                [style.top.px]="anchor.yPos*heightScaler" class="tagAnchor anchor example-box"
+                cdkDragBoundary=".boundary">
                 {{anchor.mac | slice:6:8}}<p *ngIf="CoordinatesVisible">{{anchor.xPos}},{{anchor.yPos}}</p>
             </div>
         </div>
@@ -82,7 +86,7 @@
                             </td>
                         </tr>
                     </table>
-                    
+
                     <table>
                         <tr class="bg-primary">
                             <th>ID</th>
