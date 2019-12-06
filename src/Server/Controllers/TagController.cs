@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Server.Models;
 
 namespace Server.Controllers
@@ -110,6 +111,26 @@ namespace Server.Controllers
                 return Ok(tag);
             }
             catch { }
+            return NotFound();
+        }
+
+        [Route("pozyx/{mac}/{xpos}/{ypos}/{zpos}")]
+        [HttpPut]
+        public ActionResult<Tag> UpdatePozyxTag(string mac, int xpos, int ypos, int zpos)
+        {
+            var tag = context.Tags.Where(a => a.Mac == mac)
+                                  .FirstOrDefault();
+            tag.XPos = xpos;
+            tag.YPos = ypos;
+            tag.ZPos = zpos;
+
+            try
+            {
+                context.Tags.Update(tag);
+                context.SaveChanges();
+                return Ok(tag);
+            }
+            catch(DbUpdateException) { }
             return NotFound();
         }
 

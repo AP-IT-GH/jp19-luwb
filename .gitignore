@@ -137,3 +137,5 @@ _[Ss]cripts
 *.ide-shm
 
 
+src/AP lokalisatie/Server/.vs/Server/v16/Server/sqlite3/db.lock
+src/AP lokalisatie/Server/.vs/Server/v16/Server/sqlite3/storage.ide

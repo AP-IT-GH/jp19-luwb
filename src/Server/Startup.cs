@@ -22,6 +22,8 @@ namespace Server
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            /// Disabled MQTT
+            /*
             // Het configureren van MQTT verbinding via file
             SetupMQTT();
             // Aparte thread starten die de data zal updaten indien er iets binnenkomt van data via MQTT
@@ -29,6 +31,7 @@ namespace Server
             {
                 UpdateDataInBackground();
             }).Start();
+            */
         }
 
         public IConfiguration Configuration { get; }
@@ -43,9 +46,12 @@ namespace Server
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            /// Disabled MQTT
+            /*
             services.AddHangfire(configuration => {
                 configuration.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"));
             });
+            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +60,8 @@ namespace Server
             // Vaste measurement per anchor aanmaken indien de db leeg is
             DatabaseInitialiser.Initialize(context);
 
-            app.UseHangfireServer();
+            /// Disabled MQTT
+            //app.UseHangfireServer();
 
             if (env.IsDevelopment())
             {
