@@ -23929,15 +23929,11 @@ Source: www.kingbright.com</description>
 <junction x="-243.84" y="-7.62"/>
 </segment>
 <segment>
-<pinref part="IC4" gate="G$1" pin="VDDAON"/>
-<wire x1="-17.78" y1="81.28" x2="-25.4" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="-25.4" y1="81.28" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="IC4" gate="G$1" pin="VDD3V3_1"/>
-<wire x1="-25.4" y1="78.74" x2="-17.78" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="-25.4" y1="78.74" x2="-43.18" y2="78.74" width="0.1524" layer="91"/>
-<junction x="-25.4" y="78.74"/>
+<wire x1="-17.78" y1="78.74" x2="-24.13" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="P+14" gate="VCC" pin="VCC"/>
 <pinref part="C7" gate="G$1" pin="2"/>
+<wire x1="-24.13" y1="78.74" x2="-43.18" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="78.74" x2="-53.34" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-53.34" y1="78.74" x2="-55.88" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-53.34" y1="78.74" x2="-53.34" y2="82.55" width="0.1524" layer="91"/>
@@ -23945,6 +23941,10 @@ Source: www.kingbright.com</description>
 <pinref part="C8" gate="G$1" pin="2"/>
 <wire x1="-43.18" y1="82.55" x2="-43.18" y2="78.74" width="0.1524" layer="91"/>
 <junction x="-43.18" y="78.74"/>
+<pinref part="IC4" gate="G$1" pin="VDD3V3_2"/>
+<wire x1="-17.78" y1="76.2" x2="-24.13" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-24.13" y1="76.2" x2="-24.13" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-24.13" y="78.74"/>
 </segment>
 <segment>
 <pinref part="JP2" gate="A" pin="1"/>
