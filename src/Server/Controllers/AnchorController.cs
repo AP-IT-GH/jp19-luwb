@@ -86,7 +86,7 @@ namespace Server.Controllers
         }
 
         [HttpPut]
-        public ActionResult<Anchor> UpdateTag([FromBody]Anchor anchor)
+        public ActionResult<Anchor> UpdateAnchor([FromBody]Anchor anchor)
         {
             //var anchorId = anchor.Id;
             //if (context.Anchors.Find(anchor.Id) == null)
@@ -104,7 +104,7 @@ namespace Server.Controllers
 
         [Route("{id}")]
         [HttpDelete]
-        public IActionResult Delete(long id)
+        public IActionResult DeleteAnchor(long id)
         {
             var anchor = context.Anchors.Find(id);
             if (anchor == null)

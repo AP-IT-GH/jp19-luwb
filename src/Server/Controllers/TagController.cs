@@ -136,7 +136,7 @@ namespace Server.Controllers
 
         [Route("{id}")]
         [HttpDelete]
-        public IActionResult Delete(long id)
+        public IActionResult DeleteTag(long id)
         {
             var tag = context.Tags.Find(id);
             if (tag == null)

@@ -17,7 +17,7 @@ namespace Server.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Measurement> Create([FromBody]Measurement item)
+        public ActionResult<Measurement> CreateMeasurement([FromBody]Measurement item)
         {
             Measurement measure = _context.Measurements.Where(a => a.Mac_Anchor == item.Mac_Anchor).Where(a => a.Mac_Tag == item.Mac_Tag).FirstOrDefault();
             if (measure != null)
@@ -39,7 +39,7 @@ namespace Server.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        public ActionResult<List<Measurement>> GetAll()
+        public ActionResult<List<Measurement>> GetAllMeasurements()
         {
             return _context.Measurements.ToList();
         }
