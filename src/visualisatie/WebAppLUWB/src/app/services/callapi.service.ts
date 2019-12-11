@@ -52,5 +52,6 @@ export interface TagAnchor {
   description: string;
   xPos: number;
   yPos: number;
+  zPos: number;
   type: string;
 }

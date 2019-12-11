@@ -66,8 +66,8 @@ namespace Server.Models
                         ProjecType = projectTypes.Pozyx,
                         Mac = "TAG1",
                         Description = "Pozyx Tag",
-                        XPos = 0,
-                        YPos = 0,
+                        XPos = 3500,
+                        YPos = 1000,
                         ZPos = 0
                     }
                 };
@@ -79,23 +79,34 @@ namespace Server.Models
                     new Anchor()
                     {
                         Mac = "Anchor1",
-                        Description = "Dit is een test",
-                        XPos = 20,
-                        YPos = 20
+                        Description = "Anchor 1 POZYX",
+                        XPos = 711,
+                        YPos = 0,
+                        ZPos = 1954
                     },
                     new Anchor()
                     {
                         Mac = "Anchor2",
-                        Description = "Dit is een test",
-                        XPos = 67,
-                        YPos = 27
+                        Description = "Anchor 2 POZYX",
+                        XPos = 10,
+                        YPos = 5998,
+                        ZPos = 2504
                     },
                     new Anchor()
                     {
                         Mac = "Anchor3",
-                        Description = "Dit is een test",
-                        XPos = 42,
-                        YPos = 46
+                        Description = "Anchor 3 POZYX",
+                        XPos = 4398,
+                        YPos = 5930,
+                        ZPos = 2206
+                    },
+                    new Anchor()
+                    {
+                        Mac = "Anchor4",
+                        Description = "Anchor 4 POZYX",
+                        XPos = 4153,
+                        YPos = 0,
+                        ZPos = 2524
                     }
                 };
                 foreach (var item in anchors)
