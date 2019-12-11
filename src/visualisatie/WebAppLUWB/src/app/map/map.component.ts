@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { CallapiService, TagAnchor } from '../common/callapi.service';
-import { MapService } from '../common/map.service';
+import { CallapiService, TagAnchor } from '../services/callapi.service';
+import { MapService } from '../services/map.service';
 
 @Component({
   selector: 'app-map',

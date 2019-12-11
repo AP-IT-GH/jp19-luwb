@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CallapiService, TagAnchor} from '../common/callapi.service';
+import { CallapiService, TagAnchor} from '../services/callapi.service';
 import { SelectItem } from 'primeng/components/common/selectitem';
 
 @Component({

@@ -13,7 +13,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TagsAnchorsComponent } from './tags-anchors/tags-anchors.component';
-import { CallapiService } from './common/callapi.service';
+import { CallapiService } from './services/callapi.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './settings/settings.component';
 import { MapComponent } from './map/map.component';

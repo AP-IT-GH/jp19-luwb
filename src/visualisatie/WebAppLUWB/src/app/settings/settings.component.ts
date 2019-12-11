@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CallapiService } from '../common/callapi.service';
+import { CallapiService } from '../services/callapi.service';
 
 @Component({
   selector: 'app-settings',
