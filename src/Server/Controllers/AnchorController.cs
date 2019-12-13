@@ -53,6 +53,12 @@ namespace Server.Controllers
                     else
                         query = query.OrderByDescending(b => b.YPos);
                     break;
+                case "zpos":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.ZPos);
+                    else
+                        query = query.OrderByDescending(b => b.ZPos);
+                    break;
                 default:
                     if (direction == "asc")
                         query = query.OrderBy(b => b.Id);

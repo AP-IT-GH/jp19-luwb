@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { CallapiService, TagAnchor } from '../common/callapi.service';
-import { MapService } from '../common/map.service';
+import { CallapiService, TagAnchor } from '../services/callapi.service';
+import { MapService } from '../services/map.service';
 
 @Component({
   selector: 'app-map',
@@ -24,6 +24,7 @@ export class MapComponent implements OnInit, OnDestroy, AfterViewInit {
   widthScaler: number = 1;
   maxWidthTagAnchor: number = 0;
   maxHeightTagAnchor: number = 0;
+  closestToBorderPixels: number = 10;
   onInitCalculate: boolean = true;
   
 
@@ -135,7 +136,6 @@ export class MapComponent implements OnInit, OnDestroy, AfterViewInit {
         this.heightMap = map.scrollHeight;
       }
   }
-  
   ResizeMap(){
     var maxWidth = 0;
     var maxHeight = 0;
@@ -156,7 +156,8 @@ export class MapComponent implements OnInit, OnDestroy, AfterViewInit {
         maxHeight = tag.yPos;
       }
     });
-    if(maxWidth - this.maxWidthTagAnchor >= 20 || maxHeight - this.maxHeightTagAnchor >= 20 || this.onInitCalculate || maxWidth - this.maxWidthTagAnchor <= 20 || maxHeight - this.maxHeightTagAnchor <= 20){
+    if(maxWidth - this.maxWidthTagAnchor >= this.closestToBorderPixels || maxHeight - this.maxHeightTagAnchor >= this.closestToBorderPixels || 
+      this.onInitCalculate || maxWidth - this.maxWidthTagAnchor <= this.closestToBorderPixels || maxHeight - this.maxHeightTagAnchor <= this.closestToBorderPixels){
       this.maxWidthTagAnchor = maxWidth;
       this.maxHeightTagAnchor = maxHeight;
       this.onInitCalculate = false;
@@ -165,8 +166,8 @@ export class MapComponent implements OnInit, OnDestroy, AfterViewInit {
     
   }
   CalculateMapFactor(){
-    this.widthScaler = (this.widthMap - 100) / this.maxWidthTagAnchor;
-    this.heightScaler = (this.heightMap - 100) / this.maxHeightTagAnchor;
+    this.widthScaler = (this.widthMap - (2 * this.closestToBorderPixels + (30 / this.closestToBorderPixels * 10))) / this.maxWidthTagAnchor;
+    this.heightScaler = (this.heightMap - (2*this.closestToBorderPixels + (30 / this.closestToBorderPixels * 10))) / this.maxHeightTagAnchor;
     //console.log(this.widthScaler);
   }
 

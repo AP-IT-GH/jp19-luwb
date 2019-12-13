@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CallapiService, TagAnchor} from '../common/callapi.service';
+import { CallapiService, TagAnchor} from '../services/callapi.service';
 import { SelectItem } from 'primeng/components/common/selectitem';
 
 @Component({
@@ -16,8 +16,8 @@ export class TagsAnchorsComponent implements OnInit {
   listTypes: SelectItem[] = [{label: 'Tags', value: 1}, {label: 'Anchors', value: 2}];
   TypeSelected: string[] = ['1', '2'];
   selected: string = 'id';
-  OrderByList: string[] = ['id', 'mac', 'xPos', 'yPos'];
-  addTagAnchor: TagAnchor = {mac: null, description: null, xPos: null, yPos: null, type: 'Choose...'};
+  OrderByList: string[] = ['id', 'mac', 'xPos', 'yPos', 'zPos'];
+  addTagAnchor: TagAnchor = {mac: null, description: null, xPos: 0, yPos: 0, zPos: 0, type: 'Choose...'};
   pageSizeList: number[] = [2, 4, 6, 8, 10, 20, 30, 40, 50];
   sortBy: string = "id";
   pageSize: number = 10;
@@ -90,7 +90,7 @@ export class TagsAnchorsComponent implements OnInit {
         (val) => {
           this.successAdd = true;
           this.GetSelectetObjects(true);
-          this.addTagAnchor = {mac: null, description: null, xPos: null, yPos: null, type: 'Choose...'};
+          this.addTagAnchor = {mac: null, description: null, xPos: 0, yPos: 0, zPos:0, type: 'Choose...'};
         },
         response => { this.errorAdd = true; }
       );
@@ -99,7 +99,7 @@ export class TagsAnchorsComponent implements OnInit {
         (val) => {
           this.successAdd = true;
           this.GetSelectetObjects(true);
-          this.addTagAnchor = {mac: null, description: null, xPos: null, yPos: null, type: 'Choose...'};
+          this.addTagAnchor = {mac: null, description: null, xPos: 0, yPos: 0, zPos:0, type: 'Choose...'};
         },
         response => { this.errorAdd = true; });
   }
@@ -187,5 +187,12 @@ export class TagsAnchorsComponent implements OnInit {
 
   errorEditFalse() {
     this.errorEdit = false;
+  }
+  get AddTagAnchorCheck(){
+    if(!this.addTagAnchor.mac || this.addTagAnchor.type=='Choose...' || this.addTagAnchor.xPos == null || this.addTagAnchor.yPos == null|| this.addTagAnchor.zPos == null){
+      return true;
+    }
+    else
+      return false;
   }
 }
