@@ -1,5 +1,7 @@
 # Documentatie
 
-In deze map plaatst u alle documentatie
+# Project AP Lokalisatie
+Alle info in verband met het zelf gemaakt project zit in de map AP Lokalisatie
 
-**Wees selectief welke bestanden u upload, hou de repo overzichtig. De informatie moet met een oogopslag te vinden zijn.**
+# Project POZYX
+Alle info in verband met het POZYX zit in de map POZYX
