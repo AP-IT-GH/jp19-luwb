@@ -1,4 +1,4 @@
-# 1 Bij gebruik van listenAndPostScriptAPI.py
+# 1 Bij gebruik van listenAndPostScriptAPI.py (voorkeur)
 ## 1.1 Aanmaken nieuwe config.ini
 Als de config.ini file niet bestaat, moet deze aangemaakt worden en de gevraagde waardes worden ingevuld.
 1. python3 createConfigfile.py
@@ -7,13 +7,14 @@ Als de config.ini file niet bestaat, moet deze aangemaakt worden en de gevraagde
 Als de config.ini bestaat, kan het Post script worden uitgevoerd. Deze begint te luisteren naar het ingestelde ip met poortnummer.
 Als een anchor nieuwe informatie stuurt zal dit worden doorgestuurd naar de api met de ingestelde api_url.
 - python3 listenAndPostScriptAPI.py
-# 2 Bij gebruik van listAndPostScriptMQTT.py (voorkeur)
+# 2 Bij gebruik van listAndPostScriptMQTT.py (2de voorkeur)
 ## 2.1 Aanmaken nieuwe config.ini
 Als de config.ini file niet bestaat, moet deze aangemaakt worden en de gevraagde waardes worden ingevuld.
 1. python3 createConfigfile.py
 2. {invullen van alle waardes} Enkel de waarde van de {api_url} is niet van belang bij het gebruiken van dit script.
 ## 2.2 Uitvoeren van listenAndPostScriptMQTT.py
 Als de config.ini bestaat, kan het MQTT script worden uitgevoerd. Deze begint te luisteren naar het ingestelde ip met poortnummer.
+Als een anchor nieuwe informatie stuurt zal dit worden doorgestuurd naar de ingesteulde topic op de ingestelde host via de ingestelde clientid.
 - python3 listenAndPostScriptMQTT.py
 # 3 Bij gebruik van postScriptMQTT met Apache2
 ## 3.1 Installeren van Apache2 en instellen voor gebruik index.php
