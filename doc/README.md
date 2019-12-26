@@ -7,3 +7,6 @@ Alle info in verband met het zelf gemaakt project zit in de map AP Lokalisatie
 
 # Project POZYX
 Alle info in verband met het POZYX zit in de map POZYX
+
+# De website en de server
+Alle info in verband met de website en de server zit in de map Website + server
