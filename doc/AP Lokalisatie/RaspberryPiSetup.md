@@ -4,7 +4,9 @@ Als de config.ini file niet bestaat, moet deze aangemaakt worden en de gevraagde
 1. python3 createConfigfile.py
 2. De volgende waardes moeten nu allemaal zijn ingevuld: {tcp_ip}, {tcp_port} en {api_url}. De andere waardes zijn niet belangrijk en mogen leeg gelaten worden.
 ## 1.2 Uitvoeren van listenAndPostScriptAPI.py
-
+Als de config.ini bestaat, kan het Post script worden uitgevoerd. Deze begint te luisteren naar het ingestelde ip met poortnummer.
+Als een anchor nieuwe informatie stuurt zal dit worden doorgestuurd naar de api met de ingestelde api_url.
+- python3 listenAndPostScriptAPI.py
 # 2 Bij gebruik van listAndPostScriptMQTT.py (voorkeur)
 ## 2.1 Aanmaken nieuwe config.ini
 Als de config.ini file niet bestaat, moet deze aangemaakt worden en de gevraagde waardes worden ingevuld.
