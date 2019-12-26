@@ -53,6 +53,7 @@ Via deze controller kan je alle tags aanspreken die opgeslagen zijn in de databa
 - **GetTag(id:long):** Opvragen van 1 tag die de meegeven id bevat. De methode zal antwoorden met een NotFound als de tag niet gevonden is.
 - **Addtag(tag: Tag):** Toevoegen van 1 tag die meegeven wordt in de body van de Post. De tag zal hier opgeslagen worden in de database.
 - **UpdateTag(tag: Tag):** Updaten van de meegegeven tag. Als de meegeven tag niet bestaat in de database zal een NotFound worden teruggestuurd.
+-  **UpdatePozyxTag(mac, xpos, ypos, zpos):** Updaten van de tag met meegegeven mac. Hierbij zal enkel de positie van de tag aangepast worden. Deze methode zal alleen worden opgeroepen door het Pozyx systeem.
 - **DeleteTag(id: long):** Verwijderen van de meegeven tag. Wanner de tag succesvol is verwijderd zal een status 200 Ok worden teruggestuurd. Ook hier wordt een NotFound teruggestuurd bij een foute id.
 
 ### AnchorController
