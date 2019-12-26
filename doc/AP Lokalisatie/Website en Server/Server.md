@@ -71,9 +71,11 @@ Via deze controller kan je alle anchors aanspreken die opgeslagen zijn in de dat
 - **GetMeasurement(mac: string):** Opvragen van 1 specifieke measurement van een tag met als mac gelijk aan de meegegeven mac. De gevonden measurement zal dan worden teruggestuurd. Als er geen measurement gevonden is wordt er een NotFound teruggestuurd.
 
 ## Belangrijke methode's
+**! Opgelet: Alles van MQTT wordt niet meer gebruikt, voor dit terug te kunnen gebruiken moet alles in de startup.cs uit commentaar gehaald worden waarbij het volgende staat geschreven: 'Disabled MQTT'.  Dit wordt niet meer gebruikt omdat bij het hosten bij Azure het gratis abonnement slechts 1 uur uptime geeft per dag en MQTT blijft 24/7 draaien, het nieuwe gebruikte systeem met post niet. !**
 
 In de startup.cs: 
 
+- **SetupMQTT():** Hier worden alle gegevens die nodig zijn voor MQTT opgehaald uit een bestand. Dit wordt niet meer gebruikt omdat we dit bestand niet mee uploaden naar Azure. De gegevens worden dus gewoon in de startup.cs klasse ingevuld.
 - **client_MqttMsgPublishReceived(sender: object, e:MqttMsgPublishEventArgs):** Wordt getriggerd wanneer er een bericht gepubliceerd wordt op de MQTT topic
 - **ConnectToBroker():** Connectie maken met de MQTT broker en subscriben op de ingestelde topic
 - **SaveMeasurementInDB(payload: string):** Wanneer er een bericht op de MQTT wordt gepost, wordt er gecontroleerd of dit in het juiste formaat is. Wanneer het formaat overeenkomt zal de measurement worden geüpdate of aangepast wanneer deze nog niet bestond. Hierna wordt er gekeken of alle measurements van de tag in de meegestuurde measurement van hetzelfde tijdstip zijn. Als dit zo is zal de locatie van de tag opnieuw berekend worden.
