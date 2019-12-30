@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CallapiService, TagAnchor } from '../common/callapi.service';
-import { MapService } from '../common/map.service';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { CallapiService, TagAnchor } from '../services/callapi.service';
+import { MapService } from '../services/map.service';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit, OnDestroy {
+export class MapComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private apiService: CallapiService, private mapService: MapService) { }
 
@@ -15,8 +15,18 @@ export class MapComponent implements OnInit, OnDestroy {
   height: number[] = [100,60,120,350];
   tags: TagAnchor[] = [];
   anchors: TagAnchor[] = [];
-  
+
   interval;
+
+  widthMap: number = 0;
+  heightMap: number = 0;
+  heightScaler: number = 1;
+  widthScaler: number = 1;
+  maxWidthTagAnchor: number = 0;
+  maxHeightTagAnchor: number = 0;
+  closestToBorderPixels: number = 10;
+  onInitCalculate: boolean = true;
+  
 
   async ngOnInit() {
     await this.GetTags();
@@ -24,15 +34,25 @@ export class MapComponent implements OnInit, OnDestroy {
     this.ChangeMap();
     this.interval = window.setInterval(() => { this.GetTags(); }, this.mapService.timer);
   }
+
+  async ngAfterViewInit()	{
+    await this.delay(300);
+    this.onResize();
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
   ngOnDestroy(){
     clearInterval(this.interval);
   }
   async GetTags(){
     this.tags = await this.apiService.GetTags();
-    
+    this.onResize();
   }
   async GetAnchors(){
     this.anchors = await this.apiService.GetAnchors();
+    this.onResize();
     
   }
   ChangeRefreshTimer(){
@@ -79,7 +99,6 @@ export class MapComponent implements OnInit, OnDestroy {
       
       });
     }
-    
   }
   ChangeMapItems(item){
     item.visible = !item.visible;
@@ -103,4 +122,53 @@ export class MapComponent implements OnInit, OnDestroy {
   set CoordinatesVisible(bool){
     this.mapService.coordinatesVisible = bool;
   }
+
+  onResize(event = null) {
+    //console.log(event.target.outerWidth);
+    this.GetWidthAndHeightOfMap();
+    this.ResizeMap();
+  }
+
+  GetWidthAndHeightOfMap(){
+      var map = document.getElementById("map");
+      if(map != null){
+        this.widthMap = map.scrollWidth;
+        this.heightMap = map.scrollHeight;
+      }
+  }
+  ResizeMap(){
+    var maxWidth = 0;
+    var maxHeight = 0;
+    this.anchors.map(anchor =>{
+      if(anchor.xPos > maxWidth){
+        maxWidth = anchor.xPos;
+        
+      }
+      if(anchor.yPos > maxHeight){
+        maxHeight = anchor.yPos;
+      }
+    });
+    this.tags.map(tag => {
+      if(tag.xPos > maxWidth){
+        maxWidth = tag.xPos;
+      }
+      if(tag.yPos > maxHeight){
+        maxHeight = tag.yPos;
+      }
+    });
+    if(maxWidth - this.maxWidthTagAnchor >= this.closestToBorderPixels || maxHeight - this.maxHeightTagAnchor >= this.closestToBorderPixels || 
+      this.onInitCalculate || maxWidth - this.maxWidthTagAnchor <= this.closestToBorderPixels || maxHeight - this.maxHeightTagAnchor <= this.closestToBorderPixels){
+      this.maxWidthTagAnchor = maxWidth;
+      this.maxHeightTagAnchor = maxHeight;
+      this.onInitCalculate = false;
+      this.CalculateMapFactor();
+    }
+    
+  }
+  CalculateMapFactor(){
+    this.widthScaler = (this.widthMap - (2 * this.closestToBorderPixels + (30 / this.closestToBorderPixels * 10))) / this.maxWidthTagAnchor;
+    this.heightScaler = (this.heightMap - (2*this.closestToBorderPixels + (30 / this.closestToBorderPixels * 10))) / this.maxHeightTagAnchor;
+    //console.log(this.widthScaler);
+  }
+
 }

@@ -50,6 +50,7 @@
                 <th>Mac</th>
                 <th>XPos</th>
                 <th>YPos</th>
+                <th>ZPos</th>
                 <th>Description</th>
             </tr>    
             <tr *ngFor="let item of visualList; let i = index">
@@ -58,6 +59,7 @@
                 <td>{{item.mac}}</td>
                 <td>{{item.xPos}}</td>
                 <td>{{item.yPos}}</td>
+                <td>{{item.zPos}}</td>
                 <td>{{item.description}} 
                     <a class="float-right" style="cursor: pointer; margin-left: 5px;" data-toggle="modal" data-target="#deleteTagAnchor" (click)="DeleteItem(item)"><i class="fas fa-trash"></i></a>
                     <a class="float-right" style="cursor: pointer;" data-toggle="modal" data-target="#editTagAnchor" (click)="EditItem(item)"><i class="fas fa-edit"></i></a>
@@ -86,14 +88,18 @@
                             <option value="Anchor">Anchor</option>
                     </select><br><br>
                     <b>Mac: </b><input class="col-sm-3" type="text" placeholder="TAG1" [(ngModel)]="addTagAnchor.mac"><br><br>
-                    <b>Position: </b>&nbsp;&nbsp;<b>X: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="addTagAnchor.xPos">
-                    <b>Y: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="addTagAnchor.yPos"><br><br>
+                    <b>Position: </b>&nbsp;&nbsp;
+                    <b>X: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="addTagAnchor.xPos">
+                    <b>Y: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="addTagAnchor.yPos">
+                    <b>Z: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="addTagAnchor.zPos"><br><br>
                     <b>Description: </b><textarea class="form-control" rows="2" placeholder="Extra information" [(ngModel)]="addTagAnchor.description"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="AddTagAnchor()" [disabled]="!addTagAnchor.mac || addTagAnchor.type=='Choose...' || !addTagAnchor.xPos || !addTagAnchor.yPos">Add Tag/Anchor</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="AddTagAnchor()" 
+            [disabled]="AddTagAnchorCheck">
+            Add Tag/Anchor</button>
             </div>
         </div>
         </div>
@@ -133,8 +139,10 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <b>Mac: </b><input class="col-sm-3" type="text" placeholder="TAG1" [(ngModel)]="editTagAnchor.mac"><br><br>
-                        <b>Position: </b>&nbsp;&nbsp;<b>X: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="editTagAnchor.xPos">
-                        <b>Y: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="editTagAnchor.yPos"><br><br>
+                        <b>Position: </b>&nbsp;&nbsp;
+                        <b>X: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="editTagAnchor.xPos">
+                        <b>Y: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="editTagAnchor.yPos">
+                        <b>Z: </b>&nbsp;<input class="col-sm-2" type="number" placeholder="0" [(ngModel)]="editTagAnchor.zPos"><br><br>
                         <b>Description: </b><textarea class="form-control" rows="2" placeholder="Extra information" [(ngModel)]="editTagAnchor.description"></textarea>
                     </div>
                 </div>

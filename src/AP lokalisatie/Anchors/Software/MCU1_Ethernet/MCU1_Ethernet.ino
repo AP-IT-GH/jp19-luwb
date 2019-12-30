@@ -1,6 +1,6 @@
 #include <EtherCard.h>
 #include <SoftwareSerial.h>
-uint8_t macAnchor = 1; 
+uint8_t macAnchor = 3; 
 uint8_t macTag = 0;
 
 
@@ -16,7 +16,7 @@ static long timer;
 static byte session;
 
 int distance = 0;
-int ethernetInterval = 500;
+int ethernetInterval = 100;
 
 
 static boolean receiving = false;

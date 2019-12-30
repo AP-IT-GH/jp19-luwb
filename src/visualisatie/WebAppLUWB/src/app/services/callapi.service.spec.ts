@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CallapiService } from './callapi.service';
+import { CallapiService } from '../services/callapi.service';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('CallapiService', () => {
