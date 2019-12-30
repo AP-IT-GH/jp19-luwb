@@ -24,9 +24,8 @@ export class MapComponent implements OnInit, OnDestroy, AfterViewInit {
   widthScaler: number = 1;
   maxWidthTagAnchor: number = 0;
   maxHeightTagAnchor: number = 0;
-  closestToBorderPixels: number = 10;
+  closestToBorderPixels: number = 50;
   onInitCalculate: boolean = true;
-  
 
   async ngOnInit() {
     await this.GetTags();
@@ -53,7 +52,6 @@ export class MapComponent implements OnInit, OnDestroy, AfterViewInit {
   async GetAnchors(){
     this.anchors = await this.apiService.GetAnchors();
     this.onResize();
-    
   }
   ChangeRefreshTimer(){
     clearInterval(this.interval);
