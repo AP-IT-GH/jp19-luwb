@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="9.2.0">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<description>&lt;IEEE 802.15.4-2011 UWB Transceiver Module&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="DWM1000">
+<description>&lt;b&gt;DWM1000&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-6.705" y="12.3" dx="2.45" dy="1" layer="1"/>
+<smd name="2" x="-6.705" y="10.9" dx="2.45" dy="1" layer="1"/>
+<smd name="3" x="-6.705" y="9.5" dx="2.45" dy="1" layer="1"/>
+<smd name="4" x="-6.705" y="8.1" dx="2.45" dy="1" layer="1"/>
+<smd name="5" x="-6.705" y="6.7" dx="2.45" dy="1" layer="1"/>
+<smd name="6" x="-6.705" y="5.3" dx="2.45" dy="1" layer="1"/>
+<smd name="7" x="-6.705" y="3.9" dx="2.45" dy="1" layer="1"/>
+<smd name="8" x="-6.705" y="2.5" dx="2.45" dy="1" layer="1"/>
+<smd name="9" x="-4.9" y="0.205" dx="2.45" dy="1" layer="1" rot="R90"/>
+<smd name="10" x="-3.5" y="0.205" dx="2.45" dy="1" layer="1" rot="R90"/>
+<smd name="11" x="-2.1" y="0.205" dx="2.45" dy="1" layer="1" rot="R90"/>
+<smd name="12" x="-0.7" y="0.205" dx="2.45" dy="1" layer="1" rot="R90"/>
+<smd name="13" x="0.7" y="0.205" dx="2.45" dy="1" layer="1" rot="R90"/>
+<smd name="14" x="2.1" y="0.205" dx="2.45" dy="1" layer="1" rot="R90"/>
+<smd name="15" x="3.5" y="0.205" dx="2.45" dy="1" layer="1" rot="R90"/>
+<smd name="16" x="4.9" y="0.205" dx="2.45" dy="1" layer="1" rot="R90"/>
+<smd name="17" x="6.705" y="2.5" dx="2.45" dy="1" layer="1"/>
+<smd name="18" x="6.705" y="3.9" dx="2.45" dy="1" layer="1"/>
+<smd name="19" x="6.705" y="5.3" dx="2.45" dy="1" layer="1"/>
+<smd name="20" x="6.705" y="6.7" dx="2.45" dy="1" layer="1"/>
+<smd name="21" x="6.705" y="8.1" dx="2.45" dy="1" layer="1"/>
+<smd name="22" x="6.705" y="9.5" dx="2.45" dy="1" layer="1"/>
+<smd name="23" x="6.705" y="10.9" dx="2.45" dy="1" layer="1"/>
+<smd name="24" x="6.705" y="12.3" dx="2.45" dy="1" layer="1"/>
+<text x="-0.575" y="12.066" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="-0.575" y="12.066" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-6.5" y1="23" x2="6.5" y2="23" width="0.2" layer="51"/>
+<wire x1="6.5" y1="23" x2="6.5" y2="0" width="0.2" layer="51"/>
+<wire x1="6.5" y1="0" x2="-6.5" y2="0" width="0.2" layer="51"/>
+<wire x1="-6.5" y1="0" x2="-6.5" y2="23" width="0.2" layer="51"/>
+<wire x1="-6.5" y1="23" x2="6.5" y2="23" width="0.2" layer="21"/>
+<wire x1="6.5" y1="23" x2="6.5" y2="13.1" width="0.2" layer="21"/>
+<wire x1="-6.5" y1="23" x2="-6.5" y2="13.1" width="0.2" layer="21"/>
+<circle x="-8.708" y="13.043" radius="0.175" width="0.3" layer="25"/>
+<wire x1="-6.5" y1="0" x2="-6.5" y2="1.7" width="0.2" layer="21"/>
+<wire x1="6.5" y1="0" x2="6.5" y2="1.7" width="0.2" layer="21"/>
+<wire x1="-6.5" y1="0" x2="-5.681" y2="0" width="0.2" layer="21"/>
+<wire x1="6.5" y1="0" x2="5.681" y2="0" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="DWM1000">
+<wire x1="5.08" y1="2.54" x2="60.96" y2="2.54" width="0.254" layer="94"/>
+<wire x1="60.96" y1="-30.48" x2="60.96" y2="2.54" width="0.254" layer="94"/>
+<wire x1="60.96" y1="-30.48" x2="5.08" y2="-30.48" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-30.48" width="0.254" layer="94"/>
+<text x="62.23" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="62.23" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="EXTON" x="0" y="0" length="middle"/>
+<pin name="WAKEUP" x="0" y="-2.54" length="middle"/>
+<pin name="RSTN" x="0" y="-5.08" length="middle"/>
+<pin name="GPIO7" x="0" y="-7.62" length="middle"/>
+<pin name="VDDAON" x="0" y="-10.16" length="middle"/>
+<pin name="VDD3V3_1" x="0" y="-12.7" length="middle"/>
+<pin name="VDD3V3_2" x="0" y="-15.24" length="middle"/>
+<pin name="VSS_1" x="0" y="-17.78" length="middle"/>
+<pin name="GPIO6_/_EXTRXE_/_SPIPHA" x="0" y="-20.32" length="middle"/>
+<pin name="GPIO5_/_EXTTXE_/_SPIPOL" x="0" y="-22.86" length="middle"/>
+<pin name="GPIO4_/_EXTPA" x="0" y="-25.4" length="middle"/>
+<pin name="GPIO3_/_TXLED" x="0" y="-27.94" length="middle"/>
+<pin name="GPIO2_/_RXLED" x="66.04" y="0" length="middle" rot="R180"/>
+<pin name="GPIO1_/_SFDLED" x="66.04" y="-2.54" length="middle" rot="R180"/>
+<pin name="GPIO0_/_RXOKLED" x="66.04" y="-5.08" length="middle" rot="R180"/>
+<pin name="VSS_2" x="66.04" y="-7.62" length="middle" rot="R180"/>
+<pin name="SPICSN" x="66.04" y="-10.16" length="middle" rot="R180"/>
+<pin name="SPIMOSI" x="66.04" y="-12.7" length="middle" rot="R180"/>
+<pin name="SPIMISO" x="66.04" y="-15.24" length="middle" rot="R180"/>
+<pin name="SPICLK" x="66.04" y="-17.78" length="middle" rot="R180"/>
+<pin name="VSS_3" x="66.04" y="-20.32" length="middle" rot="R180"/>
+<pin name="IRQ/GPIO8" x="66.04" y="-22.86" length="middle" rot="R180"/>
+<pin name="VSS_4" x="66.04" y="-25.4" length="middle" rot="R180"/>
+<pin name="VSS_5" x="66.04" y="-27.94" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DWM1000" prefix="IC">
+<description>&lt;b&gt;IEEE 802.15.4-2011 UWB Transceiver Module&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.decawave.com/sites/default/files/resources/dwm1000-datasheet-v1.3.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="DWM1000" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DWM1000">
+<connects>
+<connect gate="G$1" pin="EXTON" pad="1"/>
+<connect gate="G$1" pin="GPIO0_/_RXOKLED" pad="15"/>
+<connect gate="G$1" pin="GPIO1_/_SFDLED" pad="14"/>
+<connect gate="G$1" pin="GPIO2_/_RXLED" pad="13"/>
+<connect gate="G$1" pin="GPIO3_/_TXLED" pad="12"/>
+<connect gate="G$1" pin="GPIO4_/_EXTPA" pad="11"/>
+<connect gate="G$1" pin="GPIO5_/_EXTTXE_/_SPIPOL" pad="10"/>
+<connect gate="G$1" pin="GPIO6_/_EXTRXE_/_SPIPHA" pad="9"/>
+<connect gate="G$1" pin="GPIO7" pad="4"/>
+<connect gate="G$1" pin="IRQ/GPIO8" pad="22"/>
+<connect gate="G$1" pin="RSTN" pad="3"/>
+<connect gate="G$1" pin="SPICLK" pad="20"/>
+<connect gate="G$1" pin="SPICSN" pad="17"/>
+<connect gate="G$1" pin="SPIMISO" pad="19"/>
+<connect gate="G$1" pin="SPIMOSI" pad="18"/>
+<connect gate="G$1" pin="VDD3V3_1" pad="6"/>
+<connect gate="G$1" pin="VDD3V3_2" pad="7"/>
+<connect gate="G$1" pin="VDDAON" pad="5"/>
+<connect gate="G$1" pin="VSS_1" pad="8"/>
+<connect gate="G$1" pin="VSS_2" pad="16"/>
+<connect gate="G$1" pin="VSS_3" pad="21"/>
+<connect gate="G$1" pin="VSS_4" pad="23"/>
+<connect gate="G$1" pin="VSS_5" pad="24"/>
+<connect gate="G$1" pin="WAKEUP" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ARROW_PART_NUMBER" value="DWM1000" constant="no"/>
+<attribute name="ARROW_PRICE-STOCK" value="" constant="no"/>
+<attribute name="DESCRIPTION" value="IEEE 802.15.4-2011 UWB Transceiver Module" constant="no"/>
+<attribute name="HEIGHT" value="mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Decawave" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="DWM1000" constant="no"/>
+<attribute name="RS_PART_NUMBER" value="" constant="no"/>
+<attribute name="RS_PRICE-STOCK" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+</eagle>
