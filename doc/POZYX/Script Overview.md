@@ -92,23 +92,29 @@ En print deze naar de terminal.
 #### 3.2.2 setCoordinates.py
 Dit script zet de ingestelde coördinaten in het geheugen van die toestellen.
 Daarna worden al de coördinaten nog geprint ter controle.
+Hierna kan getCoordinates.py uitgevoerd worden.
+Dit is niet nodig voor positioning.
 
 #### 3.2.3 getCoordinates.py
+Deze haalt de coördinaten van de toestellen uit het geheugen van die toestellen en print deze naar de terminal.
+Dit kan gebruikt worden na setCoordinates.py.
 
+#### 3.2.4 setupAnchors.py
+Dit wordt uitgevoerd op het remote device (tag).
+Eerst wordt de device list leeg gemaakt. Daarna worden de ID's en coördinaten van de anchors opgeslagen in het geheugen van het device.
+Optioneel kan dit worden opgeslagen in het flash-geheugen, maar dit staat in commentaar voor test doeleinden.
+Hierna kan getDeviceCoordinates.py worden uitgevoerd.
+Dit is nodig om positioning te kunnen uitvoeren.
 
+#### 3.2.5 getDeviceCoordinates.py
+Dit script wordt uitgevoerd op het remote device (tag).
+Deze haalt de coördinaten van de anchors uit het geheugen van het device en print deze in de terminal.
+Dit kan worden uitgevoerd na setupAnchors.py
 
-   * setupAnchors.py  
-      This setup clears the device list of the device.  
-      It then adds the ID's and coordinates of the set devices to the device list of the device.  
-      It can be saved to the flash but this is disabled due to testing purposes.
-   * getCoordinates.py  
-      This script checks the coordinates from the devices which ID's are given.  
-      It gets the coordinates from the memory of the devices them self.  
-      This can be used after the setCoordinates script.
-   * getDeviceCoordinates.py  
-      The script gets the coordinates of the asked devices out of the device list of the device where the script is executed.  
-      It can be used after the setupAnchors script.
-   * positioningTag.py  
-      This is the script you will use the most.
-      This does the positioning of the given device and prints it to the terminal.
-      It is looped so you have to stop the script.
+#### 3.2.6 positioningTag.py
+Dit is het belangrijkste script.
+Dit wordt uitgevoerd op het remote device (tag).
+Om dit script te kunnen uitvoeren moet setupAnchors.py eerst uitgevoerd zijn.
+Eerst wordt de positie van de tag berekend en wordt die geprint naar de terminal.
+Vervolgens wordt afhankelijk van de export-settings de positie geëxporteerd naar een file, via MQTT of naar de API.
+Dit script zit in een loop en dient manueel gestopt te worden.
